@@ -1,0 +1,1419 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=90;
+	};
+	class MarkerIDProvider
+	{
+		nextID=2;
+	};
+	class Camera
+	{
+		pos[]={8614.0898,18.827305,4593.0513};
+		dir[]={-0.36242518,-0.262142,0.8944};
+		up[]={-0.098451167,0.96502924,0.24295974};
+		aside[]={0.92681187,1.8536957e-007,0.37555927};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Ui_F",
+	"A3_Characters_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=2;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=7717734;
+class ScenarioData
+{
+	author="ConnorAU";
+	briefing=0;
+	debriefing=0;
+	showUAVFeed=0;
+	saving=0;
+	respawnDialog=0;
+	disabledAI=1;
+	class Header
+	{
+		gameType="DM";
+		maxPlayers=30;
+	};
+};
+class Mission
+{
+	assetType="Free";
+	class Intel
+	{
+		briefingName="Gun Game";
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=2;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={8602.1279,10.573233,4627.3472};
+			name="respawn";
+			type="Empty";
+			id=0;
+			atlOffset=0.31323242;
+		};
+		class Item1
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=30;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8594.9688,10.261439,4620.5864};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="Player";
+						isPlayer=1;
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=2;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8596.5654,10.278651,4620.5864};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=4;
+					type="B_RangeMaster_F";
+					atlOffset=0.017211914;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8598.1533,10.297816,4620.5825};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=10;
+					type="B_RangeMaster_F";
+					atlOffset=0.036376953;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8599.75,10.316615,4620.5825};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=12;
+					type="B_RangeMaster_F";
+					atlOffset=0.055175781;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8601.3428,10.335292,4620.5825};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=14;
+					type="B_RangeMaster_F";
+					atlOffset=0.073852539;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8602.9395,10.339198,4620.583};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=16;
+					type="B_RangeMaster_F";
+					atlOffset=0.077758789;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8604.5273,10.353114,4620.5791};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=18;
+					type="B_RangeMaster_F";
+					atlOffset=0.091674805;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8606.124,10.370936,4620.5791};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=20;
+					type="B_RangeMaster_F";
+					atlOffset=0.10949707;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8607.7197,10.372401,4620.5801};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=22;
+					type="B_RangeMaster_F";
+					atlOffset=0.11096191;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8609.3164,10.375453,4620.5801};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=24;
+					type="B_RangeMaster_F";
+					atlOffset=0.11401367;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8594.9814,10.261439,4618.3711};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=26;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8596.5781,10.261439,4618.3711};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=28;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8598.166,10.261439,4618.3672};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=30;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8599.7627,10.261439,4618.3672};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=32;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8601.3555,10.261439,4618.3672};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=34;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8602.9521,10.261439,4618.3672};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=36;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item16
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8604.54,10.261439,4618.3633};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=38;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item17
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8606.1367,10.268886,4618.3633};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=40;
+					type="B_RangeMaster_F";
+					atlOffset=0.0074462891;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item18
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8607.7324,10.286708,4618.3647};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=42;
+					type="B_RangeMaster_F";
+					atlOffset=0.025268555;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item19
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8609.3291,10.297328,4618.3647};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=44;
+					type="B_RangeMaster_F";
+					atlOffset=0.035888672;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item20
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8594.9756,10.261439,4616.165};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=66;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item21
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8596.5723,10.261439,4616.165};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=68;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item22
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8598.1602,10.261439,4616.1616};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=70;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item23
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8599.7568,10.261439,4616.1616};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=72;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item24
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8601.3496,10.261439,4616.1616};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=74;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item25
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8602.9463,10.261439,4616.1616};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=76;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item26
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8604.5342,10.261439,4616.1582};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=78;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item27
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8606.1309,10.261439,4616.1582};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=80;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item28
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8607.7266,10.261439,4616.1592};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=82;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item29
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8609.3232,10.261439,4616.1592};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Player";
+						isPlayable=1;
+						class Inventory
+						{
+						};
+					};
+					id=84;
+					type="B_RangeMaster_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1;
+		};
+	};
+};

@@ -1,0 +1,78 @@
+/*──────────────────────────────────────────────────────┐
+│   Author: Connor                                      │
+│   Steam:  https://steamcommunity.com/id/_connor       │
+│   Github: https://github.com/ConnorAU                 │
+│                                                       │
+│   Please do not modify or remove this comment block   │
+└──────────────────────────────────────────────────────*/
+
+//#define DEV_BUILD
+
+author="ConnorAU";
+onLoadName="Gun Game";
+briefingName="Gun Game";
+loadScreen="load.paa";
+
+#ifdef DEV_BUILD 
+    enableDebugConsole[]={"76561198090361580"};
+#endif
+
+joinUnassigned=0;
+skipLobby=0;
+
+respawn=3;
+respawnDelay=5;
+respawnDialog=1;
+
+disabledAI=1;
+
+disableRandomization[]={"All"};
+
+allowFunctionsLog=0;
+#ifdef DEV_BUILD
+    allowFunctionsRecompile=1;
+#else
+    allowFunctionsRecompile=0;
+#endif
+
+disableChannels[]={
+	{0,false,true},		// Global
+	{1,true,true},	    // Side
+	{2,true,true}/*,		// Command
+	{3,false,false},	// Group
+	{4,false,false},	// Vehicle
+	{5,false,false}		// Direct*/
+};
+
+corpseManagerMode=1;
+corpseLimit=0;
+corpseRemovalMinTime=20;
+corpseRemovalMaxTime=600;
+
+wreckManagerMode=1;
+wreckLimit=0;
+wreckRemovalMinTime=10;
+wreckRemovalMaxTime=11;
+
+// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
+class CfgDiscordRichPresence {
+    applicationID="534915632446046244";
+    defaultDetails="Joining session";
+    defaultState="";
+    defaultLargeImageKey="arma3";
+    defaultLargeImageText="";
+    defaultSmallImageKey="";
+    defaultSmallImageText="";
+};
+
+#include "functions\CfgDebriefing.cpp"
+#include "functions\CfgFunctions.cpp"
+#include "functions\CfgParams.cpp"
+#include "functions\CfgRemoteExec.cpp"
+#include "functions\CfgSounds.cpp"
+
+#include "ui\controls.cpp"
+
+class RscTitles {
+    #include "ui\DisplayMiniMap.cpp"
+};
