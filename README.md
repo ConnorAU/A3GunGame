@@ -34,9 +34,9 @@ Players simply load the mod, it will take care of the rest.
 ## Discord Embed Builder setup
 This mod is to be loaded on the server only. It will print the scoreboard at the end of the round to a discord server of your choosing.
 
-To install correctly:
+To install:
 1. Follow [setup](https://github.com/ConnorAU/SQFDiscordEmbedBuilder#setup) instructions
-2. Follow [connecting your webhook](https://github.com/ConnorAU/SQFDiscordEmbedBuilder#connecting-your-message-to-the-webhook) instructions
+2. Follow [connecting your message to the webhook](https://github.com/ConnorAU/SQFDiscordEmbedBuilder#connecting-your-message-to-the-webhook) instructions
 3. Add a webhook named `GunGame` to your `CfgDiscordEmbedWebhooks`
 
 ![Example Webhook](https://i.imgur.com/KxZ5rnB.png)
@@ -47,7 +47,7 @@ Hosting this mission is no different to any other, though there are some things 
 ## Server-side difficulty mod
 You will find a pbo file named `GunGameDifficulty_ConnorAU.pbo` on the [releases](https://github.com/ConnorAU/A3GunGame/releases) page. This is for use server-side to include a custom difficulty calibrated for this game mode.  
 
-To install it:
+To install:
 1. Place the pbo in `Arma 3 Server\@gungame\addons` and include `-serverMod=@gungame` in your server command line
 2. Set the mission difficulty in the server.cfg to `difficulty="GunGame";`
 
@@ -68,7 +68,8 @@ class Missions
     {
         template="GunGame_ConnorAU.Malden";
         difficulty="GunGame";
-        class Params {
+        class Params 
+        {
             WeaponPool = 1; // Vanilla
             Loadout = 2; // Vanilla (DLC)
             KillStreak = 5; // Five kills to progress to next weapon
