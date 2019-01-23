@@ -41,12 +41,15 @@ if _calledByKill then {
 
 if (currentWeapon player == _weapon) exitWith {};
 
-// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
-[
-    ["UpdateState",getText(configFile >> "CfgWeapons" >> _weapon >> "displayName") call GG_system_fnc_fixDiscordString],
-	["UpdatePartySize",_curIndex + 1],
-	["UpdatePartyMax",count _weaponPool]
-] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+// Prevent overriding end of round rich presence info
+if !(ROUND_OVER) then {
+	// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
+	[
+		["UpdateState",getText(configFile >> "CfgWeapons" >> _weapon >> "displayName") call GG_system_fnc_fixDiscordString],
+		["UpdatePartySize",_curIndex + 1],
+		["UpdatePartyMax",count _weaponPool]
+	] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+};
 
 {player removeMagazine _x} foreach magazines player;
 // not using removeAllWeapons because it removed first aid kits too
