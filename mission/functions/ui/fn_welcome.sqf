@@ -57,7 +57,7 @@ switch _mode do {
 				format["%1",["Montella","https://steamcommunity.com/workshop/filedetails/?id=1562904329"] call _linkText],
 				format["%1",["Operation: TREBUCHET","https://steamcommunity.com/workshop/filedetails/?id=769440155"] call _linkText],
 				format["%1 (AFRF, GREF, SAF and USAF)",["RHS","https://steamcommunity.com/workshop/filedetails/?id=843770737"] call _linkText],
-				format["<t size='0.9'>You can find mission files for other maps on %1.</t>",["github","https://github.com/ConnorAU/A3GunGame/releases"] call _linkText],
+				format["You can find mission files for other maps on %1 and %2.",["steam","https://steamcommunity.com/sharedfiles/filedetails/?id=1631909821"] call _linkText,["github","https://github.com/ConnorAU/A3GunGame/releases"] call _linkText],
 				"",
 				"<t size='1.25'>Optional Mods</t>",
 				"This mission has built in support for the following optional mods:",
