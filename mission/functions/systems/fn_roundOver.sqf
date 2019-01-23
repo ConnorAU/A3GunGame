@@ -25,7 +25,8 @@ switch _mode do {
 
 		SVAR_J(MNS,"GG_s_roundWinner",_params,true);
 
-		["client",[GVAR(_params,"GG_c_name",name _params),getPlayerUID _params]] remoteExec [QUOTE(THIS_FUNC),[0,-2] select isDedicated];
+		private _winnerName = GVAR(_params,"GG_c_name",name _params);
+		["client",[_winnerName,getPlayerUID _params]] remoteExec [QUOTE(THIS_FUNC),[0,-2] select isDedicated];
 
 		private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
 		private _scores = [] call GG_system_fnc_getLeaderboardStats;
@@ -40,6 +41,7 @@ switch _mode do {
 						"**Map**: " + getText(configFile >> "CfgWorlds" >> worldName >> "description"),
 						"**Location**: " + GG_s_votedMapName,
 						"**Round Duration**: " + ([diag_tickTime - GG_s_roundStartTick,"MM:SS"] call BIS_fnc_secondsToString),
+						"**Round Winner**: " + _winnerName,
 						"",
 						"**Scoreboard**:"
 					] joinString "\n",
