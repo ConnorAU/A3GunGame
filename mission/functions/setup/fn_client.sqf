@@ -107,6 +107,11 @@ if !COMBAT_ZONE_EXISTS then {
 	["client"] call GG_system_fnc_voteMap;
 };
 
+// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
+[
+	["UpdateDetails",(GVAR(MNS,"GG_s_votedMapName","")) call GG_system_fnc_fixDiscordString]
+] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+
 waitUntil {!isNil "GG_s_weaponPool"};
 
 // Weapon pool finalized, we can now check the condition and exit if needed

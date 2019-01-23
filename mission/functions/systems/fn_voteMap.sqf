@@ -116,11 +116,6 @@ switch _mode do {
 		[true,false,2] call GG_eventhandler_fnc_map;
 		["destroy"] call GG_ui_fnc_welcome;
 
-		// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
-		[
-			["UpdateDetails",(GVAR(MNS,"GG_s_votedMapName","")) call GG_system_fnc_fixDiscordString]
-		] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
-
 		uisleep 5;
 
 		["destroy"] call GG_ui_fnc_voteMap;

@@ -3,3 +3,4 @@ mission/load.paa
 mission/license.md
 maps/*.xcf
 maps/*/*/*.png
+maps/*/*/*.jpg
