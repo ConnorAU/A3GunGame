@@ -6,22 +6,15 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#include "\a3\3den\ui\dikcodes.inc"
+#define THIS_FUNC GG_system_fnc_jump
+
 #include "..\defines.inc"
 
-params ["", "_key", "_shift"];
+#define VAR_JUMP_TICK FUNC_SUBVAR_RAW(tick)
 
-if !(ROUND_OVER) then {
-	GG_c_modifyVolume = if (count (actionKeys "User1") > 0) then {
-		inputAction "User1" > 0
-	} else {
-		_key == DIK_F1
-	};
-
-	if (inputAction "NetworkStats" > 0) then {
-		GG_c_leaderboardShown = true;
-		["init"] call GG_ui_fnc_leaderboard;
-	};
-};
-
-GG_c_modifyVolume || (_key == DIK_V && _shift)
+params [["_unit",player,[objNull]]];
+if (speed player < 10 || {currentWeapon player == "" || {currentWeapon player != primaryWeapon player}}) exitwith {};
+if (isNil QUOTE(VAR_JUMP_TICK)) then {VAR_JUMP_TICK = 0};
+if (VAR_JUMP_TICK > diag_tickTime) exitwith {};
+VAR_JUMP_TICK = diag_tickTime + 1;
+[_unit,"AovrPercMrunSrasWrflDf"] remoteExec ["switchMove",0];

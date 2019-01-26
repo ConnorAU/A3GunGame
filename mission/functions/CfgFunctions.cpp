@@ -53,6 +53,7 @@ class CfgFunctions {
             class roundOver {};
             class setDateTime {};
             class resizeCombatZone {};
+            class jump {};
         };
     };
     class GG_ui {

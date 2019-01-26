@@ -47,6 +47,7 @@ switch _mode do {
 				"<t size='1.25'>Controls</t>",
 				"F1 or Custom Action 1: Earplugs",
 				"P or Multiplayer Statistics: Leaderboard",
+				"V: Jump (while running, primary weapon only)",
 				"",
 				"<t size='1.25'>Mod Support</t>",
 				"This version of gun game supports the following map, uniform and weapon mods:",

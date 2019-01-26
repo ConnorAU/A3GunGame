@@ -19,5 +19,9 @@ class CfgRemoteExec {
 #endif
 	};
 	class Commands {
+		mode = 1;
+		jip = 0;
+		
+		class switchMove {allowedTargets = 0;};
 	};
 };

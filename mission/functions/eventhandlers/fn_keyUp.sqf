@@ -6,7 +6,10 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
+#include "\a3\3den\ui\dikcodes.inc"
 #include "..\defines.inc"
+
+params ["", "_key", "_shift"];
 
 if GG_c_modifyVolume then {
 	private _vol = soundVolume - 0.25;
@@ -19,4 +22,9 @@ if GG_c_modifyVolume then {
 if (GVAR(MNS,"GG_c_leaderboardShown",false)) then {
 	["destroy"] call GG_ui_fnc_leaderboard;
 	GG_c_leaderboardShown = false;
+};
+
+if (_key == DIK_V) exitWith {
+	[] call GG_system_fnc_jump;
+	true
 };
