@@ -26,7 +26,13 @@ startLoadingScreen [""];
 if (isNil "GG_c_firstInitComplete") then {
 	waituntil {!isNull player && {player isKindOf "CAManBase" && {!isMultiplayer || {netid player != ""}}}};
 
-	[player] joinSilent createGroup[playerSide,true];
+	// Ensure units are moved to their own group (doing only one attempt failed on the odd occasion)
+	for "_i" from 1 to 50 do {
+		private _group = createGroup[playerSide,true];
+		[player] joinSilent _group;
+		waitUntil {group player isEqualTo _group};
+		if (count units _group == 1) exitWith {};
+	};
 
 	player disableConversation true;
 	player enableStamina false;

@@ -33,7 +33,7 @@ class CfgDifficultyPresets {
             detectedMines=1;
             enemyTags=0;
             friendlyTags=0;
-            groupIndicators=1;
+            groupIndicators=0;
             mapContent=0;
             multipleSaves=1;
             reducedDamage=0;
