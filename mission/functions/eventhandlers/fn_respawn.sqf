@@ -24,4 +24,4 @@ deleteVehicle _corpse;
 
 [] call GG_system_fnc_applyLoadout;
 [] call GG_system_fnc_applyWeapon;
-[] call GG_system_fnc_moveToSpawn;
+[] spawn GG_system_fnc_moveToSpawn;
