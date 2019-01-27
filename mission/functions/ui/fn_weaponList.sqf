@@ -8,7 +8,7 @@
 
 #define THIS_FUNC GG_ui_fnc_weaponList
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 #define DIALOG_X (safeZoneX + safezoneW) - (PX_WA(DIALOG_W) + PX_WA(3))

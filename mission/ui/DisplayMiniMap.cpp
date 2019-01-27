@@ -6,7 +6,7 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\functions\macros.inc"
 #include "..\functions\defines.inc"
 
 #define DIALOG_W 60

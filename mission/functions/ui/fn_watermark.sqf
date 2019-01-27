@@ -8,7 +8,7 @@
 
 #define THIS_FUNC GG_ui_fnc_voteMap
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 isNil {

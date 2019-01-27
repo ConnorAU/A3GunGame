@@ -9,7 +9,7 @@
 #define THIS_FUNC GG_ui_fnc_miniMap
 #define DISPLAY_NAME GGDisplayMiniMap
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 #define VAR_UNITS_INFO FUNC_SUBVAR_RAW(units_info)

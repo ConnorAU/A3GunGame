@@ -8,7 +8,7 @@
 
 #define THIS_FUNC GG_ui_fnc_welcome
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 #define DIALOG_Y ((safeZoneY+(0.5*safeZoneH))-(0.5*DIALOG_H))

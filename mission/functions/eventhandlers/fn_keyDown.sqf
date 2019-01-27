@@ -6,7 +6,7 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#include "\a3\3den\ui\dikcodes.inc"
+#include "..\dikcodes.inc"
 #include "..\defines.inc"
 
 params ["", "_key", "_shift"];

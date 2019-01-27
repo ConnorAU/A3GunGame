@@ -8,7 +8,7 @@
 
 #define THIS_FUNC GG_ui_fnc_leaderboardMini
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 #define DIALOG_X safeZoneX + PX_WA(63) + PX_WA(2)

@@ -8,7 +8,7 @@
 
 #define THIS_FUNC GG_system_fnc_roundOver
 
-#include "\a3\3den\ui\macros.inc"
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 #define VAR_CAMERA FUNC_SUBVAR_RAW(camera)
