@@ -258,7 +258,7 @@ switch _weaponPool do {
 			"LIB_SVT_40"
 		],
 		[
-			"LIB_PTRD",
+			//"LIB_PTRD",
 			"LIB_K98ZF39",
 			"LIB_M1903A4_Springfield",
 			"LIB_M9130PU"
