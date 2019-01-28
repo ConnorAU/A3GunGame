@@ -19,12 +19,20 @@ private _killStreakDefault = _weaponPool deleteAt 0;
 _weaponPool deleteAt 0; // _condition
 
 private _finalWeaponsPool = [];
-{
-	private _subPool = _weaponPool select _foreachIndex;
-	for "_i" from 1 to 2 do {
-		_finalWeaponsPool pushBack (_subPool deleteAt (floor random (count _subPool - 1)));
-	};
-} foreach _weaponPool;
+private _weaponType = "WeaponType" call BIS_fnc_getParamValue;
+
+if (_weaponType > 0) then {
+	_finalWeaponsPool = _weaponPool#(_weaponType - 1) call BIS_fnc_arrayShuffle;
+};
+
+if (0 in [_weaponType,count _finalWeaponsPool]) then {
+	{
+		private _subPool = _weaponPool select _foreachIndex;
+		for "_i" from 1 to 2 do {
+			_finalWeaponsPool pushBack (_subPool deleteAt (floor random (count _subPool - 1)));
+		};
+	} foreach _weaponPool;
+};
 
 private _killStreak = "KillStreak" call BIS_fnc_getParamValue;
 private _finalKillStreak = [_killStreak,_killStreakDefault] select (_killStreak == 0);
