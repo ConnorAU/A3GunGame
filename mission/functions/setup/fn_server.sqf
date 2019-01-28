@@ -30,10 +30,6 @@ if (isNil "GG_s_firstInitComplete") then {
 	GG_s_firstInitComplete = true;
 };
 
-[] call GG_system_fnc_setDateTime;
-0 setFog 0;
-0 setRain 0;
-forceWeatherChange;
-
+[] call GG_system_fnc_setWeather;
 ["server"] call GG_system_fnc_voteMap; 
 [] call GG_system_fnc_setWeaponPool;

@@ -64,4 +64,22 @@ class Params {
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
         default = 0;
     };
+    class TimeOfDay {
+        title = "Select the time of day";
+        texts[] = {"Random","6 AM","9 AM","12 PM","3 PM","6 PM"};
+        values[] = {0,6,9,12,15,18};
+        default = 0;
+    };
+    class Weather_Fog {
+        title = "Select fog density";
+        texts[] = {"Random","No Fog","Light Fog","Heavy Fog"};
+        values[] = {0,1,2,3};
+        default = 1;
+    };
+    class Weather_Rain {
+        title = "Select rain levels";
+        texts[] = {"Random","No Rain","Light Rain","Heavy Rain","Thunder Storm"};
+        values[] = {0,1,2,3,4};
+        default = 1;
+    };
 };

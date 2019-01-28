@@ -51,7 +51,7 @@ class CfgFunctions {
             class getLeaderboardStats {};
             class fixDiscordString {};
             class roundOver {};
-            class setDateTime {};
+            class setWeather {};
             class resizeCombatZone {};
             class jump {};
         };
