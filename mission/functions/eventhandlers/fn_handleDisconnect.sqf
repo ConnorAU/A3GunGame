@@ -13,6 +13,10 @@
 params ["_unit", "_id", "_uid", "_name"];
 
 if (count allPlayers == 0) then {
+	// Bug hunting
+	private _log = format["No players connected, resetting mission: %1",allPlayers];
+	DLOG(_log);
+
 	// reset the round, no players are connected
 	[] spawn GG_setup_fnc_server;
 };

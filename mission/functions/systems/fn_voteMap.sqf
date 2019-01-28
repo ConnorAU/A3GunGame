@@ -18,7 +18,7 @@ switch _mode do {
 		deleteMarker "GG_CombatZone";
 
 		SVAR_J(MNS,"GG_s_votedMap",nil,true);
-		SVAR_J(MNS,"GG_s_votedMapName",nil,true);
+		SVAR_J(MNS,"GG_s_votedMapName","",true);
 		SVAR_J(MNS,"GG_s_voteEndTick",serverTime + 60,true);
 
 		// wait for all players to vote or for voting time to run out
@@ -32,7 +32,7 @@ switch _mode do {
 				!(-1 in _votes) || serverTime > GG_s_voteEndTick
 			};
 		} else {_votes = [0];};
-		SVAR_J(MNS,"GG_s_voteEndTick",nil,true);
+		SVAR_J(MNS,"GG_s_voteEndTick",0,true);
 
 		// only player disconnected, abort selecting map
 		if (count _votes == 0) exitWith {};
