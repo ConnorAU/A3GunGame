@@ -54,6 +54,7 @@ class CfgFunctions {
             class setWeather {};
             class resizeCombatZone {};
             class jump {};
+            class autoheal {};
         };
     };
     class GG_ui {

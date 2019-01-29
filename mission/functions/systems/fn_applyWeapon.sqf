@@ -30,13 +30,6 @@ private _magazine = getArray(configFile >> "CfgWeapons" >> _weapon >> "magazines
 
 if _calledByKill then {
 	playSound "NewWeapon";
-	// make room for FAK if needed
-	while {!(player canAdd "FirstAidKit")} do {
-		// dont remove all the mags just for a FAK
-		if (count magazines player <= 2) exitWith {};
-		player removeMagazine ((magazines player) # 0);
-	};
-	player addItem "FirstAidKit";
 };
 
 if (currentWeapon player == _weapon) exitWith {};
@@ -52,8 +45,7 @@ if !(ROUND_OVER) then {
 };
 
 {player removeMagazine _x} foreach magazines player;
-// not using removeAllWeapons because it removed first aid kits too
-{player removeWeapon _x} forEach [primaryWeapon player,handgunWeapon player];
+removeAllWeapons player;
 
 while {player canAdd _magazine} do {
 	player addMagazine _magazine;
