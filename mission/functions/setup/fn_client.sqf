@@ -52,6 +52,7 @@ if (isNil "GG_c_firstInitComplete") then {
 		_x params ["_id","_chat","_voip"];
 		_id enableChannel [!(call compile _chat),!(call compile _voip)];
 	}foreach getArray(missionConfigFile >> "disableChannels");
+	setCurrentChannel 0;
 
 	player addEventHandler ["InventoryOpened",{call GG_eventhandler_fnc_inventoryOpened}];
 	player addEventHandler ["HandleDamage",{call GG_eventhandler_fnc_handleDamage}];
