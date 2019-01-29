@@ -11,15 +11,15 @@
 #include "..\macros.inc"
 #include "..\defines.inc"
 
-#define DIALOG_X (safeZoneX + safezoneW) - (PX_WA(DIALOG_W) + PX_WA(3))
-#define DIALOG_Y safeZoneY + PX_HA(32)
+#define DIALOG_X (safeZoneX + safezoneW) - (PX_WS(DIALOG_W) + PX_WS(3))
+#define DIALOG_Y safeZoneY + PX_HS(32)
 #define DIALOG_W 82
 #define DIALOG_H 80
 
-#define CELL_Y_1 DIALOG_Y + PX_HA(SIZE_M)
-#define CELL_Y_2 DIALOG_Y + PX_HA(SIZE_M) + CELL_H
+#define CELL_Y_1 DIALOG_Y + PX_HS(SIZE_M)
+#define CELL_Y_2 CELL_Y_1 + CELL_H
 #define CELL_H PX_HA((DIALOG_H/2))
-#define CELL_POS(y) [DIALOG_X,y,PX_WA(DIALOG_W),CELL_H]
+#define CELL_POS(y) [DIALOG_X,y,PX_WS(DIALOG_W),CELL_H]
 
 disableSerialization;
 SWITCH_SYS_PARAMS;
@@ -40,16 +40,16 @@ switch _mode do {
 			_ctrlBackground ctrlSetPosition [
 				DIALOG_X,
 				DIALOG_Y,
-				PX_WA(DIALOG_W),
-				PX_HA(DIALOG_H) + PX_HA(SIZE_M)
+				PX_WS(DIALOG_W),
+				2*(CELL_H) + PX_HA(SIZE_M)
 			];
 
 			_ctrlTitle ctrlSetBackgroundColor [0,0,0,0.7];
 			_ctrlTitle ctrlSetPosition [
 				DIALOG_X,
 				DIALOG_Y,
-				PX_WA(DIALOG_W),
-				PX_HA(SIZE_M)
+				PX_WS(DIALOG_W),
+				PX_HS(SIZE_M)
 			];
 
 			private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
