@@ -37,7 +37,7 @@ class GGDisplayMiniMap {
             drawShaded=0.25;
             shadedSea=0.30000001;
             maxSatelliteAlpha=0.85000002;
-	        colorBackground[]={0,0,0,0.3};
+	        colorBackground[]={0.2,0.2,0.2,0.3};
         };
     };
 };

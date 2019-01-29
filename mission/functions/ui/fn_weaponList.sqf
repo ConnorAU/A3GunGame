@@ -36,7 +36,7 @@ switch _mode do {
 
 			_allControls params ["_ctrlBackground","_ctrlTitle","_ctrlList"];
 
-			_ctrlBackground ctrlSetBackgroundColor [0.2,0.2,0.2,0.5];
+			_ctrlBackground ctrlSetBackgroundColor [0.2,0.2,0.2,0.3];
 			_ctrlBackground ctrlSetPosition [
 				DIALOG_X,
 				DIALOG_Y,
