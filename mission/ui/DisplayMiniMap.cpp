@@ -23,10 +23,10 @@ class GGDisplayMiniMap {
         class map: ctrlMapEmpty {
             idc=1;
 
-            x=safeZoneX + PX_WA(3);
-            y=safeZoneY + PX_HA(3) + PX_HA(SIZE_M);
-            w=PX_WA(DIALOG_W);
-            h=PX_HA(DIALOG_H);
+            x=safeZoneX + PX_WS(3);
+            y=safeZoneY + PX_HS(3) + PX_HS(SIZE_M);
+            w=PX_WS(DIALOG_W);
+            h=PX_HS(DIALOG_H);
 
             moveOnEdges=1;
 

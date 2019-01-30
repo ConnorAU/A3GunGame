@@ -22,7 +22,7 @@ isNil {
 	// Move watermark if arma branch is not stable (overlaps dev watermark)
 	if ((productVersion select 4) != "Stable") then {
 		private _ctrlGrpPos = ctrlPosition _ctrlGrp;
-		_ctrlGrpPos set [0,(_ctrlGrpPos#0)-(_ctrlGrpPos#2)-(PX_WA(1))];
+		_ctrlGrpPos set [0,(_ctrlGrpPos#0)-(_ctrlGrpPos#2)-(PX_WS(1))];
 		_ctrlGrp ctrlSetPosition _ctrlGrpPos;
 		_ctrlGrp ctrlCommit 0;
 	};

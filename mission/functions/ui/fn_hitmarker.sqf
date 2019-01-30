@@ -21,10 +21,10 @@ private _ctrlImage = _display ctrlCreate ["ctrlStaticPicture",-1];
 _ctrlImage ctrlSetText"\a3\ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
 _ctrlImage ctrlSetTextColor ([[1,1,1,1],[1,0,0,1]] select _kill);
 _ctrlImage ctrlSetPosition [
-	CENTER_XA(DIALOG_W),
-	CENTER_YA(DIALOG_H),
-	PX_WA(DIALOG_W),
-	PX_HA(DIALOG_H)
+	CENTER_XS(DIALOG_W),
+	CENTER_YS(DIALOG_H),
+	PX_WS(DIALOG_W),
+	PX_HS(DIALOG_H)
 ];
 _ctrlImage ctrlCommit 0;
 

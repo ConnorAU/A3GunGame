@@ -48,10 +48,10 @@ switch _mode do {
 			_ctrlTitle ctrlSetText format["Location: %1",GVAR(MNS,"GG_s_votedMapName","")];
 			_ctrlTitle ctrlSetBackgroundColor [0,0,0,0.7];
 			_ctrlTitle ctrlSetPosition [
-				safeZoneX + PX_WA(3),
-				safeZoneY + PX_HA(3),
-				PX_WA(DIALOG_W),
-				PX_HA(SIZE_M)
+				safeZoneX + PX_WS(3),
+				safeZoneY + PX_HS(3),
+				PX_WS(DIALOG_W),
+				PX_HS(SIZE_M)
 			];
 			_ctrlTitle ctrlCommit 0;
 			SVAR(_display,"GG_miniMap_title",_ctrlTitle);

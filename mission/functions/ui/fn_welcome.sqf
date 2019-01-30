@@ -39,7 +39,7 @@ switch _mode do {
 			private _ctrlButton = _displayEmpty ctrlCreate ["ctrlButtonClose",-1];
 			private _ctrlBody = _displayEmpty ctrlCreate ["ctrlStructuredText",-1];
 
-			_ctrlBody ctrlSetPosition [CENTER_XA(DIALOG_W),0,PX_WA(DIALOG_W),safezoneH];
+			_ctrlBody ctrlSetPosition [CENTER_XS(DIALOG_W),0,PX_WS(DIALOG_W),safezoneH];
 			_ctrlBody ctrlCommit 0;
 			_ctrlBody ctrlSetStructuredText parseText ([
 				"<t size='1.5' align='center'>Gun Game by ConnorAU</t>",
@@ -68,42 +68,42 @@ switch _mode do {
 				format["If you have any questions about this mission, you can contact me on %1.",["discord","https://discord.gg/DMkxetD"] call _linkText]
 			] joinString "<br/>");
 
-			private DIALOG_H = ctrlTextHeight _ctrlBody + PX_HA(SIZE_M) + PX_HA(8);
+			private DIALOG_H = ctrlTextHeight _ctrlBody + PX_HS(SIZE_M) + PX_HS(8);
 
 			_ctrlBackground ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
+				CENTER_XS(DIALOG_W),
 				DIALOG_Y,
-				PX_WA(DIALOG_W),
+				PX_WS(DIALOG_W),
 				DIALOG_H
 			];
 
 			_ctrlTitle ctrlSetText "Welcome";
 			_ctrlTitle ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
+				CENTER_XS(DIALOG_W),
 				DIALOG_Y,
-				PX_WA(DIALOG_W),
-				PX_HA(SIZE_M)
+				PX_WS(DIALOG_W),
+				PX_HS(SIZE_M)
 			];
 
 			_ctrlFooter ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
-				DIALOG_Y + DIALOG_H - PX_HA(7),
-				PX_WA(DIALOG_W),
-				PX_HA(7)
+				CENTER_XS(DIALOG_W),
+				DIALOG_Y + DIALOG_H - PX_HS(7),
+				PX_WS(DIALOG_W),
+				PX_HS(7)
 			];
 
 			_ctrlButton ctrlAddEventHandler ["ButtonClick",{["destroy"] call THIS_FUNC}];
 			_ctrlButton ctrlSetPosition [
-				CENTER_XA(DIALOG_W)+ PX_WA(DIALOG_W) - PX_WA(31),
-				DIALOG_Y + DIALOG_H - PX_HA(6),
-				PX_WA(30),
-				PX_HA(5)
+				CENTER_XS(DIALOG_W)+ PX_WS(DIALOG_W) - PX_WS(31),
+				DIALOG_Y + DIALOG_H - PX_HS(6),
+				PX_WS(30),
+				PX_HS(5)
 			];
 
 			_ctrlBody ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
-				DIALOG_Y + PX_HA(SIZE_L),
-				PX_WA(DIALOG_W),
+				CENTER_XS(DIALOG_W),
+				DIALOG_Y + PX_HS(SIZE_L),
+				PX_WS(DIALOG_W),
 				ctrlTextHeight _ctrlBody
 			];
 

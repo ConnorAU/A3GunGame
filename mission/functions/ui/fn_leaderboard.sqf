@@ -46,14 +46,14 @@ switch _mode do {
 				CENTER_XA(DIALOG_W),
 				CENTER_YA(DIALOG_H),
 				PX_WA(DIALOG_W),
-				PX_HA(SIZE_M)
+				PX_HS(SIZE_M)
 			];
 
 			_ctrlList ctrlSetPosition [
 				CENTER_XA(DIALOG_W),
-				CENTER_YA(DIALOG_H) + PX_HA(SIZE_XL),
+				CENTER_YA(DIALOG_H) + PX_HS(SIZE_XL),
 				PX_WA(DIALOG_W),
-				PX_HA(DIALOG_H) - PX_HA((SIZE_XL+1))
+				PX_HA(DIALOG_H) - PX_HS((SIZE_XL+1))
 			];
 
 			{_x ctrlCommit 0} foreach _allControls;

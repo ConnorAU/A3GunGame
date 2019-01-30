@@ -11,7 +11,7 @@
 #include "..\macros.inc"
 #include "..\defines.inc"
 
-#define DIALOG_X safeZoneX + PX_WA(SIZE_XL)
+#define DIALOG_X safeZoneX + PX_WS(SIZE_XL)
 #define DIALOG_W 60
 #define DIALOG_H 93
 
@@ -35,7 +35,7 @@ switch _mode do {
 			_ctrlBackground ctrlSetPosition [
 				DIALOG_X,
 				CENTER_YA(DIALOG_H),
-				PX_WA(DIALOG_W),
+				PX_WS(DIALOG_W),
 				PX_HA(DIALOG_H)
 			];
 
@@ -43,15 +43,15 @@ switch _mode do {
 			_ctrlTitle ctrlSetPosition [
 				DIALOG_X,
 				CENTER_YA(DIALOG_H),
-				PX_WA(DIALOG_W),
-				PX_HA(SIZE_M)
+				PX_WS(DIALOG_W),
+				PX_HS(SIZE_M)
 			];
 
 			_ctrlList ctrlSetPosition [
 				DIALOG_X,
-				CENTER_YA(DIALOG_H) + PX_HA(SIZE_XL),
-				PX_WA(DIALOG_W),
-				PX_HA(DIALOG_H) - PX_HA((SIZE_XL+1))
+				CENTER_YA(DIALOG_H) + PX_HS(SIZE_XL),
+				PX_WS(DIALOG_W),
+				PX_HA(DIALOG_H) - PX_HS((SIZE_XL+1))
 			];
 
 			{_x ctrlCommit 0} foreach _allControls;
