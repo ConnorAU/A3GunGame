@@ -7,8 +7,17 @@
 └──────────────────────────────────────────────────────*/
 
 class CfgFunctions {
+    class GG_ai {
+        class ai {
+            class applyWeapon {};
+            class init {};
+            class clean {};
+            class create {};
+            class moveToSpawn {};
+            class target {};
+        };
+    };
     class GG_config {
-        tag="GG_config";
         class configs {
             class loadouts {};
             class maps {};
@@ -16,7 +25,6 @@ class CfgFunctions {
         };
     };
     class GG_eventhandler {
-        tag="GG_eventhandler";
         class eventhandlers {
             class inventoryOpened {};
             class playerConnected {};
@@ -31,7 +39,6 @@ class CfgFunctions {
         };
     };
     class GG_setup {
-        tag="GG_setup";
         class setup {
             class mission {preInit=1;};
             class client {};
@@ -39,7 +46,6 @@ class CfgFunctions {
         };
     };
     class GG_system {
-        tag="GG_system";
         class systems {
             class log {};
             class moveToSpawn {};
@@ -58,7 +64,6 @@ class CfgFunctions {
         };
     };
     class GG_ui {
-        tag="GG_ui";
         class ui {
             class voteMap {};
             class miniMap {};

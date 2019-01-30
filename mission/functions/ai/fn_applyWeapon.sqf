@@ -8,24 +8,20 @@
 
 #include "..\defines.inc"
 
-params ["_unit","_corpse"];
+params [["_unit",objNull,[objNull]]];
+if (isNull _unit) exitWith {};
 
-_unit disableConversation true;
-_unit enableStamina false;
-_unit setCustomAimCoef 0;
-_unit switchCamera GG_c_cameraView;
+private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
+private _killsPerWeapon = GVAR(MNS,"GG_s_killsPerWeapon",2);
 
-SVAR_J(_unit,"GG_c_kills",GG_c_kills,true);
-SVAR_J(_unit,"GG_c_deaths",GG_c_deaths,true);
-SVAR_J(_unit,"GG_c_score",GG_c_score,true);
-SVAR_J(_unit,"GG_c_name",name _unit,true);
+private _curIndex = 0 max ((GVAR(selectRandom allPlayers,"GG_c_score",0)) + selectRandom[0,1,-1]) min (count _weaponPool - 1);
+private _weapon = _weaponPool#_curIndex;
+private _magazine = getArray(configFile >> "CfgWeapons" >> _weapon >> "magazines")#0;
 
-deleteVehicle _corpse;
+{_unit removeMagazine _x} foreach magazines _unit;
+removeAllWeapons _unit;
 
-[] call GG_system_fnc_applyLoadout;
-[] call GG_system_fnc_applyWeapon;
-if (isPlayer _unit) then {
-	[] spawn GG_system_fnc_moveToSpawn;
-} else {
-	[_unit] spawn GG_ai_fnc_moveToSpawn;
+while {_unit canAdd _magazine} do {
+	_unit addMagazine _magazine;
 };
+_unit addWeapon _weapon;

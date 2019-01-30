@@ -8,9 +8,12 @@
 
 #include "..\defines.inc"
 
+params [["_unit",player,[objNull]]];
+
 uiSleep 8;
 
-while {damage player > 0} do {
-	player setDamage (damage player - 0.05);
+if (isNull _unit || {!alive _unit}) exitWith {};
+while {damage _unit > 0} do {
+	_unit setDamage (damage _unit - 0.05);
 	uiSleep 0.5;
 };

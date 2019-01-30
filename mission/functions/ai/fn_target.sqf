@@ -6,26 +6,17 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
+#define GG_ai_fnc_target
+
 #include "..\defines.inc"
 
-params ["_unit","_corpse"];
+params [["_unit",objNull,[objNull]]];
+if (isNull _unit) exitWith {};
 
-_unit disableConversation true;
-_unit enableStamina false;
-_unit setCustomAimCoef 0;
-_unit switchCamera GG_c_cameraView;
+private _units = allUnits select {alive _x && {_x != _unit && {_x inArea "GG_CombatZone"}}} apply {[_unit distance _x,getPosASL _x]};
+_units sort true;
 
-SVAR_J(_unit,"GG_c_kills",GG_c_kills,true);
-SVAR_J(_unit,"GG_c_deaths",GG_c_deaths,true);
-SVAR_J(_unit,"GG_c_score",GG_c_score,true);
-SVAR_J(_unit,"GG_c_name",name _unit,true);
-
-deleteVehicle _corpse;
-
-[] call GG_system_fnc_applyLoadout;
-[] call GG_system_fnc_applyWeapon;
-if (isPlayer _unit) then {
-	[] spawn GG_system_fnc_moveToSpawn;
-} else {
-	[_unit] spawn GG_ai_fnc_moveToSpawn;
+private _pos = if (count _units > 0) then {_units#0#1} else {
+	getMarkerPos "GG_CombatZone";
 };
+_unit doMove _pos;

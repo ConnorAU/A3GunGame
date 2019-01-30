@@ -11,7 +11,7 @@
 private ["_greyScaleHandle","_outOfZoneTick"];
 while {!(ROUND_OVER)} do {
 	if !(player inArea "GG_CombatZone") then {
-		if (player distance (markerPos "repsawn") > 25) then {
+		if (player distance (markerPos "respawn") > 25) then {
 			// begin UI effects
 			"ColorCorrections" ppEffectEnable true;
 			"ColorCorrections" ppEffectAdjust [1,1,0,[0,0,0,0.5],[1,1,1,0],[0.299,0.587,0.114,0]];

@@ -18,7 +18,8 @@ if (_causedBy == player && {_unit != player}) then {
 	[] spawn GG_ui_fnc_hitmarker;
 };
 
-if (_unit == player) then {
-	terminate (GVAR(MNS,QUOTE(VAR_AUTOHEAL_THREAD),scriptNull));
-	VAR_AUTOHEAL_THREAD = [] spawn GG_system_fnc_autoheal;
+// player & AI for hosted servers
+if (local _unit) then {
+	terminate (GVAR(_unit,QUOTE(VAR_AUTOHEAL_THREAD),scriptNull));
+	SVAR(_unit,QUOTE(VAR_AUTOHEAL_THREAD),[_unit] spawn GG_system_fnc_autoheal);
 };
