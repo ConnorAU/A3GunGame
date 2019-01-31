@@ -6,17 +6,20 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#define GG_ai_fnc_target
+#define GG_system_fnc_openAllDoors
 
 #include "..\defines.inc"
 
-params [["_unit",objNull,[objNull]]];
-if (isNull _unit) exitWith {};
+private _size = (GG_s_votedMapSize#0 max GG_s_votedMapSize#1)*2.5;
+private _objects = nearestObjects[getMarkerPos "GG_CombatZone",["House_F","Wall_F"],_size];
 
-private _units = allUnits select {alive _x && {_x != _unit && {_x inArea "GG_CombatZone"}}} apply {[_unit distance _x,getPosASL _x]};
-_units sort true;
-
-private _pos = if (count _units > 0) then {_units#0#1} else {
-	getMarkerPos "GG_CombatZone";
-};
-_unit doMove _pos;
+{
+	private _class = configFile >> "CfgVehicles" >> typeof _x ;
+	private _doors = getNumber(_class >> "numberOfDoors");
+	for "_i" from 1 to _doors do {
+		private _source = format["Door_%1_sound_source",_i];
+		if (isClass (_class >> "AnimationSources" >> _source)) then {
+			_x animateSource [_source,1];
+		};
+	};
+} foreach _objects;

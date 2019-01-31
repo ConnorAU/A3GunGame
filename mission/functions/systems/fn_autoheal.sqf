@@ -13,7 +13,7 @@ params [["_unit",player,[objNull]]];
 uiSleep 8;
 
 if (isNull _unit || {!alive _unit}) exitWith {};
-while {damage _unit > 0} do {
+while {alive _unit && {damage _unit > 0}} do {
 	_unit setDamage (damage _unit - 0.05);
 	uiSleep 0.5;
 };

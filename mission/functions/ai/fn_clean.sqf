@@ -15,3 +15,8 @@
 		deleteVehicle _x;
 	};
 } foreach allUnits;
+{
+	if ((GVAR(_x,"GG_s_group_AI",false)) && {count units _x == 0}) then {
+		deleteGroup _x;
+	};
+} foreach allGroups;

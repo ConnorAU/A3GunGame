@@ -34,8 +34,9 @@ if (local _unit) then {
 	{deleteVehicle _x} foreach nearestobjects[_unit,["WeaponHolderSimulated"],5];
 
 	if (!isPlayer _unit) then {
-		[] spawn {
+		_unit spawn {
 			uiSleep getNumber (missionConfigFile >> "respawnDelay");
+			deleteVehicle _this;
 			[] call GG_ai_fnc_create;
 		};
 	};

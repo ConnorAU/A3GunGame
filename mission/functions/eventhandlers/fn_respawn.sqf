@@ -24,8 +24,4 @@ deleteVehicle _corpse;
 
 [] call GG_system_fnc_applyLoadout;
 [] call GG_system_fnc_applyWeapon;
-if (isPlayer _unit) then {
-	[] spawn GG_system_fnc_moveToSpawn;
-} else {
-	[_unit] spawn GG_ai_fnc_moveToSpawn;
-};
+[] spawn GG_system_fnc_moveToSpawn;

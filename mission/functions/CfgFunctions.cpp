@@ -14,7 +14,7 @@ class CfgFunctions {
             class clean {};
             class create {};
             class moveToSpawn {};
-            class target {};
+            class monitor {};
         };
     };
     class GG_config {
@@ -61,6 +61,7 @@ class CfgFunctions {
             class resizeCombatZone {};
             class jump {};
             class autoheal {};
+            class openAllDoors {};
         };
     };
     class GG_ui {
