@@ -46,8 +46,8 @@ disableChannels[]={
 
 corpseManagerMode=1;
 corpseLimit=0;
-corpseRemovalMinTime=20;
-corpseRemovalMaxTime=600;
+corpseRemovalMinTime=5;
+corpseRemovalMaxTime=6;
 
 wreckManagerMode=1;
 wreckLimit=0;

@@ -56,6 +56,8 @@ switch _mode do {
 			]
 		] call (GVAR(MNS,"DiscordEmbedBuilder_fnc_buildSqf",{}));
 
+		[] call GG_ai_fnc_clean;
+
 		uisleep 25;
 
 		private _maxRounds = "MaxRounds" call BIS_fnc_getParamValue;

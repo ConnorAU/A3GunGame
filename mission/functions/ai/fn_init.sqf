@@ -6,14 +6,13 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
+#define GG_ai_fnc_init
+
 #include "..\defines.inc"
 
-params [["_unit",player,[objNull]]];
 
-uiSleep 8;
+private _numberOfAI = "AIUnits" call BIS_fnc_getParamValue;
 
-if (isNull _unit || {!alive _unit}) exitWith {};
-while {alive _unit && {damage _unit > 0}} do {
-	_unit setDamage (damage _unit - 0.05);
-	uiSleep 0.5;
+for "_i" from 1 to _numberOfAI do {
+	[] call GG_ai_fnc_create;
 };

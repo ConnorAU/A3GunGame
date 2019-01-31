@@ -69,6 +69,7 @@ switch _mode do {
 		_marker setMarkerBrush "SolidBorder";
 
 		[] call GG_system_fnc_resizeCombatZone;
+		[] call GG_system_fnc_openAllDoors;
 
 		SVAR(MNS,"GG_s_roundStartTick",diag_tickTime);
 	};

@@ -16,20 +16,23 @@ SVAR_J(MNS,"GG_s_weaponPool",nil,true);
 SVAR_J(MNS,"GG_s_weaponPoolCondition",nil,true);
 SVAR_J(MNS,"GG_s_roundWinner",nil,true);
 deleteMarker "GG_CombatZone";
+[] call GG_ai_fnc_clean;
 
 DLOG("Waiting for player to join the session");
 waitUntil {count allPlayers > 0};
 
 if (isNil "GG_s_firstInitComplete") then {
-
 	setTimeMultiplier 0.1;
 
 	addMissionEventHandler["PlayerConnected",{_this spawn GG_eventhandler_fnc_playerConnected}];
 	addMissionEventHandler["HandleDisconnect",{call GG_eventhandler_fnc_handleDisconnect}];
 
+	west setFriend [west,0];
+	
 	GG_s_firstInitComplete = true;
 };
 
 [] call GG_system_fnc_setWeather;
 ["server"] call GG_system_fnc_voteMap; 
 [] call GG_system_fnc_setWeaponPool;
+[] call GG_ai_fnc_init;

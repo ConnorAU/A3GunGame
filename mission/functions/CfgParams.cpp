@@ -6,6 +6,8 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
+#define SPACER(n) class spacer##n {text=" ";texts[]={" "};values[]={0};};
+
 class Params {
     class WeaponPool {
         title = "Select which mod the weapon pool will be created from";
@@ -52,6 +54,7 @@ class Params {
         values[] = {0,1,2,10,11,12,40,41,42,43,44,20,21,50,51,30,31};
         default = 0;
     };
+    SPACER(1);
     class KillStreak {
         title = "Kill streak required to advance to next weapon";
         texts[] = {"Auto-Detect (By weapon pool)","1","2","3","4","5","6","7","8","9","10"};
@@ -64,8 +67,22 @@ class Params {
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
         default = 0;
     };
+    SPACER(2);
+    class AIUnits {
+        title = "Select number of AI enemys";
+        texts[] = {"None","1","2","3","4","5","10","15","20"};
+        values[] = {0,1,2,3,4,5,10,15,20};
+        default = 0;
+    };
+    class AIDifficulty {
+        title = "Select AI difficulty";
+        texts[] = {"Storm Trooper","Rookie","Recruit","Veteran","Wall Hacks & Aim Bot"};
+        values[] = {0,0.25,0.5,0.75,1};
+        default = 0.25;
+    };
+    SPACER(3);
     class TimeOfDay {
-        title = "Select the time of day";
+        title = "Select time of day";
         texts[] = {"Random","6 AM","9 AM","12 PM","3 PM","6 PM"};
         values[] = {0,6,9,12,15,18};
         default = 0;
@@ -83,3 +100,5 @@ class Params {
         default = 1;
     };
 };
+
+#undef SPACER

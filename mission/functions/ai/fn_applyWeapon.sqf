@@ -8,12 +8,20 @@
 
 #include "..\defines.inc"
 
-params [["_unit",player,[objNull]]];
+params [["_unit",objNull,[objNull]]];
+if (isNull _unit) exitWith {};
 
-uiSleep 8;
+private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
+private _killsPerWeapon = GVAR(MNS,"GG_s_killsPerWeapon",2);
 
-if (isNull _unit || {!alive _unit}) exitWith {};
-while {alive _unit && {damage _unit > 0}} do {
-	_unit setDamage (damage _unit - 0.05);
-	uiSleep 0.5;
+private _curIndex = 0 max ((GVAR(selectRandom allPlayers,"GG_c_score",0)) + selectRandom[0,1,-1]) min (count _weaponPool - 1);
+private _weapon = _weaponPool#_curIndex;
+private _magazine = getArray(configFile >> "CfgWeapons" >> _weapon >> "magazines")#0;
+
+{_unit removeMagazine _x} foreach magazines _unit;
+removeAllWeapons _unit;
+
+while {_unit canAdd _magazine} do {
+	_unit addMagazine _magazine;
 };
+_unit addWeapon _weapon;

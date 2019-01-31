@@ -6,14 +6,20 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
+#define GG_system_fnc_openAllDoors
+
 #include "..\defines.inc"
 
-params [["_unit",player,[objNull]]];
+private _size = (GG_s_votedMapSize#0 max GG_s_votedMapSize#1)*2.5;
+private _objects = nearestObjects[getMarkerPos "GG_CombatZone",["House_F","Wall_F"],_size];
 
-uiSleep 8;
-
-if (isNull _unit || {!alive _unit}) exitWith {};
-while {alive _unit && {damage _unit > 0}} do {
-	_unit setDamage (damage _unit - 0.05);
-	uiSleep 0.5;
-};
+{
+	private _class = configFile >> "CfgVehicles" >> typeof _x ;
+	private _doors = getNumber(_class >> "numberOfDoors");
+	for "_i" from 1 to _doors do {
+		private _source = format["Door_%1_sound_source",_i];
+		if (isClass (_class >> "AnimationSources" >> _source)) then {
+			_x animateSource [_source,1];
+		};
+	};
+} foreach _objects;

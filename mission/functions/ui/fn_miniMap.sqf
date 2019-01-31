@@ -84,7 +84,7 @@ switch _mode do {
 
 		if (diag_tickTime > VAR_UPDATE_TICK) then {
 			VAR_UPDATE_TICK = diag_tickTime + VAL_UPDATE_FREQ;
-			VAR_UNITS_INFO = allPlayers select {
+			VAR_UNITS_INFO = allUnits select {
 				alive _x && {_x != player && {_x distance (markerPos "respawn") > 50}}
 			} apply {getPos _x};
 		};

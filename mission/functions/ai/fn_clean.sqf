@@ -6,14 +6,17 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
+#define GG_ai_fnc_clean
+
 #include "..\defines.inc"
 
-params [["_unit",player,[objNull]]];
-
-uiSleep 8;
-
-if (isNull _unit || {!alive _unit}) exitWith {};
-while {alive _unit && {damage _unit > 0}} do {
-	_unit setDamage (damage _unit - 0.05);
-	uiSleep 0.5;
-};
+{
+	if (!isPlayer _x) then {
+		deleteVehicle _x;
+	};
+} foreach allUnits;
+{
+	if ((GVAR(_x,"GG_s_group_AI",false)) && {count units _x == 0}) then {
+		deleteGroup _x;
+	};
+} foreach allGroups;
