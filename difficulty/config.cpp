@@ -7,8 +7,8 @@
 └──────────────────────────────────────────────────────*/
 
 class CfgPatches {
-    class GunGame {
-        name="GunGame";
+    class GunGameDifficulty {
+        name="GunGameDifficulty";
         author="ConnorAU";
         url="https://steamcommunity.com/id/_connor";
 

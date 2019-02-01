@@ -97,12 +97,10 @@ switch _mode do {
 			SVAR(MNS,"BIS_missionChosen",0);
 		};
 
-		//private _image = getText(configFile >> "CfgWorlds" >> worldname >> "pictureShot");
-		private _image = getText(missionConfigFile >> "loadScreen");
 		private _selectedMission = [
 			[worldsize,worldsize],
 			[worldsize/2,worldsize/2,0], 
-			_allMaps apply {[_x#1,_x#0,_x#0,_image,{}]}
+			_allMaps apply {[_x#1,_x#0,_x#0,"load.paa",{}]}
 		] call BIS_fnc_missionSelector;
 
 		if (serverTime < (GVAR(MNS,"GG_s_voteEndTick",0))) then {

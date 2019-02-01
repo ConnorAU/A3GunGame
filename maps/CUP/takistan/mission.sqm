@@ -53,6 +53,12 @@ randomSeed=7717734;
 class ScenarioData
 {
 	author="ConnorAU";
+	overviewText="Kill enemys to progress through the weapon pool and win!";
+	overviewTextLocked="Kill enemys to progress through the weapon pool and win!";
+	overViewPicture="load.paa";
+	overViewPictureLocked="load.paa";
+	onLoadMission="Kill enemys to progress through the weapon pool and win!";
+	loadScreen="load.paa";
 	briefing=0;
 	debriefing=0;
 	showUAVFeed=0;
@@ -62,6 +68,7 @@ class ScenarioData
 	class Header
 	{
 		gameType="DM";
+		minPlayers=1;
 		maxPlayers=30;
 	};
 };
@@ -71,6 +78,7 @@ class Mission
 	class Intel
 	{
 		briefingName="Gun Game";
+		overviewText="Kill enemys to progress through the weapon pool and win!";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

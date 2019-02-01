@@ -8,11 +8,6 @@
 
 //#define DEV_BUILD
 
-author="ConnorAU";
-onLoadName="Gun Game";
-briefingName="Gun Game";
-loadScreen="load.paa";
-
 #ifdef DEV_BUILD 
     enableDebugConsole[]={"76561198090361580"};
 #endif
@@ -65,6 +60,18 @@ class CfgDiscordRichPresence {
     defaultSmallImageText="";
 };
 
+#ifdef IS_AIO_MOD 
+#include "\GunGame\functions\CfgDebriefing.cpp"
+#include "\GunGame\functions\CfgFunctions.cpp"
+#include "\GunGame\functions\CfgParams.cpp"
+#include "\GunGame\functions\CfgRemoteExec.cpp"
+#include "\GunGame\functions\CfgSounds.cpp"
+
+#include "\GunGame\ui\controls.cpp"
+class RscTitles {
+    #include "\GunGame\ui\DisplayMiniMap.cpp"
+};
+#else 
 #include "functions\CfgDebriefing.cpp"
 #include "functions\CfgFunctions.cpp"
 #include "functions\CfgParams.cpp"
@@ -72,7 +79,7 @@ class CfgDiscordRichPresence {
 #include "functions\CfgSounds.cpp"
 
 #include "ui\controls.cpp"
-
 class RscTitles {
     #include "ui\DisplayMiniMap.cpp"
 };
+#endif

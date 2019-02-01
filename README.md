@@ -1,6 +1,6 @@
 # Gun Game
 30 man free-for-all weapon progression game mode created for Arma 3.  
-Subscribe to the missions on [steam workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1631909821).
+Subscribe to the all-in-one [steam workshop mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1641133934) or download individual map files from the [releases](https://github.com/ConnorAU/A3GunGame/releases) page.  
 
 # Mod support
 This mission is built with support for the following map, uniform and weapon mods:
@@ -13,8 +13,6 @@ This mission is built with support for the following map, uniform and weapon mod
 - [RHS](https://steamcommunity.com/workshop/filedetails/?id=843770737) (AFRF, GREF, SAF & USAF)
 
 If you choose to host a version of the mission using any of the mods above, all players & the server are **required** to have the selected mods enabled.  
-
-You can find mission files for all maps on [steam workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1631909821) or the [releases](https://github.com/ConnorAU/A3GunGame/releases) page.  
 
 ## How to enable mods
 Enable map mods by hosting the mission pbo for the modded map you wish to play.
@@ -52,12 +50,6 @@ To install:
 2. Set the mission difficulty in the server.cfg to `difficulty="GunGame";`
 
 ## Modify mission parameters in the server.cfg
-Available parameters are:
-- `WeaponPool`
-- `Loadout`
-- `KillStreak`
-- `MaxRounds`
-
 You can find specific values and what they do in [CfgParams.cpp](https://github.com/ConnorAU/A3GunGame/blob/master/mission/functions/CfgParams.cpp)
 
 Example:

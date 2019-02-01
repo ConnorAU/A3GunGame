@@ -29,7 +29,6 @@ class ctrlDefault
 		color[]={1,1,1,1};
 	};
 };
-
 class ctrlMap: ctrlDefault
 {
 	type=101;
