@@ -6,7 +6,7 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#define GG_system_fnc_openAllDoors
+#define THIS_FUNC GG_system_fnc_openAllDoors
 
 #include "..\defines.inc"
 
