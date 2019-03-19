@@ -26,6 +26,8 @@ startLoadingScreen [""];
 if (isNil "GG_c_firstInitComplete") then {
 	waituntil {!isNull player && {player isKindOf "CAManBase" && {!isMultiplayer || {netid player != ""}}}};
 
+	[player] remoteExecCall ["GG_system_fnc_validateUnit",2];
+
 	// Ensure units are moved to their own group (doing only one attempt failed on the odd occasion)
 	for "_i" from 1 to 50 do {
 		private _group = createGroup[playerSide,true];

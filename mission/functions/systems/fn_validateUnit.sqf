@@ -6,15 +6,14 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-class CfgDebriefing {
-    class MissingMods {
-        title = "Unable to play";
-        subtitle = "You are missing mods!";
-        description = "The current weapon pool requires mods that you do not have enabled.<br/>Please enable the required mods before reconnecting.";
-    };
-    class BadUnit {
-        title = "Setup Failed";
-        subtitle = "Something went wrong!";
-        description = "The game encountered an issue while preparing your client. Please try again.";
-    };
+#define THIS_FUNC GG_system_fnc_validateUnit
+
+#include "..\defines.inc"
+
+// There is a rare bug where units don't properly load.
+// This can cause players to be invisible, unable to rank up, not appear in the leaderboard and most likely experience other unknown issues.
+if (isNull param[0,objNull,[objNull]]) then {
+	if (remoteExecutedOwner > 2) then {
+		"BadUnit" remoteExec ["endMission",remoteExecutedOwner];
+	};
 };

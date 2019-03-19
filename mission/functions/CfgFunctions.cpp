@@ -77,6 +77,7 @@ class CfgFunctions {
             class jump {};
             class autoheal {};
             class openAllDoors {};
+            class validateUnit {};
         };
     };
     class GG_ui {

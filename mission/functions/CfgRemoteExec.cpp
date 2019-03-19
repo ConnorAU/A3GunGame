@@ -13,6 +13,7 @@ class CfgRemoteExec {
 
 		class GG_system_fnc_roundOver {allowedTargets = 2;};
 		class GG_system_fnc_resizeCombatZone {allowedTargets = 2;};
+		class GG_system_fnc_validateUnit {allowedTargets = 2;};
 		
 #ifdef DEV_BUILD
 		class bis_fnc_debugconsoleexec {allowedTargets = 0;};
