@@ -12,6 +12,8 @@
     enableDebugConsole[]={"76561198090361580"};
 #endif
 
+onLoadName="Gun Game";
+
 joinUnassigned=0;
 skipLobby=0;
 
