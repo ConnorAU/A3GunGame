@@ -55,6 +55,12 @@ class Params {
         default = 0;
     };
     SPACER(1);
+    class DamageModifier {
+        title = "Damage modifier";
+        texts[] = {"0.25x","0.5x","1x","1.5x","2x","2.5x","5x","10x"};
+        values[] = {0.25,0.5,1,1.5,2,2.5,5,10};
+        default = 1;
+    };
     class KillStreak {
         title = "Kill streak required to advance to next weapon";
         texts[] = {"Auto-Detect (By weapon pool)","1","2","3","4","5","6","7","8","9","10"};
@@ -69,32 +75,32 @@ class Params {
     };
     SPACER(2);
     class AIUnits {
-        title = "Select number of AI enemys";
+        title = "Number of AI enemys";
         texts[] = {"None","1","2","3","4","5","10","15","20"};
         values[] = {0,1,2,3,4,5,10,15,20};
         default = 0;
     };
     class AIDifficulty {
-        title = "Select AI difficulty";
+        title = "AI difficulty";
         texts[] = {"Storm Trooper","Rookie","Recruit","Veteran","Wall Hacks & Aim Bot"};
         values[] = {0,0.25,0.5,0.75,1};
         default = 0.25;
     };
     SPACER(3);
     class TimeOfDay {
-        title = "Select time of day";
+        title = "Time of day";
         texts[] = {"Random","6 AM","9 AM","12 PM","3 PM","6 PM"};
         values[] = {0,6,9,12,15,18};
         default = 0;
     };
     class Weather_Fog {
-        title = "Select fog density";
+        title = "Fog density";
         texts[] = {"Random","No Fog","Light Fog","Heavy Fog"};
         values[] = {0,1,2,3};
         default = 1;
     };
     class Weather_Rain {
-        title = "Select rain levels";
+        title = "Rain levels";
         texts[] = {"Random","No Rain","Light Rain","Heavy Rain","Thunder Storm"};
         values[] = {0,1,2,3,4};
         default = 1;
