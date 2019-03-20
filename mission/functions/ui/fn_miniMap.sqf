@@ -12,8 +12,8 @@
 #include "..\macros.inc"
 #include "..\defines.inc"
 
-#define VAR_UNITS_INFO FUNC_SUBVAR_RAW(units_info)
-#define VAR_UPDATE_TICK FUNC_SUBVAR_RAW(update_tick)
+#define VAR_UNITS_INFO FUNC_SUBVAR(units_info)
+#define VAR_UPDATE_TICK FUNC_SUBVAR(update_tick)
 #define VAL_UPDATE_FREQ 8
 #define VAL_ICON_SIZE 16
 
@@ -45,7 +45,7 @@ switch _mode do {
 			// for some reason it shows darker when created in the RscTitle dialog
 			USE_DISPLAY(findDisplay 46);
 			private _ctrlTitle = _display ctrlCreate ["ctrlStaticTitle",-1];
-			_ctrlTitle ctrlSetText format["Location: %1",GVAR(MNS,"GG_s_votedMapName","")];
+			_ctrlTitle ctrlSetText format["Location: %1",missionNameSpace getVariable ["GG_s_votedMapName",""]];
 			_ctrlTitle ctrlSetBackgroundColor [0,0,0,0.7];
 			_ctrlTitle ctrlSetPosition [
 				safeZoneX + PX_WS(3),
@@ -54,12 +54,12 @@ switch _mode do {
 				PX_HS(SIZE_M)
 			];
 			_ctrlTitle ctrlCommit 0;
-			SVAR(_display,"GG_miniMap_title",_ctrlTitle);
+			_display setVariable ["GG_miniMap_title",_ctrlTitle];
 		};
 	};
 	case "onLoad":{
 		_params params ["_display"];
-		SVAR(UINS,QUOTE(DISPLAY_NAME),_display);
+		uiNameSpace setVariable [QUOTE(DISPLAY_NAME),_display];
 	};
 	case "modifyZoom":{
 			if !COMBAT_ZONE_EXISTS exitWith {};
@@ -111,6 +111,6 @@ switch _mode do {
 	case "destroy":{
 		QUOTE(DISPLAY_NAME) cutText ["","PLAIN",0];
 		USE_DISPLAY(findDisplay 46);
-		ctrlDelete (GVAR(_display,"GG_miniMap_title",controlNull));
+		ctrlDelete (_display getVariable ["GG_miniMap_title",controlNull]);
 	};
 };

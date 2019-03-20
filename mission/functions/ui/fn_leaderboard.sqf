@@ -23,14 +23,14 @@ switch _mode do {
 		isNil {
 			disableSerialization;
 			USE_DISPLAY(findDisplay 46);
-			if !(isNil{GVAR_N(_display,"GG_leaderboard_ctrls")}) exitWith {};
+			if !(isNil{_display getVariable "GG_leaderboard_ctrls"}) exitWith {};
 
 			private _allControls = [
 				_display ctrlCreate ["ctrlStaticBackground",-1],
 				_display ctrlCreate ["ctrlStaticTitle",-1],
 				_display ctrlCreate ["ctrlListNBox",-1]
 			];
-			SVAR(_display,"GG_leaderboard_ctrls",_allControls);
+			_display setVariable ["GG_leaderboard_ctrls",_allControls];
 
 			_allControls params ["_ctrlBackground","_ctrlTitle","_ctrlList"];
 
@@ -65,7 +65,7 @@ switch _mode do {
 			_ctrlList lnbAddColumn 0.865;
 			_ctrlList lnbAddRow ["","Name","Weapon","Kills","Deaths","KDR"];
 
-			private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
+			private _weaponPool = missionNameSpace getVariable ["GG_s_weaponPool",[]];
 			private _stats = [] call GG_system_fnc_getLeaderboardStats;
 			for "_i" from 0 to 29 do {
 				(_stats param [_i,[]]) params ["_score","_kills","_deaths",["_name",""]];
@@ -105,9 +105,9 @@ switch _mode do {
 			disableSerialization;
 			USE_DISPLAY(findDisplay 46);
 
-			private _allControls = GVAR(_display,"GG_leaderboard_ctrls",[]);
+			private _allControls = _display getVariable ["GG_leaderboard_ctrls",[]];
 			{ctrlDelete _x} forEach _allControls;
-			SVAR(_display,"GG_leaderboard_ctrls",nil);
+			_display setVariable ["GG_leaderboard_ctrls",nil];
 		};
 	};
 };

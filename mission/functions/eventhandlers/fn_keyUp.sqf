@@ -19,7 +19,7 @@ if GG_c_modifyVolume then {
 	GG_c_modifyVolume = false;
 }; 
 
-if (GVAR(MNS,"GG_c_leaderboardShown",false)) then {
+if (missionNameSpace getVariable ["GG_c_leaderboardShown",false]) then {
 	["destroy"] call GG_ui_fnc_leaderboard;
 	GG_c_leaderboardShown = false;
 };

@@ -73,7 +73,7 @@ if (isNil "GG_c_firstInitComplete") then {
     ["UpdateSmallImageKey","arma3"],
 	["UpdateSmallImageText","Arma 3"]/*,
 	["UpdateStartTimestamp",[0,0]]*/
-] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+] call (missionNameSpace getVariable["DiscordRichPresence_fnc_update",{}]);
 
 showChat true;
 showScoretable 0;
@@ -84,10 +84,10 @@ GG_c_killStreak = 0;
 GG_c_deaths = 0;
 GG_c_score = 0;
 
-SVAR_J(player,"GG_c_kills",GG_c_kills,true);
-SVAR_J(player,"GG_c_deaths",GG_c_deaths,true);
-SVAR_J(player,"GG_c_score",GG_c_score,true);
-SVAR_J(player,"GG_c_name",name player,true);
+player setVariable ["GG_c_kills",GG_c_kills,true];
+player setVariable ["GG_c_deaths",GG_c_deaths,true];
+player setVariable ["GG_c_score",GG_c_score,true];
+player setVariable ["GG_c_name",name player,true];
 
 waitUntil {!(displayNull in [findDisplay 12,findDisplay 46])};
 endLoadingScreen;
@@ -118,8 +118,8 @@ if !COMBAT_ZONE_EXISTS then {
 
 // https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
 [
-	["UpdateDetails",(GVAR(MNS,"GG_s_votedMapName","")) call GG_system_fnc_fixDiscordString]
-] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+	["UpdateDetails",(missionNameSpace getVariable ["GG_s_votedMapName",""]) call GG_system_fnc_fixDiscordString]
+] call (missionNameSpace getVariable["DiscordRichPresence_fnc_update",{}]);
 
 waitUntil {!isNil "GG_s_weaponPool"};
 

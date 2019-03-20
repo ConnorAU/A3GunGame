@@ -52,7 +52,7 @@ switch _mode do {
 				PX_HS(SIZE_M)
 			];
 
-			private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
+			private _weaponPool = missionNameSpace getVariable ["GG_s_weaponPool",[]];
 			for "_i" from 0 to (count _weaponPool - 1) do {
 				private _ctrl = _display ctrlCreate ["ctrlStructuredText",-1];
 				_ctrl ctrlSetStructuredText parsetext format["<t align='center' size='8' shadow='2'><img image='%1' /></t>",getText(configFile >> "CfgWeapons" >> _weaponPool#_i >> "picture")];
@@ -63,7 +63,7 @@ switch _mode do {
 
 			{_x ctrlCommit 0} foreach _allControls;
 
-			SVAR(_display,"GG_weaponList_ctrls",_allControls);
+			_display setVariable ["GG_weaponList_ctrls",_allControls];
 
 		};
 	};
@@ -71,7 +71,7 @@ switch _mode do {
 		_params params ["_weaponPool","_curIndex","_killsPerWeapon"];
 
 		USE_DISPLAY(findDisplay 46);
-		private _allControls = GVAR(_display,"GG_weaponList_ctrls",[]);
+		private _allControls = _display getVariable ["GG_weaponList_ctrls",[]];
 		if (count _allControls == 0) exitWith {};
 
 		private _ctrlTitle = _allControls#1;
@@ -107,9 +107,9 @@ switch _mode do {
 		isNil {
 			USE_DISPLAY(findDisplay 46);
 
-			private _allControls = GVAR(_display,"GG_weaponList_ctrls",[]);
+			private _allControls = _display getVariable ["GG_weaponList_ctrls",[]];
 			{ctrlDelete _x} forEach _allControls;
-			SVAR(_display,"GG_weaponList_ctrls",nil);
+			_display setVariable ["GG_weaponList_ctrls",nil];
 		};
 	};
 };

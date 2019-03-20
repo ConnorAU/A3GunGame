@@ -12,12 +12,12 @@
 // Could do it by alive units only but that would hide players from the leaderboard while they're dead
 private _selected = [];
 private _list = allPlayers select {
-	!isNil {GVAR_N(_x,"GG_c_name")} && {_selected pushBackUnique (getplayeruid _x) > -1}
+	!isNil {_x getVariable "GG_c_name"} && {_selected pushBackUnique (getplayeruid _x) > -1}
 } apply {[
-	GVAR(_x,"GG_c_score",0),
-	GVAR(_x,"GG_c_kills",0),
-	GVAR(_x,"GG_c_deaths",0),
-	GVAR(_x,"GG_c_name",""),
+	_x getVariable ["GG_c_score",0],
+	_x getVariable ["GG_c_kills",0],
+	_x getVariable ["GG_c_deaths",0],
+	_x getVariable ["GG_c_name",""],
 	getPlayerUID _x
 ]};
 _list sort false;

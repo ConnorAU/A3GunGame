@@ -16,14 +16,14 @@ if (local _unit) then {
 		GG_c_deaths = GG_c_deaths + 1;
 		GG_c_deathPos = getpos _unit;
 		GG_c_cameraView = cameraView;
-		SVAR_J(player,"GG_c_deaths",GG_c_deaths,true);
+		player setVariable ["GG_c_deaths",GG_c_deaths,true];
 
 		GG_c_killStreak = 0;
 
 		if (isNull _killer || {_killer == _unit}) then {
 			// revert 1 weapon
 			GG_c_score = (GG_c_score - 1) max 0;
-			SVAR_J(player,"GG_c_score",GG_c_score,true);
+			player setVariable ["GG_c_score",GG_c_score,true];
 			playSound "RevertWeapon";
 		};
 	};
@@ -46,7 +46,7 @@ if (local _killer) then {
 	if (_killer == player) then {
 		GG_c_kills = GG_c_kills + 1;
 		GG_c_killStreak = GG_c_killStreak + 1;
-		SVAR_J(player,"GG_c_kills",GG_c_kills,true);
+		player setVariable ["GG_c_kills",GG_c_kills,true];
 		[true] spawn GG_ui_fnc_hitmarker;
 		[true] call GG_system_fnc_applyWeapon;
 	};

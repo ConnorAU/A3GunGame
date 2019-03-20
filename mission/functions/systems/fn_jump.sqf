@@ -10,7 +10,7 @@
 
 #include "..\defines.inc"
 
-#define VAR_JUMP_TICK FUNC_SUBVAR_RAW(tick)
+#define VAR_JUMP_TICK FUNC_SUBVAR(tick)
 
 params [["_unit",player,[objNull]]];
 if (speed player < 10 || {currentWeapon player == "" || {currentWeapon player != primaryWeapon player}}) exitwith {};

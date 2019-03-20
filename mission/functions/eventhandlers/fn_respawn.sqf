@@ -15,10 +15,10 @@ _unit enableStamina false;
 _unit setCustomAimCoef 0;
 _unit switchCamera GG_c_cameraView;
 
-SVAR_J(_unit,"GG_c_kills",GG_c_kills,true);
-SVAR_J(_unit,"GG_c_deaths",GG_c_deaths,true);
-SVAR_J(_unit,"GG_c_score",GG_c_score,true);
-SVAR_J(_unit,"GG_c_name",name _unit,true);
+_unit setVariable ["GG_c_kills",GG_c_kills,true];
+_unit setVariable ["GG_c_deaths",GG_c_deaths,true];
+_unit setVariable ["GG_c_score",GG_c_score,true];
+_unit setVariable ["GG_c_name",name _unit,true];
 
 deleteVehicle _corpse;
 

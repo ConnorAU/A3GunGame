@@ -17,9 +17,9 @@ switch _mode do {
 		// Delete combat zone from previous round
 		deleteMarker "GG_CombatZone";
 
-		SVAR_J(MNS,"GG_s_votedMap",nil,true);
-		SVAR_J(MNS,"GG_s_votedMapName","",true);
-		SVAR_J(MNS,"GG_s_voteEndTick",serverTime + 60,true);
+		missionNameSpace setVariable ["GG_s_votedMap",nil,true];
+		missionNameSpace setVariable ["GG_s_votedMapName","",true];
+		missionNameSpace setVariable ["GG_s_voteEndTick",serverTime + 60,true];
 
 		// wait for all players to vote or for voting time to run out
 		private _allMaps = [] call GG_config_fnc_maps;
@@ -28,11 +28,11 @@ switch _mode do {
 		// Skip voting if there is only one possible location
 		if (count _allMaps >= 2) then {
 			waitUntil {
-				_votes = allPlayers apply {GVAR(_x,"GG_s_mapVote",-1)};
+				_votes = allPlayers apply {_x getVariable ["GG_s_mapVote",-1]};
 				!(-1 in _votes) || serverTime > GG_s_voteEndTick
 			};
 		} else {_votes = [0];};
-		SVAR_J(MNS,"GG_s_voteEndTick",0,true);
+		missionNameSpace setVariable ["GG_s_voteEndTick",0,true];
 
 		// only player disconnected, abort selecting map
 		if (count _votes == 0) exitWith {};
@@ -56,9 +56,9 @@ switch _mode do {
 
 		// create new combat zone
 		DLOG("Selected map: "+_name);
-		SVAR_J(MNS,"GG_s_votedMap",_allMaps find _selectedMap,true);
-		SVAR_J(MNS,"GG_s_votedMapName",_name,true);
-		SVAR(MNS,"GG_s_votedMapSize",_size);
+		missionNameSpace setVariable ["GG_s_votedMap",_allMaps find _selectedMap,true];
+		missionNameSpace setVariable ["GG_s_votedMapName",_name,true];
+		missionNameSpace setVariable ["GG_s_votedMapSize",_size];
 
 		private _marker = createMarker ["GG_CombatZone",_position];
 		_marker setMarkerShape "ELLIPSE";
@@ -71,7 +71,7 @@ switch _mode do {
 		[] call GG_system_fnc_resizeCombatZone;
 		[] call GG_system_fnc_openAllDoors;
 
-		SVAR(MNS,"GG_s_roundStartTick",diag_tickTime);
+		missionNameSpace setVariable ["GG_s_roundStartTick",diag_tickTime];
 	};
 	case "client":{
 		openMap [true,true];
@@ -87,14 +87,14 @@ switch _mode do {
 			waitUntil {!isNil "BIS_missionChosen"};
 
 			// wait for client to vote or for voting to end
-			waitUntil {isNil "BIS_missionChosen" || serverTime >= (GVAR(MNS,"GG_s_voteEndTick",0))};
+			waitUntil {isNil "BIS_missionChosen" || serverTime >= (missionNameSpace getVariable ["GG_s_voteEndTick",0])};
 
 			// voted
 			if (isNil "BIS_missionChosen") exitWith {};
 
 			// force end voting
 			[] spawn BIS_removeMissionTooltipAndHandlers;
-			SVAR(MNS,"BIS_missionChosen",0);
+			missionNameSpace setVariable ["BIS_missionChosen",0];
 		};
 
 		private _selectedMission = [
@@ -103,8 +103,8 @@ switch _mode do {
 			_allMaps apply {[_x#1,_x#0,_x#0,"load.paa",{}]}
 		] call BIS_fnc_missionSelector;
 
-		if (serverTime < (GVAR(MNS,"GG_s_voteEndTick",0))) then {
-			SVAR_J(player,"GG_s_mapVote",_selectedMission,true);
+		if (serverTime < (missionNameSpace getVariable ["GG_s_voteEndTick",0])) then {
+			player setVariable ["GG_s_mapVote",_selectedMission,true];
 			["<t shadow=2 >Waiting for voting to finish...</t>",[-1,-1],[-1,-1],1e14,0.5] spawn BIS_fnc_dynamicText;
 			uisleep 1;
 		};
@@ -120,6 +120,6 @@ switch _mode do {
 		["destroy"] call GG_ui_fnc_voteMap;
 		openMap [false,false];
 
-		SVAR_J(player,"GG_s_mapVote",nil,true);
+		player setVariable ["GG_s_mapVote",nil,true];
 	};
 };

@@ -10,7 +10,7 @@
 
 #include "..\defines.inc"
 
-#define VAR_AUTOHEAL_THREAD FUNC_SUBVAR_RAW(autoheal_thread)
+#define VAR_AUTOHEAL_THREAD QUOTE(FUNC_SUBVAR(autoheal_thread))
 
 params ["_unit", "_causedBy"];
 
@@ -20,6 +20,6 @@ if (_causedBy == player && {_unit != player}) then {
 
 // player & AI for hosted servers
 if (local _unit) then {
-	terminate (GVAR(_unit,QUOTE(VAR_AUTOHEAL_THREAD),scriptNull));
-	SVAR(_unit,QUOTE(VAR_AUTOHEAL_THREAD),[_unit] spawn GG_system_fnc_autoheal);
+	terminate (_unit getVariable [VAR_AUTOHEAL_THREAD,scriptNull]);
+	_unit setVariable [VAR_AUTOHEAL_THREAD,[_unit] spawn GG_system_fnc_autoheal];
 };

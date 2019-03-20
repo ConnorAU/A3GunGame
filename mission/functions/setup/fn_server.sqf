@@ -11,10 +11,10 @@
 #include "..\defines.inc"
 
 // this all needs to be done before waiting for players when the round is reset due to no players connected
-SVAR_J(MNS,"GG_s_killsPerWeapon",nil,true);
-SVAR_J(MNS,"GG_s_weaponPool",nil,true);
-SVAR_J(MNS,"GG_s_weaponPoolCondition",nil,true);
-SVAR_J(MNS,"GG_s_roundWinner",nil,true);
+missionNameSpace setVariable ["GG_s_killsPerWeapon",nil,true];
+missionNameSpace setVariable ["GG_s_weaponPool",nil,true];
+missionNameSpace setVariable ["GG_s_weaponPoolCondition",nil,true];
+missionNameSpace setVariable ["GG_s_roundWinner",nil,true];
 deleteMarker "GG_CombatZone";
 [] call GG_ai_fnc_clean;
 

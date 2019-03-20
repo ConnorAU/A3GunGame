@@ -36,8 +36,8 @@ if (0 in [_weaponType,count _finalWeaponsPool]) then {
 
 private _killStreak = "KillStreak" call BIS_fnc_getParamValue;
 private _finalKillStreak = [_killStreak,_killStreakDefault] select (_killStreak == 0);
-SVAR_J(MNS,"GG_s_killsPerWeapon",_finalKillStreak,true);
-SVAR_J(MNS,"GG_s_weaponPool",_finalWeaponsPool,true);
+missionNameSpace setVariable ["GG_s_killsPerWeapon",_finalKillStreak,true];
+missionNameSpace setVariable ["GG_s_weaponPool",_finalWeaponsPool,true];
 
 DLOG("Selected kill streak: "+str _finalKillStreak);
 DLOG("Selected weapons from pool:");

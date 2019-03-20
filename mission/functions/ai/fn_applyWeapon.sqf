@@ -11,10 +11,10 @@
 params [["_unit",objNull,[objNull]]];
 if (isNull _unit) exitWith {};
 
-private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
-private _killsPerWeapon = GVAR(MNS,"GG_s_killsPerWeapon",2);
+private _weaponPool = missionNameSpace getVariable["GG_s_weaponPool",[]];
+private _killsPerWeapon = missionNameSpace getVariable["GG_s_killsPerWeapon",2];
 
-private _curIndex = 0 max ((GVAR(selectRandom allPlayers,"GG_c_score",0)) + selectRandom[0,1,-1]) min (count _weaponPool - 1);
+private _curIndex = 0 max (((selectRandom allPlayers) getVariable ["GG_c_score",0]) + selectRandom[0,1,-1]) min (count _weaponPool - 1);
 private _weapon = _weaponPool#_curIndex;
 private _magazine = getArray(configFile >> "CfgWeapons" >> _weapon >> "magazines")#0;
 

@@ -11,7 +11,7 @@
 #include "..\macros.inc"
 #include "..\defines.inc"
 
-#define VAR_CAMERA FUNC_SUBVAR_RAW(camera)
+#define VAR_CAMERA FUNC_SUBVAR(camera)
 
 #define DIALOG_W 100
 #define DIALOG_H 140
@@ -23,12 +23,12 @@ switch _mode do {
 		// someone has already placed first
 		if ROUND_OVER exitWith {};
 
-		SVAR_J(MNS,"GG_s_roundWinner",_params,true);
+		missionNameSpace setVariable ["GG_s_roundWinner",_params,true];
 
-		private _winnerName = GVAR(_params,"GG_c_name",name _params);
+		private _winnerName = _params getVariable ["GG_c_name",name _params];
 		["client",[_winnerName,getPlayerUID _params]] remoteExec [QUOTE(THIS_FUNC),[0,-2] select isDedicated];
 
-		private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
+		private _weaponPool = missionNameSpace getVariable ["GG_s_weaponPool",[]];
 		private _scores = [] call GG_system_fnc_getLeaderboardStats;
 
 		// https://github.com/ConnorAU/SQFDiscordEmbedBuilder
@@ -54,7 +54,7 @@ switch _mode do {
 					]
 				]
 			]
-		] call (GVAR(MNS,"DiscordEmbedBuilder_fnc_buildSqf",{}));
+		] call (missionNameSpace getVariable ["DiscordEmbedBuilder_fnc_buildSqf",{}]);
 
 		[] call GG_ai_fnc_clean;
 
@@ -80,7 +80,7 @@ switch _mode do {
 
 		playSound (["Defeat","Victory"]select(_winnerUID == getPlayerUID player));
 
-		SVAR(MNS,"RscStatic_mode",[0]);
+		missionNameSpace setVariable ["RscStatic_mode",[0]];
 		"GG_c_later_static" cutRsc ["RscStatic","PLAIN"];
 
 		private _vol = soundVolume;
@@ -116,7 +116,7 @@ switch _mode do {
 				default {"th"};
 			}]],
 			["UpdatePartySize",0]
-		] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+		] call (missionNameSpace getVariable["DiscordRichPresence_fnc_update",{}]);
 
 		[format[
 			"<t size='1.5' shadow=2><t color='%2'>%1</t> won the round!</t>",_winnerName,

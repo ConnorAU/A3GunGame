@@ -31,7 +31,7 @@ switch _mode do {
 			};
 
 			private _displayEmpty = _display createDisplay "RscDisplayEmpty";
-			SVAR(_display,"GG_welcome_display",_displayEmpty);
+			_display setVariable ["GG_welcome_display",_displayEmpty];
 
 			private _ctrlBackground = _displayEmpty ctrlCreate ["ctrlStaticBackground",-1];
 			private _ctrlTitle = _displayEmpty ctrlCreate ["ctrlStaticTitle",-1];
@@ -109,14 +109,14 @@ switch _mode do {
 
 			{_x ctrlCommit 0} foreach [_ctrlBackground,_ctrlTitle,_ctrlFooter,_ctrlButton,_ctrlBody];
 		};
-		waitUntil {isNull (GVAR(_display,"GG_welcome_display",displayNull))};
-		SVAR(_display,"GG_welcome_display",nil);
+		waitUntil {isNull (_display getVariable ["GG_welcome_display",displayNull])};
+		_display setVariable ["GG_welcome_display",nil];
 	};
 	case "destroy":{
 		isNil {
 			disableSerialization;
 			USE_DISPLAY(findDisplay 46);
-			private _displayEmpty = GVAR(_display,"GG_welcome_display",displayNull);
+			private _displayEmpty = _display getVariable ["GG_welcome_display",displayNull];
 			_displayEmpty closeDisplay 2;
 		};
 	};

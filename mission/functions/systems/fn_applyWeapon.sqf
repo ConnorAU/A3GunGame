@@ -10,13 +10,13 @@
 
 params [["_calledByKill",false,[true]]];
 
-private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
-private _killsPerWeapon = GVAR(MNS,"GG_s_killsPerWeapon",2);
+private _weaponPool = missionNameSpace getVariable ["GG_s_weaponPool",[]];
+private _killsPerWeapon = missionNameSpace getVariable ["GG_s_killsPerWeapon",2];
 
 if (GG_c_killStreak >= _killsPerWeapon) then {
 	GG_c_killStreak = 0;
 	GG_c_score = GG_c_score + 1;
-	SVAR_J(player,"GG_c_score",GG_c_score,true);
+	player setVariable ["GG_c_score",GG_c_score,true];
 };
 if (GG_c_score >= count _weaponPool) exitWith {
 	["server",player] remoteExec ["GG_system_fnc_roundOver",2];
@@ -41,7 +41,7 @@ if !(ROUND_OVER) then {
 		["UpdateState",getText(configFile >> "CfgWeapons" >> _weapon >> "displayName") call GG_system_fnc_fixDiscordString],
 		["UpdatePartySize",_curIndex + 1],
 		["UpdatePartyMax",count _weaponPool]
-	] call (GVAR(MNS,"DiscordRichPresence_fnc_update",{}));
+	] call (missionNameSpace getVariable["DiscordRichPresence_fnc_update",{}]);
 };
 
 {player removeMagazine _x} foreach magazines player;

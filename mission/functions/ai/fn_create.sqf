@@ -22,7 +22,7 @@ _unit enableStamina false;
 _unit setCustomAimCoef (1-_difficulty);
 _group setCombatMode "RED";
 _group setBehaviour "COMBAT";
-SVAR(_group,"GG_s_group_AI",true);
+_group setVariable ["GG_s_group_AI",true];
 
 _unit addEventHandler ["HandleDamage",{call GG_eventhandler_fnc_handleDamage}];
 _unit addMPEventHandler ["MPHit",{call GG_eventhandler_fnc_MPHit}];

@@ -31,7 +31,7 @@ if _firstSpawn then {
 	uiSleep(((allPlayers find player)+1)/10);
 };
 
-private _deathPos = MNS getVariable ["GG_c_deathPos",[0,0,0]];
+private _deathPos = missionNameSpace getVariable ["GG_c_deathPos",[0,0,0]];
 private _zoneCenter = markerPos SPAWN_MARKER;
 private _zoneSize = markerSize SPAWN_MARKER;
 _zoneSize = (_zoneSize select 0) max (_zoneSize select 1);
@@ -75,7 +75,7 @@ player setPosASL _spawnPos;
 player setDir (getDir player + (player getRelDir markerPos SPAWN_MARKER));
 player setDamage 0;
 
-SVAR(MNS,"RscStatic_mode",[0]);
+missionNameSpace setVariable ["RscStatic_mode",[0]];
 ["",[-1,-1],[-1,-1],1,0] spawn BIS_fnc_dynamicText;
 "GG_c_later_static" cutRsc ["RscStatic","PLAIN"];
 "GG_c_layer_interlacing" cutText ["","PLAIN",0];

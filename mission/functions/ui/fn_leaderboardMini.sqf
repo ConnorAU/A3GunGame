@@ -29,7 +29,7 @@ switch _mode do {
 				_display ctrlCreate ["ctrlStaticTitle",-1],
 				_display ctrlCreate ["ctrlListNBox",-1]
 			];
-			SVAR(_display,"GG_leaderboardMini_ctrls",_allControls);
+			_display setVariable ["GG_leaderboardMini_ctrls",_allControls];
 
 			_allControls params ["_ctrlBackground","_ctrlTitle","_ctrlList"];
 
@@ -69,7 +69,7 @@ switch _mode do {
 	};
 	case "drawStats":{
 		_params params ["_ctrlList"];
-		private _weaponPool = GVAR(MNS,"GG_s_weaponPool",[]);
+		private _weaponPool = missionNameSpace getVariable ["GG_s_weaponPool",[]];
 		while {!isNull _ctrlList} do {
 			private _stats = [] call GG_system_fnc_getLeaderboardStats;
 			private _uidWritten = false;
@@ -104,9 +104,9 @@ switch _mode do {
 		isNil {
 			USE_DISPLAY(findDisplay 46);
 
-			private _allControls = GVAR(_display,"GG_leaderboardMini_ctrls",[]);
+			private _allControls = _display getVariable ["GG_leaderboardMini_ctrls",[]];
 			{ctrlDelete _x} forEach _allControls;
-			SVAR(_display,"GG_leaderboardMini_ctrls",nil);
+			_display setVariable ["GG_leaderboardMini_ctrls",nil];
 		};
 	};
 };

@@ -28,7 +28,7 @@ switch _mode do {
 				_display ctrlCreate ["ctrlStaticTitle",-1],
 				_display ctrlCreate ["ctrlListNBox",-1]
 			];
-			SVAR(_display,"GG_voteMap_ctrls",_allControls);
+			_display setVariable ["GG_voteMap_ctrls",_allControls];
 
 			_allControls params ["_ctrlBackground","_ctrlTitle","_ctrlList"];
 
@@ -67,21 +67,21 @@ switch _mode do {
 	};
 	case "drawVotes":{
 		USE_DISPLAY(findDisplay 12);
-		private _allControls = GVAR(_display,"GG_voteMap_ctrls",[]);
+		private _allControls = _display getVariable ["GG_voteMap_ctrls",[]];
 		_allControls params ["","_ctrlTitle","_ctrlList"];
 
-		private _timeRemaining = floor(((GVAR(MNS,"GG_s_voteEndTick",0))) - serverTime);
+		private _timeRemaining = floor((missionNameSpace getVariable ["GG_s_voteEndTick",0]) - serverTime);
 		private _title = if (_timeRemaining > 0) then {
 			format["Map Voting: %1 second%2 remaining",_timeRemaining max 0,["s",""] select (_timeRemaining == 1)];
 		} else {
-			format["Map Voting: %1",GVAR(MNS,"GG_s_votedMapName","")];
+			format["Map Voting: %1",missionNameSpace getVariable ["GG_s_votedMapName",""]];
 		};
 		_ctrlTitle ctrlSetText _title;
 
 		for "_i" from 1 to (lnbSize _ctrlList)#0 do {
 			_ctrlList lnbSetText [
 				[_i,1],
-				str({(GVAR(_x,"GG_s_mapVote",-1)) == (_i-1)} count allPlayers)
+				str({(_x getVariable ["GG_s_mapVote",-1]) == (_i-1)} count allPlayers)
 			];
 		};
 
@@ -93,9 +93,9 @@ switch _mode do {
 		isNil {
 			USE_DISPLAY(findDisplay 12);
 
-			private _allControls = GVAR(_display,"GG_voteMap_ctrls",[]);
+			private _allControls = _display getVariable ["GG_voteMap_ctrls",[]];
 			{ctrlDelete _x} forEach _allControls;
-			SVAR(_display,"GG_voteMap_ctrls",nil);
+			_display setVariable ["GG_voteMap_ctrls",nil];
 		};
 	};
 };
