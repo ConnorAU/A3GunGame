@@ -10,7 +10,7 @@ class CfgFunctions {
     class GG_ai {
         class ai {
             #ifdef IS_AIO_MOD
-            file="\GunGame\functions\ai";
+            file="\cau\gungame\functions\ai";
             #endif
             class applyWeapon {};
             class init {};
@@ -23,7 +23,7 @@ class CfgFunctions {
     class GG_config {
         class configs {
             #ifdef IS_AIO_MOD
-            file="\GunGame\functions\configs";
+            file="\cau\gungame\functions\configs";
             #endif
             class loadouts {};
             class maps {};
@@ -33,7 +33,7 @@ class CfgFunctions {
     class GG_eventhandler {
         class eventhandlers {
             #ifdef IS_AIO_MOD
-            file="\GunGame\functions\eventhandlers";
+            file="\cau\gungame\functions\eventhandlers";
             #endif
             class inventoryOpened {};
             class playerConnected {};
@@ -50,7 +50,7 @@ class CfgFunctions {
     class GG_setup {
         class setup {
             #ifdef IS_AIO_MOD
-            file="\GunGame\functions\setup";
+            file="\cau\gungame\functions\setup";
             #endif
             class mission {preInit=1;};
             class client {};
@@ -60,7 +60,7 @@ class CfgFunctions {
     class GG_system {
         class systems {
             #ifdef IS_AIO_MOD
-            file="\GunGame\functions\systems";
+            file="\cau\gungame\functions\systems";
             #endif
             class log {};
             class moveToSpawn {};
@@ -83,7 +83,7 @@ class CfgFunctions {
     class GG_ui {
         class ui {
             #ifdef IS_AIO_MOD
-            file="\GunGame\functions\ui";
+            file="\cau\gungame\functions\ui";
             #endif
             class voteMap {};
             class miniMap {};

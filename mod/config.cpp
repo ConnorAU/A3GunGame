@@ -7,8 +7,8 @@
 └──────────────────────────────────────────────────────*/
 
 class CfgPatches {
-    class GunGameMissions {
-        name="GunGameMissions";
+    class CAU_GunGameMissions {
+        name="CAU_GunGameMissions";
         author="ConnorAU";
         url="https://github.com/ConnorAU/A3GunGame";
 
@@ -23,7 +23,7 @@ class CfgPatches {
     author="ConnorAU";\
     briefingName="Gun Game";\
     difficulty="GunGame";\
-    directory=GunGame\mpmissions\##mod##\GunGame_ConnorAU.##worldName##;\
+    directory=cau\gungame\mpmissions\##mod##\cau.gungame.##worldName##;\
 };
 class CfgMissions {
     class MPMissions {

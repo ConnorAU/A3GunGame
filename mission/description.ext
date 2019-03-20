@@ -63,15 +63,15 @@ class CfgDiscordRichPresence {
 };
 
 #ifdef IS_AIO_MOD 
-#include "\GunGame\functions\CfgDebriefing.cpp"
-#include "\GunGame\functions\CfgFunctions.cpp"
-#include "\GunGame\functions\CfgParams.cpp"
-#include "\GunGame\functions\CfgRemoteExec.cpp"
-#include "\GunGame\functions\CfgSounds.cpp"
+#include "\cau\gungame\functions\CfgDebriefing.cpp"
+#include "\cau\gungame\functions\CfgFunctions.cpp"
+#include "\cau\gungame\functions\CfgParams.cpp"
+#include "\cau\gungame\functions\CfgRemoteExec.cpp"
+#include "\cau\gungame\functions\CfgSounds.cpp"
 
-#include "\GunGame\ui\controls.cpp"
+#include "\cau\gungame\ui\controls.cpp"
 class RscTitles {
-    #include "\GunGame\ui\DisplayMiniMap.cpp"
+    #include "\cau\gungame\ui\DisplayMiniMap.cpp"
 };
 #else 
 #include "functions\CfgDebriefing.cpp"

@@ -43,7 +43,7 @@ To install:
 Hosting this mission is no different to any other, though there are some things you should know just to make the experience more enjoyable.  
 
 ## Server-side difficulty mod
-You will find a pbo file named `GunGameDifficulty_ConnorAU.pbo` on the [releases](https://github.com/ConnorAU/A3GunGame/releases) page. This is for use server-side to include a custom difficulty calibrated for this game mode.  
+You will find a pbo file named `cau.gungamedifficulty.pbo` on the [releases](https://github.com/ConnorAU/A3GunGame/releases) page. This is for use server-side to include a custom difficulty calibrated for this game mode.  
 
 To install:
 1. Place the pbo in `Arma 3 Server\@gungame\addons` and include `-serverMod=@gungame` in your server command line
@@ -58,7 +58,7 @@ class Missions
 {
     class GunGameMalden
     {
-        template="GunGame_ConnorAU.Malden";
+        template="cau.gungame.Malden";
         difficulty="GunGame";
         class Params 
         {

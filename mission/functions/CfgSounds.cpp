@@ -20,7 +20,7 @@ class CfgSounds {
 	class Victory {
 		name = "Victory";
 		#ifdef IS_AIO_MOD
-		sound[] = {"@GunGame\victory.ogg", 0.5, 1};
+		sound[] = {"@cau\gungame\victory.ogg", 0.5, 1};
 		#else
 		sound[] = {"victory.ogg", 0.5, 1};
 		#endif
