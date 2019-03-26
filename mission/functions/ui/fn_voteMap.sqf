@@ -16,15 +16,16 @@ SWITCH_SYS_PARAMS;
 
 switch _mode do {
 	case "onLoad":{
-		uiNamespace setVariable [QUOTE(DISPLAY_NAME),_params#0];
+		USE_DISPLAY(findDisplay 12);
+		_display setVariable [QUOTE(DISPLAY_NAME),_params#0];
 	};
 	case "init":{
 		// Load the UI in unscheduled environment
 		isNil {
-			QUOTE(DISPLAY_NAME) cutRsc [QUOTE(DISPLAY_NAME),"PLAIN"];
-			USE_DISPLAY(THIS_DISPLAY);
-			USE_CTRL(_ctrlTitle,1);
-			USE_CTRL(_ctrlList,2);
+			USE_DISPLAY(findDisplay 12);
+			private _ctrlGroup = _display ctrlCreate [QUOTE(DISPLAY_NAME),-1];
+			USE_CTRL_G(_ctrlTitle,_ctrlGroup,1);
+			USE_CTRL_G(_ctrlList,_ctrlGroup,2);
 
 			_ctrlList lnbAddColumn 0.7;
 			_ctrlList lnbAddRow ["Map","Votes"];
@@ -36,9 +37,10 @@ switch _mode do {
 		};
 	};
 	case "drawVotes":{
-		USE_DISPLAY(THIS_DISPLAY);
-		USE_CTRL(_ctrlTitle,1);
-		USE_CTRL(_ctrlList,2);
+		USE_DISPLAY(findDisplay 12);
+		private _ctrlGroup = _display getVariable [QUOTE(DISPLAY_NAME),controlNull];
+		USE_CTRL_G(_ctrlTitle,_ctrlGroup,1);
+		USE_CTRL_G(_ctrlList,_ctrlGroup,2);
 
 		private _timeRemaining = floor((missionNameSpace getVariable ["GG_s_voteEndTick",0]) - serverTime);
 		private _title = if (_timeRemaining > 0) then {
@@ -60,6 +62,7 @@ switch _mode do {
 		};
 	};
 	case "destroy":{
-		QUOTE(DISPLAY_NAME) cutFadeOut 0;
+		USE_DISPLAY(findDisplay 12);
+		ctrlDelete (_display getVariable [QUOTE(DISPLAY_NAME),controlNull]);
 	};
 };

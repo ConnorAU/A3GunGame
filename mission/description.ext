@@ -87,11 +87,11 @@ class CfgFunctions {
 
 #include "\cau\gungame\ui\controls.cpp"
 #include "\cau\gungame\ui\DisplayAdminMenu.cpp"
+#include "\cau\gungame\ui\DisplayLeaderboard.cpp"
+#include "\cau\gungame\ui\DisplayVoteMap.cpp"
 class RscTitles {
-    #include "\cau\gungame\ui\DisplayLeaderboard.cpp"
     #include "\cau\gungame\ui\DisplayLeaderboardMini.cpp"
     #include "\cau\gungame\ui\DisplayMiniMap.cpp"
-    #include "\cau\gungame\ui\DisplayVoteMap.cpp"
     #include "\cau\gungame\ui\DisplayWeaponList.cpp"
 };
 #else 
@@ -107,11 +107,11 @@ class CfgFunctions {
 
 #include "ui\controls.cpp"
 #include "ui\DisplayAdminMenu.cpp"
+#include "ui\DisplayLeaderboard.cpp"
+#include "ui\DisplayVoteMap.cpp"
 class RscTitles {
-    #include "ui\DisplayLeaderboard.cpp"
     #include "ui\DisplayLeaderboardMini.cpp"
     #include "ui\DisplayMiniMap.cpp"
-    #include "ui\DisplayVoteMap.cpp"
     #include "ui\DisplayWeaponList.cpp"
 	#include "cau\extendedchat\RscTitles.cpp"
 };

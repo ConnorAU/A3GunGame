@@ -15,18 +15,20 @@ disableSerialization;
 SWITCH_SYS_PARAMS;
 
 switch _mode do {
-	case "onLoad":{
-		uiNamespace setVariable [QUOTE(DISPLAY_NAME),_params#0];
-	};
 	case "init":{
 		_params params [["_roundOver",false,[true]]];
 		isNil {
 			disableSerialization;
-			if !(isNull(THIS_DISPLAY)) exitWith {};
-			QUOTE(DISPLAY_NAME) cutRsc [QUOTE(DISPLAY_NAME),"PLAIN"];
-			USE_DISPLAY(THIS_DISPLAY);
-			USE_CTRL(_ctrlTitle,1);
-			USE_CTRL(_ctrlList,2);
+			USE_DISPLAY(findDisplay 46 createDisplay "RscDisplayEmpty");
+			uiNamespace setVariable [QUOTE(DISPLAY_NAME),_display];
+			private _ctrlGroup = _display ctrlCreate [QUOTE(DISPLAY_NAME),-1];
+			_display setVariable [QUOTE(DISPLAY_NAME),_ctrlGroup];
+			USE_CTRL_G(_ctrlTitle,_ctrlGroup,1);
+			USE_CTRL_G(_ctrlList,_ctrlGroup,2);
+
+			if _roundOver then {
+				_display displayAddEventHandler ["keyDown",{_this#1 == 1}];
+			};
 
 			_ctrlList lnbAddColumn 0.1;
 			_ctrlList lnbAddColumn 0.5;
@@ -71,6 +73,6 @@ switch _mode do {
 		};
 	};
 	case "destroy":{
-		QUOTE(DISPLAY_NAME) cutFadeOut 0;	
+		(THIS_DISPLAY) closeDisplay 2;
 	};
 };

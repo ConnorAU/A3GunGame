@@ -19,11 +19,6 @@ if GG_c_modifyVolume then {
 	GG_c_modifyVolume = false;
 }; 
 
-if (missionNameSpace getVariable ["GG_c_leaderboardShown",false]) then {
-	["destroy"] call GG_ui_fnc_leaderboard;
-	GG_c_leaderboardShown = false;
-};
-
 if (_key == DIK_V) exitWith {
 	[] call GG_system_fnc_jump;
 	true

@@ -19,7 +19,6 @@ if !(ROUND_OVER) then {
 	};
 
 	if (inputAction "NetworkStats" > 0) then {
-		GG_c_leaderboardShown = true;
 		["init"] call GG_ui_fnc_leaderboard;
 	};
 };
