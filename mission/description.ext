@@ -51,26 +51,38 @@ wreckLimit=0;
 wreckRemovalMinTime=10;
 wreckRemovalMaxTime=11;
 
-// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
-class CfgDiscordRichPresence {
-    applicationID="534915632446046244";
-    defaultDetails="Joining session";
-    defaultState="";
-    defaultLargeImageKey="arma3";
-    defaultLargeImageText="";
-    defaultSmallImageKey="";
-    defaultSmallImageText="";
+class CfgRemoteExec {
+    class Functions {
+        mode=1;
+        jip=1;
+
+        class GG_system_fnc_roundOver {allowedTargets = 2;};
+        class GG_system_fnc_resizeCombatZone {allowedTargets = 2;};
+        class GG_system_fnc_validateUnit {allowedTargets = 2;};
+                
+        #ifdef DEV_BUILD
+        class bis_fnc_debugconsoleexec {allowedTargets = 0;};
+        #endif
+
+        class CAU_xChat_fnc_sendMessage {allowedTargets=0;};
+		class CAU_xChat_fnc_log {allowedTargets=2;};
+		class CAU_xChat_fnc_radioChannelCustom {allowedTargets=2;};
+    };
+    class Commands {
+        mode=1;
+        jip=0;
+
+        class switchMove {allowedTargets = 0;};
+    };
 };
 
 #ifdef IS_AIO_MOD 
 class CfgFunctions {
     #include "\cau\gungame\functions\CfgFunctions.cpp"
-    // Dependencies listed on steam:
-    //     https://steamcommunity.com/sharedfiles/filedetails/?id=1673595418
 };
+
 #include "\cau\gungame\functions\CfgDebriefing.cpp"
 #include "\cau\gungame\functions\CfgParams.cpp"
-#include "\cau\gungame\functions\CfgRemoteExec.cpp"
 #include "\cau\gungame\functions\CfgSounds.cpp"
 
 #include "\cau\gungame\ui\controls.cpp"
@@ -85,11 +97,12 @@ class RscTitles {
 #else 
 class CfgFunctions {
     #include "functions\CfgFunctions.cpp"
+	#include "cau\extendedchat\CfgFunctions.cpp"
     #include "cau\userinputmenus\CfgFunctions.cpp"
 };
+
 #include "functions\CfgDebriefing.cpp"
 #include "functions\CfgParams.cpp"
-#include "functions\CfgRemoteExec.cpp"
 #include "functions\CfgSounds.cpp"
 
 #include "ui\controls.cpp"
@@ -100,6 +113,7 @@ class RscTitles {
     #include "ui\DisplayMiniMap.cpp"
     #include "ui\DisplayVoteMap.cpp"
     #include "ui\DisplayWeaponList.cpp"
+	#include "cau\extendedchat\RscTitles.cpp"
 };
 
 // https://github.com/ConnorAU/A3UserInputMenus
@@ -108,4 +122,28 @@ class RscTitles {
 #include "cau\userinputmenus\systems\_defines.inc"
 #include "cau\userinputmenus\systems\displayGuiMessage.cpp"
 #include "cau\userinputmenus\systems\displayListbox.cpp"
+
+// https://github.com/ConnorAU/A3ExtendedChat
+#include "cau\extendedchat\emojipack\twemoji\CfgEmoji.cpp"
 #endif
+
+// https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
+class CfgDiscordRichPresence {
+    applicationID="534915632446046244";
+    defaultDetails="Joining session";
+    defaultState="";
+    defaultLargeImageKey="arma3";
+    defaultLargeImageText="";
+    defaultSmallImageKey="";
+    defaultSmallImageText="";
+};
+
+// https://github.com/ConnorAU/A3ExtendedChat
+CAU_xChat_enabled = 1;
+CAU_xChat_emojis = 1;
+CAU_xChat_connectMessages = 1;
+CAU_xChat_disconnectMessages = 1;
+CAU_xChat_deathMessages = 1;
+CAU_xChat_MOTD[]={
+//  {delay before printing,message}
+};

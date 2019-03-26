@@ -40,20 +40,25 @@ private _text = [
 	"<t size='1.2'>Optional Mods</t>",
 	"This mission has built in support for the following optional mods:",
 	format["%1",["Discord Rich Presence","https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159"] call _linkText],
-	format["%1 (server-side only)",["Discord Embed Builder","https://github.com/ConnorAU/SQFDiscordEmbedBuilder"] call _linkText]
+	format["%1 (server-side only)",["Discord Embed Builder","https://github.com/ConnorAU/SQFDiscordEmbedBuilder"] call _linkText],
+	""
 ];
 
 // Open source mods are not embeded in the AIO mod. They are listed as dependencies instead.
-if !(isClass(configFile >> "CfgPatches" >> "CAU_GunGameMissions")) then {
-	_text append [
-		"",
+_text append ([
+	[
 		"<t size='1.2'>Embeded Mods</t>",
-		"This mission contains the following open source mods:",
-		format["%1",["User Input Menus","https://steamcommunity.com/sharedfiles/filedetails/?id=1673595418"] call _linkText]
-	];
-};
+		"This mission contains the following open source mods:"
+	],
+	[
+		"<t size='1.2'>Required Mods</t>",
+		"This mission requires the following mods to work properly:"
+	]
+] select isClass(configFile >> "CfgPatches" >> "CAU_GunGameMissions"));
 
 _text append [
+	format["%1",["Extended Chat","https://steamcommunity.com/sharedfiles/filedetails/?id=1667280668"] call _linkText],
+	format["%1",["User Input Menus","https://steamcommunity.com/sharedfiles/filedetails/?id=1673595418"] call _linkText],
 	"",
 	format["If you have any questions about this mission, you can contact me on %1.",["discord","https://discord.gg/DMkxetD"] call _linkText]
 ];

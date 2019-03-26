@@ -1,6 +1,7 @@
 mission/mission.sqm
 mission/load.paa
 mission/license.md
+mission/stringtable.xml
 mission/cau
 maps/*.xcf
 maps/*/*/*.png

@@ -118,6 +118,10 @@ switch _mode do {
 			["UpdatePartySize",0]
 		] call (missionNameSpace getVariable["DiscordRichPresence_fnc_update",{}]);
 
+		// https://github.com/ConnorAU/A3ExtendedChat
+		private _emoji = ["getImage","party_popper"] call (missionNameSpace getVariable ["CAU_xChat_fnc_emoji",{""}]);
+		["systemChat",format["%1 %2 won the round! %1",[":party_popper:",""] select (_emoji == ""),_winnerName]] call (missionNameSpace getVariable ["CAU_xChat_fnc_sendMessage",{}]);
+
 		[format[
 			"<t size='1.5' shadow=2><t color='%2'>%1</t> won the round!</t>",_winnerName,
 			([COLOR_ACTIVE_RGBA] call BIS_fnc_colorConfigToRGBA) call BIS_fnc_colorRGBtoHTML
