@@ -60,7 +60,7 @@ switch _mode do {
 
 		uisleep 25;
 
-		private _maxRounds = "MaxRounds" call BIS_fnc_getParamValue;
+		private _maxRounds = ["get","MaxRounds"] call GG_system_fnc_params;
 		if (_maxRounds > 0) then {
 			if (isNil "GG_s_roundsPlayed") then {GG_s_roundsPlayed = 0};
 			GG_s_roundsPlayed = GG_s_roundsPlayed + 1;

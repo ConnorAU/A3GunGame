@@ -7,56 +7,26 @@
 └──────────────────────────────────────────────────────*/
 
 #define THIS_FUNC GG_ui_fnc_leaderboard
+#define DISPLAY_NAME GG_displayLeaderboard
 
-#include "..\macros.inc"
 #include "..\defines.inc"
-
-#define DIALOG_W 100
-#define DIALOG_H 140
 
 disableSerialization;
 SWITCH_SYS_PARAMS;
 
 switch _mode do {
+	case "onLoad":{
+		uiNamespace setVariable [QUOTE(DISPLAY_NAME),_params#0];
+	};
 	case "init":{
 		_params params [["_roundOver",false,[true]]];
 		isNil {
 			disableSerialization;
-			USE_DISPLAY(findDisplay 46);
-			if !(isNil{_display getVariable "GG_leaderboard_ctrls"}) exitWith {};
-
-			private _allControls = [
-				_display ctrlCreate ["ctrlStaticBackground",-1],
-				_display ctrlCreate ["ctrlStaticTitle",-1],
-				_display ctrlCreate ["ctrlListNBox",-1]
-			];
-			_display setVariable ["GG_leaderboard_ctrls",_allControls];
-
-			_allControls params ["_ctrlBackground","_ctrlTitle","_ctrlList"];
-
-			_ctrlBackground ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
-				CENTER_YA(DIALOG_H),
-				PX_WA(DIALOG_W),
-				PX_HA(DIALOG_H)
-			];
-
-			_ctrlTitle ctrlSetText "Leaderboard";
-			_ctrlTitle ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
-				CENTER_YA(DIALOG_H),
-				PX_WA(DIALOG_W),
-				PX_HS(SIZE_M)
-			];
-
-			_ctrlList ctrlSetPosition [
-				CENTER_XA(DIALOG_W),
-				CENTER_YA(DIALOG_H) + PX_HS(SIZE_XL),
-				PX_WA(DIALOG_W),
-				PX_HA(DIALOG_H) - PX_HS((SIZE_XL+1))
-			];
-
-			{_x ctrlCommit 0} foreach _allControls;
+			if !(isNull(THIS_DISPLAY)) exitWith {};
+			QUOTE(DISPLAY_NAME) cutRsc [QUOTE(DISPLAY_NAME),"PLAIN"];
+			USE_DISPLAY(THIS_DISPLAY);
+			USE_CTRL(_ctrlTitle,1);
+			USE_CTRL(_ctrlList,2);
 
 			_ctrlList lnbAddColumn 0.1;
 			_ctrlList lnbAddColumn 0.5;
@@ -101,13 +71,6 @@ switch _mode do {
 		};
 	};
 	case "destroy":{
-		isNil {
-			disableSerialization;
-			USE_DISPLAY(findDisplay 46);
-
-			private _allControls = _display getVariable ["GG_leaderboard_ctrls",[]];
-			{ctrlDelete _x} forEach _allControls;
-			_display setVariable ["GG_leaderboard_ctrls",nil];
-		};
+		QUOTE(DISPLAY_NAME) cutFadeOut 0;	
 	};
 };

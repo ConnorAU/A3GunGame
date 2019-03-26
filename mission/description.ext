@@ -63,25 +63,49 @@ class CfgDiscordRichPresence {
 };
 
 #ifdef IS_AIO_MOD 
+class CfgFunctions {
+    #include "\cau\gungame\functions\CfgFunctions.cpp"
+    // Dependencies listed on steam:
+    //     https://steamcommunity.com/sharedfiles/filedetails/?id=1673595418
+};
 #include "\cau\gungame\functions\CfgDebriefing.cpp"
-#include "\cau\gungame\functions\CfgFunctions.cpp"
 #include "\cau\gungame\functions\CfgParams.cpp"
 #include "\cau\gungame\functions\CfgRemoteExec.cpp"
 #include "\cau\gungame\functions\CfgSounds.cpp"
 
 #include "\cau\gungame\ui\controls.cpp"
+#include "\cau\gungame\ui\DisplayAdminMenu.cpp"
 class RscTitles {
+    #include "\cau\gungame\ui\DisplayLeaderboard.cpp"
+    #include "\cau\gungame\ui\DisplayLeaderboardMini.cpp"
     #include "\cau\gungame\ui\DisplayMiniMap.cpp"
+    #include "\cau\gungame\ui\DisplayVoteMap.cpp"
+    #include "\cau\gungame\ui\DisplayWeaponList.cpp"
 };
 #else 
+class CfgFunctions {
+    #include "functions\CfgFunctions.cpp"
+    #include "cau\userinputmenus\CfgFunctions.cpp"
+};
 #include "functions\CfgDebriefing.cpp"
-#include "functions\CfgFunctions.cpp"
 #include "functions\CfgParams.cpp"
 #include "functions\CfgRemoteExec.cpp"
 #include "functions\CfgSounds.cpp"
 
 #include "ui\controls.cpp"
+#include "ui\DisplayAdminMenu.cpp"
 class RscTitles {
+    #include "ui\DisplayLeaderboard.cpp"
+    #include "ui\DisplayLeaderboardMini.cpp"
     #include "ui\DisplayMiniMap.cpp"
+    #include "ui\DisplayVoteMap.cpp"
+    #include "ui\DisplayWeaponList.cpp"
 };
+
+// https://github.com/ConnorAU/A3UserInputMenus
+#include "cau\userinputmenus\controls.cpp"
+#include "cau\userinputmenus\systems\_macros.inc"
+#include "cau\userinputmenus\systems\_defines.inc"
+#include "cau\userinputmenus\systems\displayGuiMessage.cpp"
+#include "cau\userinputmenus\systems\displayListbox.cpp"
 #endif

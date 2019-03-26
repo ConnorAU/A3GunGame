@@ -93,13 +93,13 @@ class Params {
         values[] = {0,6,9,12,15,18};
         default = 0;
     };
-    class Weather_Fog {
+    class WeatherFog {
         title = "Fog density";
         texts[] = {"Random","No Fog","Light Fog","Heavy Fog"};
         values[] = {0,1,2,3};
         default = 1;
     };
-    class Weather_Rain {
+    class WeatherRain {
         title = "Rain levels";
         texts[] = {"Random","No Rain","Light Rain","Heavy Rain","Thunder Storm"};
         values[] = {0,1,2,3,4};

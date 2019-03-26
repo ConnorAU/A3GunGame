@@ -24,4 +24,4 @@ if !(ROUND_OVER) then {
 	};
 };
 
-GG_c_modifyVolume || (_key == DIK_V && _shift)
+GG_c_modifyVolume || _key in [DIK_F2] || (_key in [DIK_V] && _shift)

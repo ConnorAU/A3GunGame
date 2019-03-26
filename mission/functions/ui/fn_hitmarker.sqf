@@ -16,9 +16,9 @@ params [["_kill",false,[true]]];
 
 disableSerialization;
 USE_DISPLAY(findDisplay 46);
-private _ctrlImage = _display ctrlCreate ["ctrlStaticPicture",-1];
 
-_ctrlImage ctrlSetText"\a3\ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
+private _ctrlImage = _display ctrlCreate ["ctrlStaticPicture",-1];
+_ctrlImage ctrlSetText "\a3\ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa";
 _ctrlImage ctrlSetTextColor ([[1,1,1,1],[1,0,0,1]] select _kill);
 _ctrlImage ctrlSetPosition [
 	CENTER_XS(DIALOG_W),

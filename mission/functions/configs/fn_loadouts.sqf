@@ -23,7 +23,7 @@
 #define OPTRE_SPARTAN 50
 #define OPTRE_URBAN 51
 
-private _paramValue = "Loadout" call BIS_fnc_getParamValue;
+private _paramValue = ["get","Loadout"] call GG_system_fnc_params;
 private _loadout = if (_paramValue == 0) then {
 	switch worldName do {
 

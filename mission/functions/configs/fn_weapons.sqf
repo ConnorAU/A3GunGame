@@ -18,7 +18,7 @@
 #define CUP 40
 #define OPTRE 50
 
-private _paramValue = "WeaponPool" call BIS_fnc_getParamValue;
+private _paramValue = ["get","WeaponPool"] call GG_system_fnc_params;
 private _weaponPool = if (_paramValue == 0) then {
 	switch worldName do {
 

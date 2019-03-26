@@ -27,11 +27,14 @@ if (isNil "GG_s_firstInitComplete") then {
 	addMissionEventHandler["PlayerConnected",{_this spawn GG_eventhandler_fnc_playerConnected}];
 	addMissionEventHandler["HandleDisconnect",{call GG_eventhandler_fnc_handleDisconnect}];
 
+	["init"] call GG_system_fnc_params;
+
 	west setFriend [west,0];
 	
 	GG_s_firstInitComplete = true;
 };
 
+["pending"] call GG_system_fnc_params;
 [] call GG_system_fnc_setWeather;
 ["server"] call GG_system_fnc_voteMap; 
 [] call GG_system_fnc_setWeaponPool;

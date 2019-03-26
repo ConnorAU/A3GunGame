@@ -28,3 +28,7 @@ if (_key == DIK_V) exitWith {
 	[] call GG_system_fnc_jump;
 	true
 };
+if (_key == DIK_F2) exitWith {
+	["init"] call GG_ui_fnc_adminMenu;
+	true
+};

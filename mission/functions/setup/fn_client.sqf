@@ -97,7 +97,7 @@ if (isNil "GG_c_firstInitComplete") then {
 	(finddisplay 46) displayAddEventHandler ["KeyUp",{call GG_eventhandler_fnc_keyUp}];
 
 	[] call GG_ui_fnc_watermark;
-	["init"] call GG_ui_fnc_welcome;
+	[] call GG_ui_fnc_welcome;
 
 	GG_c_firstInitComplete = true;
 };

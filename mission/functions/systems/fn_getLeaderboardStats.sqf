@@ -18,7 +18,8 @@ private _list = allPlayers select {
 	_x getVariable ["GG_c_kills",0],
 	_x getVariable ["GG_c_deaths",0],
 	_x getVariable ["GG_c_name",""],
-	getPlayerUID _x
+	getPlayerUID _x,
+	_x
 ]};
 _list sort false;
 _list

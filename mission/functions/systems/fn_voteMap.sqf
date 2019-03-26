@@ -22,7 +22,10 @@ switch _mode do {
 		missionNameSpace setVariable ["GG_s_voteEndTick",serverTime + 60,true];
 
 		// wait for all players to vote or for voting time to run out
-		private _allMaps = [] call GG_config_fnc_maps;
+		private _customPos = missionNamespace getVariable ["GG_admin_customCombatZonePos",[]];
+		private _allMaps = if (_customPos isEqualTo []) then {
+			[] call GG_config_fnc_maps;
+		} else {[+_customPos]};
 		private _votes = [];
 
 		// Skip voting if there is only one possible location
@@ -113,7 +116,6 @@ switch _mode do {
 		waitUntil {COMBAT_ZONE_EXISTS};
 		["",[-1,-1],[-1,-1],1,0] spawn BIS_fnc_dynamicText;
 		[true,false,2] call GG_eventhandler_fnc_map;
-		["destroy"] call GG_ui_fnc_welcome;
 
 		uisleep 5;
 

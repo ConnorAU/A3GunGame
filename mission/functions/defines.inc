@@ -44,4 +44,6 @@
     #define CENTER_YA(n) (CENTER_Y)-(0.5*(PX_HA(n)))
     #define CENTER_XS(n) (CENTER_X)-(0.5*(PX_WS(n)))
     #define CENTER_YS(n) (CENTER_Y)-(0.5*(PX_HS(n)))
+
+    #define SIZE_XXL 7
 #endif

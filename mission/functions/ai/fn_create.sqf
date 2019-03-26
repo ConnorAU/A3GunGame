@@ -11,7 +11,7 @@
 #include "..\defines.inc"
 
 if ROUND_OVER exitWith {};
-private _difficulty = "AIDifficulty" call BIS_fnc_getParamValue;
+private _difficulty = ["get","AIDifficulty"] call GG_system_fnc_params;
 
 private _group = createGroup[west,true];
 private _unit = _group createUnit ["B_RangeMaster_F",getMarkerPos "respawn",[],0,"NONE"];

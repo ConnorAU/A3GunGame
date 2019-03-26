@@ -7,54 +7,24 @@
 └──────────────────────────────────────────────────────*/
 
 #define THIS_FUNC GG_ui_fnc_voteMap
+#define DISPLAY_NAME GG_displayVoteMap
 
-#include "..\macros.inc"
 #include "..\defines.inc"
-
-#define DIALOG_X safeZoneX + PX_WS(SIZE_XL)
-#define DIALOG_W 60
-#define DIALOG_H 93
 
 disableSerialization;
 SWITCH_SYS_PARAMS;
 
 switch _mode do {
+	case "onLoad":{
+		uiNamespace setVariable [QUOTE(DISPLAY_NAME),_params#0];
+	};
 	case "init":{
 		// Load the UI in unscheduled environment
 		isNil {
-			USE_DISPLAY(findDisplay 12);
-			private _allControls = [
-				_display ctrlCreate ["ctrlStaticBackground",-1],
-				_display ctrlCreate ["ctrlStaticTitle",-1],
-				_display ctrlCreate ["ctrlListNBox",-1]
-			];
-			_display setVariable ["GG_voteMap_ctrls",_allControls];
-
-			_allControls params ["_ctrlBackground","_ctrlTitle","_ctrlList"];
-
-			_ctrlBackground ctrlSetPosition [
-				DIALOG_X,
-				CENTER_YA(DIALOG_H),
-				PX_WS(DIALOG_W),
-				PX_HA(DIALOG_H)
-			];
-
-			_ctrlTitle ctrlSetText "Map Voting";
-			_ctrlTitle ctrlSetPosition [
-				DIALOG_X,
-				CENTER_YA(DIALOG_H),
-				PX_WS(DIALOG_W),
-				PX_HS(SIZE_M)
-			];
-
-			_ctrlList ctrlSetPosition [
-				DIALOG_X,
-				CENTER_YA(DIALOG_H) + PX_HS(SIZE_XL),
-				PX_WS(DIALOG_W),
-				PX_HA(DIALOG_H) - PX_HS((SIZE_XL+1))
-			];
-
-			{_x ctrlCommit 0} foreach _allControls;
+			QUOTE(DISPLAY_NAME) cutRsc [QUOTE(DISPLAY_NAME),"PLAIN"];
+			USE_DISPLAY(THIS_DISPLAY);
+			USE_CTRL(_ctrlTitle,1);
+			USE_CTRL(_ctrlList,2);
 
 			_ctrlList lnbAddColumn 0.7;
 			_ctrlList lnbAddRow ["Map","Votes"];
@@ -66,9 +36,9 @@ switch _mode do {
 		};
 	};
 	case "drawVotes":{
-		USE_DISPLAY(findDisplay 12);
-		private _allControls = _display getVariable ["GG_voteMap_ctrls",[]];
-		_allControls params ["","_ctrlTitle","_ctrlList"];
+		USE_DISPLAY(THIS_DISPLAY);
+		USE_CTRL(_ctrlTitle,1);
+		USE_CTRL(_ctrlList,2);
 
 		private _timeRemaining = floor((missionNameSpace getVariable ["GG_s_voteEndTick",0]) - serverTime);
 		private _title = if (_timeRemaining > 0) then {
@@ -90,12 +60,6 @@ switch _mode do {
 		};
 	};
 	case "destroy":{
-		isNil {
-			USE_DISPLAY(findDisplay 12);
-
-			private _allControls = _display getVariable ["GG_voteMap_ctrls",[]];
-			{ctrlDelete _x} forEach _allControls;
-			_display setVariable ["GG_voteMap_ctrls",nil];
-		};
+		QUOTE(DISPLAY_NAME) cutFadeOut 0;
 	};
 };

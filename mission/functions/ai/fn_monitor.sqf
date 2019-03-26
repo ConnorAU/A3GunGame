@@ -23,7 +23,7 @@ if (!isNull _target && {alive _target
 	//([objNull,"VIEW"] checkVisibility [eyePos _unit,getPosASL _target]) > 0.25
 }) exitWith {};
 
-private _difficulty = "AIDifficulty" call BIS_fnc_getParamValue;
+private _difficulty = ["get","AIDifficulty"] call GG_system_fnc_params;
 private _units = allUnits select {alive _x && {_x != _unit && {_x inArea "GG_CombatZone"}}} apply {[_unit distance _x,_x]};
 _units sort true;
 
