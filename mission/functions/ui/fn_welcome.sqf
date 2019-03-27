@@ -11,12 +11,7 @@
 #include "..\macros.inc"
 #include "..\defines.inc"
 
-private _linkText = {
-	params ["_text","_url"];
-	private _colorRGBA = [COLOR_ACTIVE_RGBA] call BIS_fnc_colorConfigToRGBA;
-	private _colorHex = _colorRGBA call BIS_fnc_colorRGBtoHTML;
-	format["<a colorLink='%1' href='%2'>%3</t>",_colorHex,_url,_text]
-};
+private _linkText = FNC_LINKTEXT;
 
 private _text = [
 	"<t size='1.4' align='center'>Gun Game by ConnorAU</t>",
@@ -63,5 +58,12 @@ _text append [
 	format["If you have any questions about this mission, you can contact me on %1.",["discord","https://discord.gg/DMkxetD"] call _linkText]
 ];
 
-[_text joinString "<br/>","Welcome",{},"Continue"] call CAU_UserInputMenus_fnc_guiMessage;
+// https://github.com/ConnorAU/A3UserInputMenus
+[_text joinString "<br/>","Welcome",{},"Continue"] call (missionNameSpace getVariable ["CAU_UserInputMenus_fnc_guiMessage",{
+	uiNamespace setVariable ["CAU_UserInputMenus_displayGuiMessage",findDisplay 46];
+	[_this#0,_this#1,_this#3] spawn {
+		_this call BIS_fnc_guiMessage;
+		uiNamespace setVariable ["CAU_UserInputMenus_displayGuiMessage",displayNull];
+	};
+}]);
 waitUntil {isNull(uiNamespace getVariable ["CAU_UserInputMenus_displayGuiMessage",displayNull])};

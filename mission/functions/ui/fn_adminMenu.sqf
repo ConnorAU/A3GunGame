@@ -9,6 +9,7 @@
 #define THIS_FUNC GG_ui_fnc_adminMenu
 #define DISPLAY_NAME GG_displayAdminMenu
 
+#include "..\macros.inc"
 #include "..\defines.inc"
 
 #define VAL_CUSTOM_POS_MARKER "GG_CombatZoneCustom"
@@ -132,6 +133,7 @@ switch _mode do {
 			];
 		};
 
+		// https://github.com/ConnorAU/A3UserInputMenus
 		[
 			_options,
 			"Select a Value",
@@ -141,7 +143,18 @@ switch _mode do {
 				};
 			},
 			"Select",""
-		] call CAU_UserInputMenus_fnc_listBox;
+		] call (missionNameSpace getVariable ["CAU_UserInputMenus_fnc_listBox",{
+			private _linkText = FNC_LINKTEXT;
+
+			[
+				parseText format[
+					"You cannot set new parameter values without the %1 mod.",
+					["User Input Menus","https://steamcommunity.com/sharedfiles/filedetails/?id=1673595418"] call _linkText
+				],
+				"Missing Mod",
+				"Ok"
+			] spawn BIS_fnc_guiMessage;
+		}]);
 	};
 	case "ParamsValueChanged":{
 		_params params ["_paramData","_paramValue"];
@@ -365,13 +378,19 @@ switch _mode do {
 
 			_display closeDisplay 2;
 
+			// https://github.com/ConnorAU/A3UserInputMenus
 			[
 				"Would you like to reset the round and apply these changes immediately?",
 				"Changes saved",
 				{["confirm",_confirmed] call THIS_FUNC},
 				"Reset Now",
 				"Reset Later"
-			] call CAU_UserInputMenus_fnc_guiMessage;
+			] call (missionNameSpace getVariable ["CAU_UserInputMenus_fnc_guiMessage",{
+				_this spawn {
+					private _confirmed = [_this#0,_this#1,_this#3,_this#4] call BIS_fnc_guiMessage;
+					call (_this#2);
+				};
+			}]);
 		} else {
 			if _params then {
 				private _scores = [] call GG_system_fnc_getLeaderboardStats;

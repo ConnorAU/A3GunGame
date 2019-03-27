@@ -28,6 +28,16 @@
     #define DLOG(input) [QUOTE(THIS_FUNC),input] call GG_system_fnc_log
 #endif
 
+#ifdef COLOR_ACTIVE_RGBA
+    #define FNC_LINKTEXT \
+    {\
+        params ["_text","_url"];\
+        private _colorRGBA = [COLOR_ACTIVE_RGBA] call BIS_fnc_colorConfigToRGBA;\
+        private _colorHex = _colorRGBA call BIS_fnc_colorRGBtoHTML;\
+        format["<a colorLink='%1' href='%2'>%3</t>",_colorHex,_url,_text]\
+    }
+#endif
+
 // ~ UI Positioning
 #ifdef pixelScale
     // Mission UIs were built using small UI scale.
