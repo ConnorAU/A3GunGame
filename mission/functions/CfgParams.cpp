@@ -45,13 +45,14 @@ class Params {
 /*   43 */  "CUP (Winter)",
 /*   44 */  "CUP (Woodland)",
 /*   20 */  "IFA3",
+/*   22 */  "IFA3 (Desert)",
 /*   21 */  "IFA3 (Winter)",
 /*   50 */  "OPTRE (Spartan)",
 /*   51 */  "OPTRE (Urban)",
 /*   30 */  "RHS (OCP)",
 /*   31 */  "RHS (UCP)"
         };
-        values[] = {0,1,2,10,11,12,40,41,42,43,44,20,21,50,51,30,31};
+        values[] = {0,1,2,10,11,12,40,41,42,43,44,20,22,21,50,51,30,31};
         default = 0;
     };
     SPACER(1);

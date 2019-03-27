@@ -13,6 +13,7 @@
 #define TCB_BAF_Woodland 12
 #define IFA3 20
 #define IFA3_Winter 21
+#define IFA3_Desert 22
 #define RHS_OCP 30
 #define RHS_UCP 31
 #define CUP_ACU 40
@@ -50,6 +51,8 @@ private _loadout = if (_paramValue == 0) then {
 		case "I44_merderet_koth":{IFA3};
 		case "StaszowWinter";
 		case "SWU_Ardennes_1944_Winter":{IFA3_Winter};
+		case "iron_excelsior_Tobruk";
+		case "SWU_Egypt_El_Alamein":{IFA3_Desert};
 
 		// Independent maps 
 		case "MontellaV3";
@@ -95,6 +98,11 @@ private _loadout = if (_paramValue == 0) then {
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Vehicles_ZZZ_LastLoaded_c")
 	}]};
 	case IFA3_Winter:{["U_LIB_US_Private_w","V_LIB_US_Assault_Vest","H_LIB_US_Helmet_w","",{
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") && 
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") && 
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Vehicles_ZZZ_LastLoaded_c")
+	}]};
+	case IFA3_Desert:{["U_LIB_US_Rangers_Uniform","V_LIB_US_AB_Vest_Padded_Thompson","H_LIB_US_Helmet","",{
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") && 
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") && 
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Vehicles_ZZZ_LastLoaded_c")

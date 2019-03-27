@@ -127,8 +127,14 @@ switch worldName do {
 	case "I44_Merderet_V3":{[
 		["Chef-du-Point",[2724.76,2707.97,0],[100,100],0]
 	]};
+	case "iron_excelsior_Tobruk":{[
+		["Tobruk",[5626.2,6134.15,0],[100,100],0]
+	]};
 	case "SWU_Ardennes_1944_Winter":{[
 		["Le Champ De Trou",[6403.85,7284.21,0],[100,100],0]
+	]};
+	case "SWU_Egypt_El_Alamein":{[
+		["El Alamein",[5033.731,6073.750,0],[100,100],0]
 	]};
 	case "StaszowWinter";
 	case "Staszow":{[

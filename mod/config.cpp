@@ -45,9 +45,11 @@ class CfgMissions {
         // IFA3 
         MISSION_ENTRY(I44_merderet_koth,IFA3)
         MISSION_ENTRY(I44_Merderet_V3,IFA3)
+        MISSION_ENTRY(iron_excelsior_Tobruk,IFA3)
         MISSION_ENTRY(Staszow,IFA3)
         MISSION_ENTRY(StaszowWinter,IFA3)
         MISSION_ENTRY(SWU_Ardennes_1944_Winter,IFA3)
+        MISSION_ENTRY(SWU_Egypt_El_Alamein,IFA3)
 
         // Independent
         MISSION_ENTRY(isladuala3,Independent)

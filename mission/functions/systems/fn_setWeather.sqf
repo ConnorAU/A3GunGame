@@ -29,6 +29,8 @@
 	case "I44_Merderet_V3";
 	case "I44_merderet_koth":{[1,5,19]};
 	case "SWU_Ardennes_1944_Winter":{[6,4,20]};
+	case "iron_excelsior_Tobruk";
+	case "SWU_Egypt_El_Alamein";
 	case "StaszowWinter";
 	case "Staszow":{[6,5,19]};
 

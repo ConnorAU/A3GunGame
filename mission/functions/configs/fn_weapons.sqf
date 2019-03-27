@@ -40,6 +40,8 @@ private _weaponPool = if (_paramValue == 0) then {
 		case "Chernarus_Winter":{CUP};
 
 		// IFA3
+		case "iron_excelsior_Tobruk";
+		case "SWU_Egypt_El_Alamein";
 		case "StaszowWinter";
 		case "Staszow";
 		case "SWU_Ardennes_1944_Winter";
