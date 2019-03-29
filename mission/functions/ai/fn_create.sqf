@@ -20,6 +20,10 @@ _unit allowFleeing (1-_difficulty);
 _unit disableConversation true;
 _unit enableStamina false;
 _unit setCustomAimCoef (1-_difficulty);
+
+// https://github.com/ConnorAU/A3ExtendedChat
+_unit setVariable ["CAU_xChat_unit_name",format["%1 (AI)",name _unit],true];
+
 _group setCombatMode "RED";
 _group setBehaviour "COMBAT";
 _group setVariable ["GG_s_group_AI",true];
