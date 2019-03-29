@@ -1,6 +1,7 @@
 # Gun Game
 30 man free-for-all weapon progression game mode created for Arma 3.  
 Subscribe to the all-in-one [steam workshop mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1641133934) or download individual map files from the [releases](https://github.com/ConnorAU/A3GunGame/releases) page.  
+If you have any questions about this mission, you can contact me on discord: https://discord.gg/DMkxetD
 
 # Mod support
 This mission is built with support for the following map, uniform and weapon mods:
@@ -39,10 +40,10 @@ To install:
 
 ![Example Webhook](https://i.imgur.com/KxZ5rnB.png)
 
-# Hosting a server
+# Host a server
 Hosting this mission is no different to any other, though there are some things you should know just to make the experience more enjoyable.  
 
-## Server-side difficulty mod
+## Server-side difficulty mod (Optional)
 You will find a pbo file named `cau.gungamedifficulty.pbo` on the [releases](https://github.com/ConnorAU/A3GunGame/releases) page. This is for use server-side to include a custom difficulty calibrated for this game mode.  
 
 To install:
@@ -71,10 +72,15 @@ class Missions
 };
 ```
 
+## Host a server from the server browser
+The following instructions are for if you are **not** using the AIO mod.
+
+1. Download `cau.gungamemissions.zip` from the [releases](https://github.com/ConnorAU/A3GunGame/releases) page
+2. Extract the mission file(s) you want to use into the `mpmissions` folder found in your Arma 3 installation folder
+3. Rename the mission file(s) from `cau.gungame.<map>.pbo` to `cau_gungame.<map>.pbo` (prevents game crash)
+
 # License
 This work is licensed under CUP-License (CUP-L), Version 1.0  
 http://cup-arma3.org/license  
 https://github.com/ConnorAU/A3GunGame/blob/master/LICENSE
  
-# Contact me
-If you have any questions about this mission, you can contact me on discord: https://discord.gg/DMkxetD
