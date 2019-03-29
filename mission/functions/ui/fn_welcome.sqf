@@ -8,18 +8,28 @@
 
 #define THIS_FUNC GG_ui_fnc_welcome
 
+#include "..\dikcodes.inc"
 #include "..\macros.inc"
 #include "..\defines.inc"
 
 private _linkText = FNC_LINKTEXT;
+private _keyName = {
+	params ["_dik",["_action",""]];
+	private _str = if (_action == "") then {keyName _dik} else {
+		if (actionKeysNames _action != "") then {actionKeysNames _action} else {keyName _dik};
+	};
+	_str select [1,count _str - 2];
+};
 
 private _text = [
 	"<t size='1.4' align='center'>Gun Game by ConnorAU</t>",
 	"",
 	"<t size='1.2'>Controls</t>",
-	"F1 or Custom Action 1: Earplugs",
-	"P or Multiplayer Statistics: Leaderboard",
-	"V: Jump (while running, primary weapon only)",
+	format["%1: Earplugs",[DIK_F1,"User1"] call _keyName],
+	format["%1: Admin Menu (for ingame admin only)",[DIK_F2] call _keyName],
+	format["%1: Jump (while running, primary weapon only)",[DIK_V] call _keyName],
+	format["%1: Leaderboard",[DIK_P,"networkStats"] call _keyName],
+	format["%1: Open this welcome message",[DIK_H] call _keyName],
 	"",
 	"<t size='1.2'>Mod Support</t>",
 	"This version of gun game supports the following map, uniform and weapon mods:",
@@ -66,4 +76,7 @@ _text append [
 		uiNamespace setVariable ["CAU_UserInputMenus_displayGuiMessage",displayNull];
 	};
 }]);
-waitUntil {isNull(uiNamespace getVariable ["CAU_UserInputMenus_displayGuiMessage",displayNull])};
+
+if canSuspend then {
+	waitUntil {isNull(uiNamespace getVariable ["CAU_UserInputMenus_displayGuiMessage",displayNull])};
+};

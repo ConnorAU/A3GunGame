@@ -21,6 +21,7 @@ if !(ROUND_OVER) then {
 	if (inputAction "NetworkStats" > 0) then {
 		["init"] call GG_ui_fnc_leaderboard;
 	};
+
 };
 
-GG_c_modifyVolume || _key in [DIK_F2] || (_key in [DIK_V] && _shift)
+GG_c_modifyVolume || _key in [DIK_H,DIK_F2] || (_key in [DIK_V] && _shift)

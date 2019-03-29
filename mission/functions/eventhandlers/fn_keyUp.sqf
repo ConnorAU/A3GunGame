@@ -21,9 +21,10 @@ if GG_c_modifyVolume then {
 
 if (_key == DIK_V) exitWith {
 	[] call GG_system_fnc_jump;
-	true
+};
+if (_key == DIK_H) exitWith {
+	[] call GG_ui_fnc_welcome;
 };
 if (_key == DIK_F2) exitWith {
 	["init"] call GG_ui_fnc_adminMenu;
-	true
 };
