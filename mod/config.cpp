@@ -13,7 +13,7 @@ class CfgPatches {
         url="https://github.com/ConnorAU/A3GunGame";
 
         requiredVersion=0.01;
-        requiredAddons[]={};
+        requiredAddons[]={"CAU_ExtendedChat","CAU_UserInputMenus"};
         units[]={};
         weapons[]={};
     };
