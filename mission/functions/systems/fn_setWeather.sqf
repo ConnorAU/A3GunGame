@@ -38,7 +38,7 @@
 	case "MontellaV3":{[6,5,18]};
 	case "isladuala3":{[6,6,18]};
 
-	default {[1,7,5]};
+	default {[1,7,17]};
 }) params ["_month","_min","_max"];
 
 private _paramHour = ["get","TimeOfDay"] call GG_system_fnc_params;

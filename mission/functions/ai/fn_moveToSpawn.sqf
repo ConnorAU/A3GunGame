@@ -26,7 +26,9 @@ private _spawnPos = [];
 
 for "_i" from 1 to 1000 do {
 	scopeName "findSpawnLoop";
-	private _thisPos = ATLtoASL(([_zoneCenter,0,(0.75 max (_i/20) min 1)*_zoneSize,1,0,0.35] call BIS_fnc_findSafePos) + [0]);
+	private _thisPos = [_zoneCenter,0,(0.75 max (_i/20) min 1)*_zoneSize,1,0,0.35] call BIS_fnc_findSafePos;
+	if (count _thisPos == 2) then {_thisPos pushback 0};
+	_thisPos = ATLtoASL _thisPos;
 	if (_thisPos inArea SPAWN_MARKER) then {
 		private _isHidden = true;
 		{
