@@ -68,6 +68,12 @@ class Params {
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
         default = 0;
     };
+    class EnemyMapBlips {
+        title = "Enemy blips on the radar";
+        texts[] = {"Enabled","Disabled"};
+        values[] = {1,0};
+        default = 1;
+    };
     class MaxRounds {
         title = "Maximum rounds played before the mission ends";
         texts[] = {"Infinite","1","2","3","4","5","6","7","8","9","10"};

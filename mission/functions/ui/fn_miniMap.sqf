@@ -38,8 +38,11 @@ switch _mode do {
 			_ctrlTitle ctrlSetText format["Location: %1",missionNameSpace getVariable ["GG_s_votedMapName",""]];
 			["modifyZoom"] call THIS_FUNC;
 
-			_ctrlMap ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
-			(findDisplay 12 displayCtrl 51) ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
+			private _blipsEnabled = ["get","EnemyMapBlips"] call GG_system_fnc_params;
+			if (_blipsEnabled isEqualTo 1) then {
+				_ctrlMap ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
+				(findDisplay 12 displayCtrl 51) ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
+			};
 		};
 	};
 	case "modifyZoom":{
