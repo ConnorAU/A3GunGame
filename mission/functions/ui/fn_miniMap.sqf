@@ -13,6 +13,7 @@
 
 #define VAR_UNITS_INFO FUNC_SUBVAR(units_info)
 #define VAR_UPDATE_TICK FUNC_SUBVAR(update_tick)
+#define VAR_UPDATE_BLIPS FUNC_SUBVAR(update_blips_enabled)
 #define VAL_UPDATE_FREQ 8
 #define VAL_ICON_SIZE 16
 
@@ -30,6 +31,7 @@ switch _mode do {
 
 			VAR_UNITS_INFO = [];
 			VAR_UPDATE_TICK = 0;
+			VAR_UPDATE_BLIPS = (["get","EnemyMapBlips"] call GG_system_fnc_params) isEqualTo 1;
 
 			USE_DISPLAY(THIS_DISPLAY);
 			USE_CTRL(_ctrlTitle,1);
@@ -38,11 +40,8 @@ switch _mode do {
 			_ctrlTitle ctrlSetText format["Location: %1",missionNameSpace getVariable ["GG_s_votedMapName",""]];
 			["modifyZoom"] call THIS_FUNC;
 
-			private _blipsEnabled = ["get","EnemyMapBlips"] call GG_system_fnc_params;
-			if (_blipsEnabled isEqualTo 1) then {
-				_ctrlMap ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
-				(findDisplay 12 displayCtrl 51) ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
-			};
+			_ctrlMap ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
+			(findDisplay 12 displayCtrl 51) ctrlAddEventHandler ["Draw",{["drawBlips",_this] call THIS_FUNC}];
 		};
 	};
 	case "modifyZoom":{
@@ -63,17 +62,20 @@ switch _mode do {
 
 		if !COMBAT_ZONE_EXISTS exitWith {};
 
-		if (diag_tickTime > VAR_UPDATE_TICK) then {
-			VAR_UPDATE_TICK = diag_tickTime + VAL_UPDATE_FREQ;
-			VAR_UNITS_INFO = allUnits select {
-				alive _x && {_x != player && {_x distance (markerPos "respawn") > 50}}
-			} apply {getPos _x};
-		};
+		// Enable/disable enemy blips without disabling the drawn player icon
+		if VAR_UPDATE_BLIPS then {
+			if (diag_tickTime > VAR_UPDATE_TICK) then {
+				VAR_UPDATE_TICK = diag_tickTime + VAL_UPDATE_FREQ;
+				VAR_UNITS_INFO = allUnits select {
+					alive _x && {_x != player && {_x distance (markerPos "respawn") > 50}}
+				} apply {getPos _x};
+			};
 
-		private _size = VAL_ICON_SIZE*(1 min((VAR_UPDATE_TICK-3)-diag_tickTime)max 0);
-		{
-			_ctrlMap drawIcon ["\a3\ui_f\data\map\markers\military\dot_ca.paa",[1,0,0,1],_x,_size,_size,0];
-		} foreach VAR_UNITS_INFO;
+			private _size = VAL_ICON_SIZE*(1 min((VAR_UPDATE_TICK-3)-diag_tickTime)max 0);
+			{
+				_ctrlMap drawIcon ["\a3\ui_f\data\map\markers\military\dot_ca.paa",[1,0,0,1],_x,_size,_size,0];
+			} foreach VAR_UNITS_INFO;
+		};
 
 		_ctrlMap drawIcon ["\A3\ui_f\data\map\vehicleicons\iconman_ca.paa",[0.8,1,0.8,1],getPos player,24,24,getDirVisual player];
 	};
