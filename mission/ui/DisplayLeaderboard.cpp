@@ -35,7 +35,7 @@ class GG_displayLeaderboard: GG_ctrlControlsGroupNoScrollBars {
             idc=2;
             y=PX_HA(SIZE_M) + PX_HA(1);
             w=PX_WA(DIALOG_W);
-            h=PX_HA(DIALOG_H) - PX_HA(SIZE_M) - PX_HA(2);
+            h=PX_HA(DIALOG_H) - PX_HA(SIZE_M);
         };
     };
 };
