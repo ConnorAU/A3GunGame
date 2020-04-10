@@ -124,7 +124,7 @@ switch _mode do {
 
 		[format[
 			"<t size='1.5' shadow=2><t color='%2'>%1</t> won the round!</t>",_winnerName,
-			([COLOR_ACTIVE_RGBA] call BIS_fnc_colorConfigToRGBA) call BIS_fnc_colorRGBtoHTML
+			([COLOR_ACTIVE_RGBA] apply {_x call BIS_fnc_parseNumber}) call BIS_fnc_colorRGBtoHTML
 		],-1,-1,8,1] call BIS_fnc_dynamicText;
 		uisleep 1;
 		["init",[true]] call GG_ui_fnc_leaderboard;

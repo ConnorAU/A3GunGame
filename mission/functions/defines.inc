@@ -32,7 +32,7 @@
     #define FNC_LINKTEXT \
     {\
         params ["_text","_url"];\
-        private _colorRGBA = [COLOR_ACTIVE_RGBA] call BIS_fnc_colorConfigToRGBA;\
+        private _colorRGBA = [COLOR_ACTIVE_RGBA] apply {_x call BIS_fnc_parseNumber};\
         private _colorHex = _colorRGBA call BIS_fnc_colorRGBtoHTML;\
         format["<a colorLink='%1' href='%2'>%3</t>",_colorHex,_url,_text]\
     }
