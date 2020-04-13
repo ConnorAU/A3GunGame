@@ -16,6 +16,7 @@ if (local _unit) then {
 		GG_c_deaths = GG_c_deaths + 1;
 		GG_c_deathPos = getpos _unit;
 		GG_c_cameraView = cameraView;
+		GG_c_fireMode = weaponState player # 2;
 		player setVariable ["GG_c_deaths",GG_c_deaths,true];
 
 		GG_c_killStreak = 0;

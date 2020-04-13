@@ -29,6 +29,7 @@ private _magazine = getArray(configFile >> "CfgWeapons" >> _weapon >> "magazines
 ["update",[_weaponPool,_curIndex,_killsPerWeapon]] call GG_ui_fnc_weaponList;
 
 if _calledByKill then {
+	GG_c_fireMode = weaponState player # 2;
 	playSound "NewWeapon";
 };
 
@@ -51,3 +52,11 @@ while {player canAdd _magazine} do {
 	player addMagazine _magazine;
 };
 player addWeapon _weapon;
+
+if (!isNil "GG_c_fireMode") then {
+	private _weapon = currentWeapon player;
+	private _ammo = player ammo _weapon;
+	player setAmmo [_weapon, 0];
+	player forceWeaponFire [_weapon,GG_c_fireMode];
+	player setAmmo [_weapon,_ammo];
+};
