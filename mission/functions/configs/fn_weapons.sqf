@@ -95,17 +95,19 @@ switch _weaponPool do {
 		2,
 		{true}, // Pretty sure you can use DLC weapons with a watermark so no need to kick for it 
 		[
-			"SMG_05_F", // Only DLC weapon in the SMG section
+			"SMG_05_F",
+			format["sgun_HunterShotgun_01%1_f",selectRandom["","_sawedoff"]],
 			"SMG_01_F",
 			"SMG_02_F",
 			format["SMG_03%1%2_%3",selectRandom["","C"],selectRandom["","_TR"],selectRandom["black","camo","hex","khaki"]]
 		],
 		[
-			format["arifle_AK%1_F",selectRandom[12,"M","S"]],
+			format["arifle_AK%1_F",selectRandom["12","12_lush","12_arid","12U","12U_lush","12U_arid","M","S"]],
 			format["arifle_CTAR_%1_F",selectRandom["blk","ghex","hex"]],
 			format["arifle_MX%1_khk_F",selectRandom["","C","M"]],
 			format["arifle_SPAR_0%1_%2_F",selectRandom[1,3],selectRandom["blk","khk","snd"]],
-			format["arifle_ARX_%1_F",selectRandom["blk","ghex","hex"]]
+			format["arifle_ARX_%1_F",selectRandom["blk","ghex","hex"]],
+			format["arifle_MSBS65%1_F",selectRandom["","_black","_camo","_sand","_Mark","_Mark_black","_Mark_camo","_Mark_sand"]]
 		],
 		[
 			"srifle_GM6_ghex_F",
@@ -115,11 +117,13 @@ switch _weaponPool do {
 			format["srifle_DMR_05_%1_F",selectRandom["blk","hex","tan"]],
 			format["srifle_DMR_02%1_F",selectRandom["","_camo","_sniper"]],
 			format["srifle_DMR_03%1_F",selectRandom["","_multicam","_khaki","_tan","_woodland"]],
-			format["srifle_DMR_06%1_F",selectRandom["_camo","_olive"]]
+			format["srifle_DMR_06%1_F",selectRandom["_camo","_olive","_hunter"]]
 		],
 		[
 			"LMG_03_F",
+			"LMG_Mk200_black_F",
 			"arifle_MX_SW_khk_F",
+			format["arifle_RPK12%1_F",selectRandom["","_arid","_lush"]],
 			format["MMG_01_%1_F",selectRandom["hex","tan","black"]],
 			format["MMG_02_%1_F",selectRandom["camo","sand"]]
 		],
