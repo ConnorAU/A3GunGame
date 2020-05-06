@@ -122,6 +122,7 @@ class RscTitles {
 #include "cau\userinputmenus\systems\_defines.inc"
 #include "cau\userinputmenus\systems\displayGuiMessage.cpp"
 #include "cau\userinputmenus\systems\displayListbox.cpp"
+#include "cau\userinputmenus\systems\displayListboxMulti.cpp"
 
 // https://github.com/ConnorAU/A3ExtendedChat
 #include "cau\extendedchat\emojipack\twemoji\CfgEmoji.cpp"

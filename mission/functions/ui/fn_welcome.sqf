@@ -69,9 +69,9 @@ _text append [
 ];
 
 // https://github.com/ConnorAU/A3UserInputMenus
-[_text joinString "<br/>","Welcome",{},"Continue"] call (missionNameSpace getVariable ["CAU_UserInputMenus_fnc_guiMessage",{
+[[_text joinString "<br/>"],"Welcome",{},"Continue"] call (missionNameSpace getVariable ["CAU_UserInputMenus_fnc_guiMessage",{
 	uiNamespace setVariable ["CAU_UserInputMenus_displayGuiMessage",findDisplay 46];
-	[_this#0,_this#1,_this#3] spawn {
+	[_this#0#0,_this#1,_this#3] spawn {
 		_this call BIS_fnc_guiMessage;
 		uiNamespace setVariable ["CAU_UserInputMenus_displayGuiMessage",displayNull];
 	};

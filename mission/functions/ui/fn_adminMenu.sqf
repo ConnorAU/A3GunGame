@@ -135,7 +135,7 @@ switch _mode do {
 
 		// https://github.com/ConnorAU/A3UserInputMenus
 		[
-			_options,
+			[_options],
 			"Select a Value",
 			{
 				if _confirmed then {
@@ -380,7 +380,7 @@ switch _mode do {
 
 			// https://github.com/ConnorAU/A3UserInputMenus
 			[
-				"Would you like to reset the round and apply these changes immediately?",
+				["Would you like to reset the round and apply these changes immediately?"],
 				"Changes saved",
 				{["confirm",_confirmed] call THIS_FUNC},
 				"Reset Now",
