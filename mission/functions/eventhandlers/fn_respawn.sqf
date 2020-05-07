@@ -19,6 +19,7 @@ _unit setVariable ["GG_c_kills",GG_c_kills,true];
 _unit setVariable ["GG_c_deaths",GG_c_deaths,true];
 _unit setVariable ["GG_c_score",GG_c_score,true];
 _unit setVariable ["GG_c_name",name _unit,true];
+_unit setVariable ["GG_c_hitPointDamage",[]];
 
 deleteVehicle _corpse;
 
