@@ -41,11 +41,6 @@ private _text = [
 	format["%1",["Operation: TREBUCHET","https://steamcommunity.com/workshop/filedetails/?id=769440155"] call _linkText],
 	format["%1 (AFRF, GREF, SAF and USAF)",["RHS","https://steamcommunity.com/workshop/filedetails/?id=843770737"] call _linkText],
 	format["You can find mission files for other maps on %1 and %2.",["steam","https://steamcommunity.com/sharedfiles/filedetails/?id=1641133934"] call _linkText,["github","https://github.com/ConnorAU/A3GunGame/releases"] call _linkText],
-	"",
-	"<t size='1.2'>Optional Mods</t>",
-	"This mission has built in support for the following optional mods:",
-	format["%1",["Discord Rich Presence","https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159"] call _linkText],
-	format["%1 (server-side only)",["Discord Embed Builder","https://github.com/ConnorAU/SQFDiscordEmbedBuilder"] call _linkText],
 	""
 ];
 
@@ -64,6 +59,11 @@ _text append ([
 _text append [
 	format["%1",["Extended Chat","https://steamcommunity.com/sharedfiles/filedetails/?id=1667280668"] call _linkText],
 	format["%1",["User Input Menus","https://steamcommunity.com/sharedfiles/filedetails/?id=1673595418"] call _linkText],
+	"",
+	"<t size='1.2'>Optional Mods</t>",
+	"This mission has built in support for the following optional mods:",
+	format["%1",["Discord Rich Presence","https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159"] call _linkText],
+	format["%1 (server-side only)",["Discord Embed Builder","https://github.com/ConnorAU/SQFDiscordEmbedBuilder"] call _linkText],
 	"",
 	format["If you have any questions about this mission, you can contact me on %1.",["discord","https://discord.gg/DMkxetD"] call _linkText]
 ];
