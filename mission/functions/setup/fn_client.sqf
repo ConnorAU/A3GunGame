@@ -21,10 +21,17 @@ if (isNil "GG_c_firstInitComplete") then {
 	GG_c_preloadFinished = nil;
 };
 
+private _tick = diag_tickTime + 1;
 startLoadingScreen [""];
 
 if (isNil "GG_c_firstInitComplete") then {
-	waituntil {!isNull player && {player isKindOf "CAManBase" && {!isMultiplayer || {netid player != ""}}}};
+	waituntil {
+		if (diag_tickTime > _tick) then {
+			_tick = diag_tickTime + 1;
+			diag_log text format["CAU_GG_DEBUG || %1 %2: %3",__FILE__,__LINE__,[!isNull player,player isKindOf "CAManBase",!isMultiplayer,netid player != ""]];
+		};
+		!isNull player && {player isKindOf "CAManBase" && {!isMultiplayer || {netid player != ""}}}
+	};
 
 	[player] remoteExecCall ["GG_system_fnc_validateUnit",2];
 
@@ -32,7 +39,13 @@ if (isNil "GG_c_firstInitComplete") then {
 	for "_i" from 1 to 50 do {
 		private _group = createGroup[playerSide,true];
 		[player] joinSilent _group;
-		waitUntil {group player isEqualTo _group};
+		waitUntil {
+			if (diag_tickTime > _tick) then {
+				_tick = diag_tickTime + 1;
+				diag_log text format["CAU_GG_DEBUG || %1 %2: %3",__FILE__,__LINE__,[group player isEqualTo _group,group player,_group]];
+			};
+			group player isEqualTo _group
+		};
 		if (count units _group == 1) exitWith {};
 	};
 
@@ -89,7 +102,13 @@ player setVariable ["GG_c_deaths",GG_c_deaths,true];
 player setVariable ["GG_c_score",GG_c_score,true];
 player setVariable ["GG_c_name",name player,true];
 
-waitUntil {!(displayNull in [findDisplay 12,findDisplay 46])};
+waitUntil {
+	if (diag_tickTime > _tick) then {
+		_tick = diag_tickTime + 1;
+		diag_log text format["CAU_GG_DEBUG || %1 %2: %3",__FILE__,__LINE__,[!(displayNull in [findDisplay 12,findDisplay 46]),[findDisplay 12,findDisplay 46]]];
+	};
+	!(displayNull in [findDisplay 12,findDisplay 46])
+};
 endLoadingScreen;
 
 if (isNil "GG_c_firstInitComplete") then {
