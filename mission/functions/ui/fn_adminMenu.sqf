@@ -135,7 +135,7 @@ switch _mode do {
 
 		// https://github.com/ConnorAU/A3UserInputMenus
 		[
-			[_options],
+			[_options,_ctrlListParams lbValue _index],
 			"Select a Value",
 			{
 				if _confirmed then {
