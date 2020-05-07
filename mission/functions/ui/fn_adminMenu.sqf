@@ -47,11 +47,12 @@ switch _mode do {
 				private _name = configName _x;
 				private _value = ["getPending",_name] call GG_system_fnc_params;
 				private _values = getArray(_x >> "values");
+				private _valueIndex = _values find _value;
 
 				private _index = _ctrlListParams lbAdd getText(_x >> "title");
-				_ctrlListParams lbSetTextRight [_index,getArray(_x >> "texts")#(_values find _value)];
+				_ctrlListParams lbSetTextRight [_index,getArray(_x >> "texts")#_valueIndex];
 				_ctrlListParams lbSetData [_index,_name];
-				_ctrlListParams lbSetValue [_index,_value];
+				_ctrlListParams lbSetValue [_index,_valueIndex];
 			} forEach ("true" configClasses (missionConfigFile >> "Params"));
 			_ctrlListParams ctrlAddEventHandler ["LBDblClick",{["ParamsLBDblClick",_this] call THIS_FUNC}];
 
@@ -123,13 +124,12 @@ switch _mode do {
 
 		private _cfg = missionConfigFile >> "Params" >> _data;
 		private _texts = getArray(_cfg >> "texts");
-		private _values = getArray(_cfg >> "values");
 
 		private _options = [];
 		for "_i" from 0 to count _texts - 1 do {
 			_options pushback [
 				[_texts#_i],[],[],[],"",
-				_texts#_i,_values#_i
+				_texts#_i,_i
 			];
 		};
 
@@ -339,10 +339,10 @@ switch _mode do {
 			USE_CTRL(_ctrlListParams,1);
 			USE_CTRL(_ctrlComboWeapon,3);
 			USE_CTRL(_ctrlListWeaponR,5);
-
+			
 			for "_i" from 0 to lbSize _ctrlListParams - 1 do {
 				private _param = _ctrlListParams lbData _i;
-				private _valueNew = _ctrlListParams lbValue _i;
+				private _valueNew = getArray(missionConfigFile >> "Params" >> _param >> "values")#(_ctrlListParams lbValue _i);
 				private _valueOld = ["get",_param] call GG_system_fnc_params;
 				if (_valueNew != _valueOld) then {
 					["setPending",[_param,_valueNew]] call GG_system_fnc_params;
