@@ -38,6 +38,14 @@
 	case "MontellaV3":{[6,5,18]};
 	case "isladuala3":{[6,6,18]};
 
+	// Unsung
+	case "DaKrong":{[6,6,18]};
+	case "phu_bai":{[6,5,18]};
+	case "psyfx_pht":{[1,6,18]};
+	case "RungSat":{[6,6,18]};
+	case "song_bin_tanh":{[1,6,18]};
+	case "uns_dong_ha":{[1,6,18]};
+
 	default {[1,7,17]};
 }) params ["_month","_min","_max"];
 
