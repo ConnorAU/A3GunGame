@@ -40,6 +40,7 @@ private _text = [
 	format["%1",["Montella","https://steamcommunity.com/workshop/filedetails/?id=1562904329"] call _linkText],
 	format["%1",["Operation: TREBUCHET","https://steamcommunity.com/workshop/filedetails/?id=769440155"] call _linkText],
 	format["%1 (AFRF, GREF, SAF and USAF)",["RHS","https://steamcommunity.com/workshop/filedetails/?id=843770737"] call _linkText],
+	format["%1",["Unsung","https://steamcommunity.com/workshop/filedetails/?id=943001311"] call _linkText],
 	format["You can find mission files for other maps on %1 and %2.",["steam","https://steamcommunity.com/sharedfiles/filedetails/?id=1641133934"] call _linkText,["github","https://github.com/ConnorAU/A3GunGame/releases"] call _linkText],
 	""
 ];
