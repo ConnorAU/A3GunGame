@@ -7,11 +7,14 @@ If you have any questions about this mission, you can contact me on discord: htt
 This mission is built with support for the following map, uniform and weapon mods:
 - [3CB](https://steamcommunity.com/workshop/filedetails/?id=909680404) (Equipment & Weapons)
 - [CUP](https://steamcommunity.com/workshop/filedetails/?id=583575232) (Terrains, Units & Weapons)
+- [Chernarus 2020](https://steamcommunity.com/sharedfiles/filedetails/?id=1981964169)
+- [Chernarus Redux](https://steamcommunity.com/sharedfiles/filedetails/?id=1128256978)
 - [IFA3](https://steamcommunity.com/workshop/filedetails/?id=660460283)
 - [Isla Duala](https://steamcommunity.com/workshop/filedetails/?id=714149065)
 - [Montella](https://steamcommunity.com/workshop/filedetails/?id=1562904329)
 - [Operation: TREBUCHET](https://steamcommunity.com/workshop/filedetails/?id=769440155)
 - [RHS](https://steamcommunity.com/workshop/filedetails/?id=843770737) (AFRF, GREF, SAF & USAF)
+- [Unsung](https://steamcommunity.com/workshop/filedetails/?id=943001311)
 
 If you choose to host a version of the mission using any of the mods above, all players & the server are **required** to have the selected mods enabled.
 
