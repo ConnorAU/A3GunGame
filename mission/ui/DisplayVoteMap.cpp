@@ -34,6 +34,7 @@ class GG_displayVoteMap: GG_ctrlControlsGroup {
         };
         class list: GG_ctrlListNBox {
             idc=2;
+            disableOverflow=1;
             y=PX_HS(SIZE_XL);
             w=PX_WS(DIALOG_W);
             h=PX_HA(DIALOG_H) - PX_HS((SIZE_XL+1));

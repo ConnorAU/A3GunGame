@@ -30,12 +30,13 @@ private _weaponPool = if (_paramValue == 0) then {
 		// Vanilla (DLC)
 		case "Tanoa":{VANILLA_DLC};
 
-		// CUP 
+		// CUP
 		case "zargabad";
 		case "takistan";
 		case "sara";
 		case "porto";
 		case "chernarus";
+		case "cup_chernarus_a3";
 		case "chernarus_summer";
 		case "Chernarus_Winter":{CUP};
 
@@ -48,9 +49,14 @@ private _weaponPool = if (_paramValue == 0) then {
 		case "I44_Merderet_V3";
 		case "I44_merderet_koth":{IFA3};
 
-		// Independent maps 
+		// Independent maps
 		//case "MontellaV3";
 		//case "isladuala3";
+		//case "chernarusredux";
+
+        // RHS
+        case "rhspkl":{RHS};
+
 
 		default {VANILLA};
 	};
@@ -66,7 +72,7 @@ switch _weaponPool do {
 			"SMG_02_F",
 			format["SMG_03%1%2_%3",selectRandom["","C"],selectRandom["","_TR"],selectRandom["black","camo","hex","khaki"]]
 		],
-		[ // Rifle 
+		[ // Rifle
 			format["arifle_Katiba%1_F",selectRandom["","_C"]],
 			format["arifle_Mk20%1_F",selectRandom["","_plain"]],
 			format["arifle_MX%1%2_F",selectRandom["","C"],selectRandom["","_Black"]],
@@ -78,7 +84,7 @@ switch _weaponPool do {
 			"srifle_EBR_F",
 			"srifle_DMR_01_F"
 		],
-		[ // LMG 
+		[ // LMG
 			"LMG_Mk200_F",
 			format["arifle_MX_SW%1_F",selectRandom["","_Black"]],
 			"LMG_Zafir_F"
@@ -93,7 +99,7 @@ switch _weaponPool do {
 	]};
 	case VANILLA_DLC:{[
 		2,
-		{true}, // Pretty sure you can use DLC weapons with a watermark so no need to kick for it 
+		{true}, // Pretty sure you can use DLC weapons with a watermark so no need to kick for it
 		[
 			"SMG_05_F",
 			format["sgun_HunterShotgun_01%1_f",selectRandom["","_sawedoff"]],
@@ -322,9 +328,9 @@ switch _weaponPool do {
 	case RHS:{[
 		2,
 		{
-			isClass(configFile >> "CfgPatches" >> "rhs_main") && 
-			isClass(configFile >> "CfgPatches" >> "rhsgref_main") && 
-			isClass(configFile >> "CfgPatches" >> "rhssaf_main") && 
+			isClass(configFile >> "CfgPatches" >> "rhs_main") &&
+			isClass(configFile >> "CfgPatches" >> "rhsgref_main") &&
+			isClass(configFile >> "CfgPatches" >> "rhssaf_main") &&
 			isClass(configFile >> "CfgPatches" >> "rhsusf_main")
 		},
 		[

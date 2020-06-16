@@ -16,12 +16,13 @@
 	// Vanilla (DLC)
 	case "Tanoa":{[2,6,19]};
 
-	// CUP 
+	// CUP
 	case "zargabad";
 	case "takistan";
 	case "sara";
 	case "porto";
 	case "chernarus";
+	case "cup_chernarus_a3";
 	case "chernarus_summer";
 	case "Chernarus_Winter":{[6,5,19]};
 
@@ -37,6 +38,10 @@
 	// Independent maps
 	case "MontellaV3":{[6,5,18]};
 	case "isladuala3":{[6,6,18]};
+	case "chernarusredux":{[6,5,19]};
+
+    // RHS
+    case "rhspkl":{[6,6,18]};
 
 	// Unsung
 	case "DaKrong":{[6,6,18]};

@@ -85,6 +85,7 @@ switch worldName do {
 	]};
 
 	// CUP
+    case "cup_chernarus_a3";
 	case "chernarus_summer";
 	case "Chernarus_Winter";
 	case "chernarus":{[
@@ -163,8 +164,28 @@ switch worldName do {
 		["Solon",[8260.63,574.546,0],[100,100],0],
 		["Tarisol",[2531.15,9781.12,0],[80,120],246.791]
 	]};
+    case "chernarusredux":{[
+		["Berezino",[11972,9091.55,0],[100,100],0],
+		["Chernogorsk",[6807.27,2485.18,0],[100,100],0],
+		["Elektrozavodsk",[10481.3,2265.37,0],[100,100],0],
+		["Krasnostav",[11092.4,12328.6,0],[80,120],308.169],
+		["Polana",[10658,8035.83,0],[100,100],0],
+		["Solnichniy",[13381.7,6248.11,0],[100,100],0],
+		["Stary Sobor",[6098.06,7746.98,0],[80,120],307.733],
+		["Zelenogorsk",[2748.52,5253.75,0],[80,120],14.6024]
+	]};
 
-	// Unsung 
+    // RHS
+    case "rhspkl":{[
+        ["Chaeh Chab Trei",[5538.03,2275.5,0],[100,80],35.0598],
+        ["Chamkar Samraong",[2145.26,1791.93,0],[100,100],0],
+        ["FOB EMERY",[6093.75,6713.64,0],[100,80],358.561],
+        ["Phoum Srei Aphsok",[4059.61,7088.87,0],[100,80],35.1006],
+        ["SE Chamkar Yeak",[4215.33,851.062,0],[100,100],0],
+        ["SE Plantation Sainte Clementine",[5641.03,4177.72,0],[100,80],352.411]
+    ]};
+
+	// Unsung
 	case "DaKrong":{[
 		["Bahnar",[1290.76,3673.95,0],[100,100],0],
 		["Nui Pek",[3323.5,970.517,0],[100,100],0],

@@ -27,7 +27,7 @@ class CfgPatches {
 };
 class CfgMissions {
     class MPMissions {
-        // Vanilla 
+        // Vanilla
         MISSION_ENTRY(Altis,Vanilla)
         MISSION_ENTRY(Malden,Vanilla)
         MISSION_ENTRY(Stratis,Vanilla)
@@ -35,6 +35,7 @@ class CfgMissions {
 
         // CUP
         MISSION_ENTRY(chernarus,CUP)
+        MISSION_ENTRY(cup_chernarus_a3,CUP)
         MISSION_ENTRY(chernarus_summer,CUP)
         MISSION_ENTRY(Chernarus_Winter,CUP)
         MISSION_ENTRY(porto,CUP)
@@ -42,7 +43,7 @@ class CfgMissions {
         MISSION_ENTRY(takistan,CUP)
         MISSION_ENTRY(zargabad,CUP)
 
-        // IFA3 
+        // IFA3
         MISSION_ENTRY(I44_merderet_koth,IFA3)
         MISSION_ENTRY(I44_Merderet_V3,IFA3)
         MISSION_ENTRY(iron_excelsior_Tobruk,IFA3)
@@ -54,5 +55,17 @@ class CfgMissions {
         // Independent
         MISSION_ENTRY(isladuala3,Independent)
         MISSION_ENTRY(MontellaV3,Independent)
+        MISSION_ENTRY(chernarusredux,Independent)
+
+        // RHS
+        MISSION_ENTRY(rhspkl,RHS)
+
+        // Unsung
+        MISSION_ENTRY(DaKrong,Unsung)
+        MISSION_ENTRY(phu_bai,Unsung)
+        MISSION_ENTRY(psyfx_pht,Unsung)
+        MISSION_ENTRY(RungSat,Unsung)
+        MISSION_ENTRY(song_bin_tanh,Unsung)
+        MISSION_ENTRY(uns_dong_ha,Unsung)
     };
 };

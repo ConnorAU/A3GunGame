@@ -16,6 +16,7 @@
 #define IFA3_Desert 22
 #define RHS_OCP 30
 #define RHS_UCP 31
+#define RHS_ERDL 32
 #define CUP_ACU 40
 #define CUP_DESERT 41
 #define CUP_MTP 42
@@ -23,6 +24,10 @@
 #define CUP_WOODLAND 44
 #define OPTRE_SPARTAN 50
 #define OPTRE_URBAN 51
+#define UNSUNG_AUS 60
+#define UNSUNG_NZ 61
+#define UNSUNG_ROK 62
+#define UNSUNG_US 63
 
 private _paramValue = ["get","Loadout"] call GG_system_fnc_params;
 private _loadout = if (_paramValue == 0) then {
@@ -36,10 +41,11 @@ private _loadout = if (_paramValue == 0) then {
 		// Vanilla (DLC)
 		case "Tanoa":{VANILLA_DLC};
 
-		// CUP 
+		// CUP
 		case "sara";
 		case "porto";
 		case "chernarus";
+		case "cup_chernarus_a3";
 		case "chernarus_summer":{CUP_MTP};
 		case "Chernarus_Winter":{CUP_WINTER};
 		case "zargabad";
@@ -54,9 +60,21 @@ private _loadout = if (_paramValue == 0) then {
 		case "iron_excelsior_Tobruk";
 		case "SWU_Egypt_El_Alamein":{IFA3_Desert};
 
-		// Independent maps 
-		case "MontellaV3";
-		case "isladuala3":{VANILLA};
+		// Independent maps
+		//case "MontellaV3";
+		//case "isladuala3";
+        //case "chernarusredux":{VANILLA};
+
+        // RHS
+        case "rhspkl":{RHS_ERDL};
+
+		// Unsung
+		case "DaKrong";
+		case "phu_bai";
+		case "psyfx_pht";
+		case "RungSat";
+		case "song_bin_tanh";
+		case "uns_dong_ha":{selectRandom[UNSUNG_AUS,UNSUNG_NZ,UNSUNG_ROK,UNSUNG_US]};
 
 		default {VANILLA};
 	};
@@ -93,26 +111,26 @@ private _loadout = if (_paramValue == 0) then {
 	}]};
 
 	case IFA3:{["U_LIB_US_Rangers_Uniform","V_LIB_US_Assault_Vest","H_LIB_US_Helmet","",{
-		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") && 
-		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") && 
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") &&
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") &&
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Vehicles_ZZZ_LastLoaded_c")
 	}]};
 	case IFA3_Winter:{["U_LIB_US_Private_w","V_LIB_US_Assault_Vest","H_LIB_US_Helmet_w","",{
-		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") && 
-		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") && 
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") &&
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") &&
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Vehicles_ZZZ_LastLoaded_c")
 	}]};
 	case IFA3_Desert:{["U_LIB_US_Rangers_Uniform","V_LIB_US_AB_Vest_Padded_Thompson","H_LIB_US_Helmet","",{
-		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") && 
-		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") && 
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Characters_ZZZ_LastLoaded_c") &&
+		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Misc_ZZZ_LastLoaded_c") &&
 		isClass (configFile >> "CfgPatches" >> "WW2_Assets_c_Vehicles_ZZZ_LastLoaded_c")
 	}]};
 
 	case OPTRE_SPARTAN:{["OPTRE_MJOLNIR_Undersuit","OPTRE_MJOLNIR_MkVBArmor","OPTRE_MJOLNIR_MkVBHelmet","",{
-		isClass(configfile >> "CfgPatches" >> "OPTRE_Core")	
+		isClass(configfile >> "CfgPatches" >> "OPTRE_Core")
 	}]};
 	case OPTRE_URBAN:{["OPTRE_MJOLNIR_Undersuit","OPTRE_UNSC_M52D_Armor_Rifleman","OPTRE_UNSC_CH252_Helmet2_Vacuum_URB","",{
-		isClass(configfile >> "CfgPatches" >> "OPTRE_Core")	
+		isClass(configfile >> "CfgPatches" >> "OPTRE_Core")
 	}]};
 
 	case RHS_OCP:{["rhs_uniform_cu_ocp","rhsusf_iotv_ocp_Rifleman","rhsusf_ach_helmet_ocp","rhs_googles_black",{
@@ -120,6 +138,10 @@ private _loadout = if (_paramValue == 0) then {
 	}]};
 	case RHS_UCP:{["rhs_uniform_cu_ucp","rhsusf_iotv_ucp_Rifleman","rhsusf_ach_helmet_ucp","rhs_googles_black",{
 		isClass(configfile >> "CfgPatches" >> "rhsusf_main")
+	}]};
+	case RHS_ERDL:{["rhsgref_uniform_ERDL","rhssaf_vest_md99_md2camo_rifleman","rhsgref_helmet_pasgt_erdl","rhs_googles_black",{
+		isClass(configfile >> "CfgPatches" >> "rhsgref_main") &&
+		isClass(configfile >> "CfgPatches" >> "rhssaf_main")
 	}]};
 }) params [["_uniform",""],["_vest",""],["_headgear",""],["_goggles",""],["_condition",{true}]];
 
