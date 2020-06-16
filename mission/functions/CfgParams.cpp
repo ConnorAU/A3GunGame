@@ -52,7 +52,7 @@ class Params {
 /*   51 */  "OPTRE (Urban)",
 /*   30 */  "RHS (OCP)",
 /*   31 */  "RHS (UCP)",
-/*   32 */  "RHS (EDRL/MD2)",
+/*   32 */  "RHS (ERDL/MD2)",
 /*   60 */  "Unsung (AUS)",
 /*   61 */  "Unsung (NZ)",
 /*   62 */  "Unsung (R.O.K.)",
