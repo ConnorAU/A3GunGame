@@ -74,7 +74,7 @@ private _loadout = if (_paramValue == 0) then {
 		case "psyfx_pht";
 		case "RungSat";
 		case "song_bin_tanh";
-		case "uns_dong_ha":{selectRandom[UNSUNG_AUS,UNSUNG_NZ,UNSUNG_ROK,UNSUNG_US]};
+		case "uns_dong_ha":{UNSUNG_US};
 
 		default {VANILLA};
 	};
@@ -143,6 +143,19 @@ private _loadout = if (_paramValue == 0) then {
 		isClass(configfile >> "CfgPatches" >> "rhsgref_main") &&
 		isClass(configfile >> "CfgPatches" >> "rhssaf_main")
 	}]};
+
+    case UNSUNG_AUS:{["UNS_RAR_ARMY_BDU","UNS_M1956_M7","UNS_Boonie_4","",{
+        isClass(configfile >> "CfgPatches" >> "uns_main")
+    }]};
+    case UNSUNG_NZ:{["UNS_NZ_ARMY_BDU","UNS_M1956_M7","UNS_Boonie_OD2","",{
+        isClass(configfile >> "CfgPatches" >> "uns_main")
+    }]};
+    case UNSUNG_ROK:{["UNS_ARMY_ROKMC65Camo_ipatch","UNS_M1956_M2","UNS_M1_1RM","",{
+        isClass(configfile >> "CfgPatches" >> "uns_main")
+    }]};
+    case UNSUNG_US:{["UNS_USMC_Flak_E","UNS_M1956_M14","UNS_M1_2","",{
+        isClass(configfile >> "CfgPatches" >> "uns_main")
+    }]};
 }) params [["_uniform",""],["_vest",""],["_headgear",""],["_goggles",""],["_condition",{true}]];
 
 if !(call _condition) exitWith {endMission "MissingMods";[]};

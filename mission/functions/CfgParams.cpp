@@ -19,9 +19,10 @@ class Params {
 /*   40 */  "CUP",
 /*   20 */  "IFA3",
 /*   50 */  "OPTRE",
-/*   30 */  "RHS (AFRF, USAF, SAF & GREF)"
+/*   30 */  "RHS (AFRF, USAF, SAF & GREF)",
+/*   60 */  "Unsung"
         };
-        values[] = {0,1,2,10,40,20,50,30};
+        values[] = {0,1,2,10,40,20,50,30,60};
         default = 0;
     };
     class WeaponType {

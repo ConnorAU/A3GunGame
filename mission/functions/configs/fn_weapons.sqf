@@ -17,6 +17,7 @@
 #define RHS 30
 #define CUP 40
 #define OPTRE 50
+#define UNSUNG 60
 
 private _paramValue = ["get","WeaponPool"] call GG_system_fnc_params;
 private _weaponPool = if (_paramValue == 0) then {
@@ -57,6 +58,13 @@ private _weaponPool = if (_paramValue == 0) then {
         // RHS
         case "rhspkl":{RHS};
 
+		// Unsung
+		case "DaKrong";
+		case "phu_bai";
+		case "psyfx_pht";
+		case "RungSat";
+		case "song_bin_tanh";
+		case "uns_dong_ha":{UNSUNG};
 
 		default {VANILLA};
 	};
@@ -389,6 +397,96 @@ switch _weaponPool do {
 			"rhs_weap_makarov_pm",
 			"rhs_weap_tt33",
 			"rhs_weap_type94_new"
+		]
+	]};
+
+	case UNSUNG:{[
+		2,
+		{isClass(configFile >> "CfgPatches" >> "uns_main")},
+		[
+            "uns_f1_smg",
+            "uns_k50m",
+            format["uns_m45%1",selectRandom["","f"]],
+            format["uns_thompson%1",selectRandom["","vc"]],
+            "uns_m3a1",
+            "uns_mac10",
+            format["uns_m50%1",selectRandom["","f"]],
+            "uns_mat49",
+            "uns_mp40",
+            "uns_type100",
+            "uns_owen",
+            format["uns_pm63%1",selectRandom["","f"]],
+            format["uns_PPS%1",selectRandom["43","43f","52"]],
+            "uns_ppsh41",
+            format["uns_sa61%1",selectRandom["","f"]],
+            format["uns_baikal%1",selectRandom["","_sawnoff"]],
+            format["uns_ithaca37%1",selectRandom["","_grip"]],
+            "uns_model12",
+            format["uns_m870%1",selectRandom["","_mk1"]],
+            format["uns_m1897%1",selectRandom["","riot"]],
+            "uns_sten",
+            format["uns_Sterling%1",selectRandom["","_f"]],
+            format["uns_SterlingSD%1",selectRandom["","_f"]],
+            "uns_type50",
+            format["uns_uzi%1",selectRandom["","f"]]
+		],
+		[
+            format["uns_ak47%1",selectRandom["","_49","_52"]],
+            "uns_t233",
+            format["uns_m16%1",selectRandom["","_camo","A1","A1_camo"]],
+            format["uns_sa58%1",selectRandom["p","p_camo","v","vf"]],
+            "uns_STG_44",
+            "uns_M63a_AR_base",
+            "uns_type56",
+            format["uns_xm177e%1",selectRandom["1","2","2_grip","2_short","2_stock"]]
+		],
+		[
+            "uns_type99",
+            format["uns_l%1",selectRandom["1a1_enfield","1a1_blk","1a1","2a1","2a1_shorty"]],
+            format["uns_smle%1",selectRandom["","_sniper"]],
+            "uns_m1carbine",
+            "uns_m14",
+            format["uns_m2carbine%1",selectRandom["","_shorty"]],
+            "uns_m1carbine_pouch",
+            "uns_m1garand",
+            "uns_m1903",
+            format["uns_mas36%1",selectRandom["","short"]],
+            "uns_mas4956",
+            "uns_kar98k",
+            "uns_mosin",
+            "uns_M40_base",
+            "uns_sks",
+            format["uns_svd_%1base",selectRandom["","camo_"]],
+            "uns_svt",
+            "uns_model70_iron"
+		],
+		[
+            "uns_DP28_base",
+            "uns_bar",
+            "uns_m1919a6",
+            format["uns_m60%1",selectRandom["","grip","support","shorty"]],
+            format["uns_MG42%1",selectRandom["","_bakelite","support"]],
+            format["uns_PK%1",selectRandom["","support"]],
+            format["uns_rpd%1",selectRandom["","support","sog"]],
+            "uns_RPK_40",
+            format["uns_M63a%1",selectRandom["_LMG","support","_drum"]],
+            "uns_ukvz59"
+		],
+		[
+            "uns_bhp",
+            "uns_coltcmdr",
+            "uns_357m",
+            "uns_m1911",
+            "uns_makarov",
+            "uns_nagant_m1895",
+            "uns_p64",
+            "uns_Ruger",
+            "uns_38spec",
+            "uns_sw_m10",
+            "uns_APS",
+            "uns_tt30",
+            "uns_Tt33",
+            "uns_ppk"
 		]
 	]};
 };

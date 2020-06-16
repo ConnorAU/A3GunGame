@@ -6,9 +6,9 @@
 │   Please do not modify or remove this comment block   │
 └──────────────────────────────────────────────────────*/
 
-#define DEV_BUILD
+//#define DEV_BUILD
 
-#ifdef DEV_BUILD 
+#ifdef DEV_BUILD
     enableDebugConsole[]={"76561198090361580"};
 #endif
 
@@ -59,7 +59,7 @@ class CfgRemoteExec {
         class GG_system_fnc_roundOver {allowedTargets = 2;};
         class GG_system_fnc_resizeCombatZone {allowedTargets = 2;};
         class GG_system_fnc_validateUnit {allowedTargets = 2;};
-                
+
         #ifdef DEV_BUILD
         class bis_fnc_debugconsoleexec {allowedTargets = 0;};
         #endif
@@ -76,7 +76,7 @@ class CfgRemoteExec {
     };
 };
 
-#ifdef IS_AIO_MOD 
+#ifdef IS_AIO_MOD
 class CfgFunctions {
     #include "\cau\gungame\functions\CfgFunctions.cpp"
 };
@@ -94,7 +94,7 @@ class RscTitles {
     #include "\cau\gungame\ui\DisplayMiniMap.cpp"
     #include "\cau\gungame\ui\DisplayWeaponList.cpp"
 };
-#else 
+#else
 class CfgFunctions {
     #include "functions\CfgFunctions.cpp"
 	#include "cau\extendedchat\CfgFunctions.cpp"
