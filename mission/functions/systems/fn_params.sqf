@@ -1,10 +1,23 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_params
+
+Description:
+	None
+
+Parameters:
+	0 : STRING - Subfunction name
+	1 : ANY    - Subfunction arguments
+
+Return:
+	NUMBER or Nothing - Depending on provided subfunction name
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_system_fnc_params
 

@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_setup_fnc_client
+
+Description:
+	Initializes client systems on first load, and resets the client on new round start
+
+Parameters:
+	None
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #include "..\defines.inc"
 
@@ -157,3 +169,4 @@ if !(call _condition) exitWith {endMission "MissingMods";};
 ["init"] call GG_ui_fnc_miniMap;
 ["init"] call GG_ui_fnc_leaderboardMini;
 
+nil

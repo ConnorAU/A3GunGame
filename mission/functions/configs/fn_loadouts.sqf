@@ -1,10 +1,24 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_config_fnc_loadouts
+
+Description:
+	Returns uniform loadout based on "Loadout" mission parameter value
+
+Parameters:
+	None
+
+Return:
+	ARRAY - Unit loadout format
+---------------------------------------------------------------------------- */
+
+#define THIS_FUNC GG_config_fnc_loadouts
 
 #define VANILLA 1
 #define VANILLA_DLC 2

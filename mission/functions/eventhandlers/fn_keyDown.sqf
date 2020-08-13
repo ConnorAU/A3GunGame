@@ -1,10 +1,16 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_eventhandler_fnc_keyDown
+
+Information:
+	https://community.bistudio.com/wiki/User_Interface_Event_Handlers#onKeyDown
+---------------------------------------------------------------------------- */
 
 #include "..\dikcodes.inc"
 #include "..\defines.inc"

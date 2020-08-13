@@ -1,10 +1,25 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_log
+
+Description:
+	Print a formatted log to the rpt
+
+Parameters:
+	0 : STRING - Type of log
+	1 : STRING - Log log
+	2 : ANY    - Log details
+	3 : STRING - Log prefix (Default: Gun Game)
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 params [["_type","",[""]],["_log","",[""]],["_details",[]],["_prefix","Gun Game",[""]]];
 

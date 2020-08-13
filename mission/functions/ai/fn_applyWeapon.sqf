@@ -1,10 +1,24 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ai_fnc_applyWeapon
+
+Description:
+	Add weapon to the defined AI object. The weapon added depends on the current scores of active players.
+
+Parameters:
+	0 : OBJECT - AI unit
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
+
+#define THIS_FUNC GG_ai_fnc_applyWeapon
 
 #include "..\defines.inc"
 

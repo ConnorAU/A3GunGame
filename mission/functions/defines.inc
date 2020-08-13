@@ -1,11 +1,3 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
-
 // ~ States
 #define COMBAT_ZONE_EXISTS (markerBrush "GG_CombatZone" == "SolidBorder")
 #define ROUND_OVER !(isNil "GG_s_roundWinner")

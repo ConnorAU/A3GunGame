@@ -1,12 +1,24 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
 
-#define THIS_FUNC GG_ui_fnc_voteMap
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ui_fnc_watermark
+
+Description:
+	Creates a watermark overlay in the bottom right corner of the screen
+
+Parameters:
+	None
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
+
+#define THIS_FUNC GG_ui_fnc_watermark
 
 #include "..\macros.inc"
 #include "..\defines.inc"
@@ -22,8 +34,7 @@ isNil {
 	// Move watermark if arma branch is not stable (overlaps dev watermark)
 	if ((productVersion select 4) != "Stable") then {
 		private _ctrlGrpPos = ctrlPosition _ctrlGrp;
-		_ctrlGrpPos set [0,(_ctrlGrpPos#0)-(_ctrlGrpPos#2)-(PX_WS(1))];
-		_ctrlGrp ctrlSetPosition _ctrlGrpPos;
+		_ctrlGrp ctrlSetPositionX ((_ctrlGrpPos#0)-(_ctrlGrpPos#2)-(PX_WS(1)));
 		_ctrlGrp ctrlCommit 0;
 	};
 

@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_getLeaderboardStats
+
+Description:
+	Return leaderboard statistics of all players
+
+Parameters:
+	None
+
+Return:
+	ARRAY - Leaderboard stats sorted from highest to lowest score
+---------------------------------------------------------------------------- */
 
 #include "..\defines.inc"
 

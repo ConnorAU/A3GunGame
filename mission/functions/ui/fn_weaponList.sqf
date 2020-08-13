@@ -1,10 +1,23 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ui_fnc_weaponList
+
+Description:
+	Handles all tasks related to the weapons overlay
+
+Parameters:
+	0 : STRING - Subfunction name
+	1 : ANY    - Subfunction arguments
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_ui_fnc_weaponList
 #define DISPLAY_NAME GG_displayWeaponList
@@ -89,3 +102,5 @@ switch _mode do {
 		QUOTE(DISPLAY_NAME) cutFadeOut 0;
 	};
 };
+
+nil

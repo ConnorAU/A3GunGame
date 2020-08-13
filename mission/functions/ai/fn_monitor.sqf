@@ -1,12 +1,24 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
 
-#define GG_ai_fnc_monitor
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ai_fnc_monitor
+
+Description:
+	Check AI bot status to ensure it is inside the combat zone and either has or is searching for a target to attack
+
+Parameters:
+	0 : OBJECT - AI unit
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
+
+#define THIS_FUNC GG_ai_fnc_monitor
 
 #include "..\defines.inc"
 

@@ -1,10 +1,23 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_voteMap
+
+Description:
+	Execute map voting operations depending on the subfunction mode provided
+
+Parameters:
+	0 : STRING - Subfunction name
+	1 : ANY    - Subfunction arguments
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_system_fnc_voteMap
 
@@ -45,7 +58,7 @@ switch _mode do {
 		for "_i" from 0 to (count _allMaps - 1) do {
 			_votesTallied set [_i,{_x == _i} count _votes];
 		};
-		
+
 		private _maxTally = selectMax _votesTallied;
 		private _possibleMaps = [];
 		{
@@ -102,7 +115,7 @@ switch _mode do {
 
 		private _selectedMission = [
 			[worldsize,worldsize],
-			[worldsize/2,worldsize/2,0], 
+			[worldsize/2,worldsize/2,0],
 			_allMaps apply {[_x#1,_x#0,_x#0,"load.paa",{}]}
 		] call BIS_fnc_missionSelector;
 

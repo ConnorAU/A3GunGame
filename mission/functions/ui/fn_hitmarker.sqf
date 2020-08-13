@@ -1,10 +1,23 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ui_fnc_hitmarker
+
+Description:
+	Display a hitmarker icon on the screen to indicate hitting an enemy
+	Shown as white for a hit, and red for a kill
+
+Parameters:
+	0 : BOOL - true if called by killing an enemy
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #include "..\macros.inc"
 #include "..\defines.inc"
@@ -36,3 +49,5 @@ _ctrlImage ctrlCommit 0.2;
 waitUntil {ctrlCommitted _ctrlImage};
 
 ctrlDelete _ctrlImage;
+
+nil

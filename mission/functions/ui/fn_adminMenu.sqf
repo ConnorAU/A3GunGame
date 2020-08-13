@@ -1,10 +1,24 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ui_fnc_adminMenu
+
+Description:
+	Handle all tasks related to the admin menu
+
+Parameters:
+	0 : STRING - Subfunction name
+	1 : ANY    - Subfunction arguments
+
+Return:
+	ANY - Depends on the subfunction name provided
+---------------------------------------------------------------------------- */
+
 
 #define THIS_FUNC GG_ui_fnc_adminMenu
 #define DISPLAY_NAME GG_displayAdminMenu
@@ -87,7 +101,7 @@ switch _mode do {
 				_ctrlListWeaponR lbSetPictureRight [_index,["WeaponsDLCIcon",_config] call THIS_FUNC];
 			} forEach _weaponPool;
 
-			// preload all weapons 
+			// preload all weapons
 			_ctrlComboWeapon lbSetCurSel 1;
 			if (isNil "GG_admin_customWeaponPool") then {
 				// disable custom pool if no custom pool is already set
@@ -255,8 +269,8 @@ switch _mode do {
 					_class = configname _config;
 					_itemType = _class call BIS_fnc_itemType;
 					if (
-						getnumber (_config >> "scope") == 2 && 
-						{((_itemType#0) != "VehicleWeapon" && {_itemType#1 in _filter}) } && 
+						getnumber (_config >> "scope") == 2 &&
+						{((_itemType#0) != "VehicleWeapon" && {_itemType#1 in _filter}) } &&
 						{_class call bis_fnc_baseWeapon == _class}
 					) then {
 						_list pushBackUnique [
@@ -298,12 +312,12 @@ switch _mode do {
 		USE_DISPLAY(ctrlParent _ctrlButton);
 		USE_CTRL(_ctrlListWeaponL,4);
 		USE_CTRL(_ctrlListWeaponR,5);
-		
+
 		if _bool then {
 			private _index = lbCurSel _ctrlListWeaponL;
 			private _data = _ctrlListWeaponL lbData _index;
 			if (_data == "") exitWith {};
-			
+
 			private _newIndex = _ctrlListWeaponR lbAdd (_ctrlListWeaponL lbText _index);
 			_ctrlListWeaponR lbSetTooltip [_newIndex,_data];
 			_ctrlListWeaponR lbSetData [_newIndex,_data];
@@ -316,7 +330,7 @@ switch _mode do {
 			private _index = lbCurSel _ctrlListWeaponR;
 			private _data = _ctrlListWeaponR lbData _index;
 			if (_data == "") exitWith {};
-			
+
 			private _filter = ["WeaponsComboFilter"] call THIS_FUNC;
 			private _itemType = _data call BIS_fnc_itemType;
 			if ((_itemType#0) != "VehicleWeapon" && {_itemType#1 in _filter}) then {
@@ -339,7 +353,7 @@ switch _mode do {
 			USE_CTRL(_ctrlListParams,1);
 			USE_CTRL(_ctrlComboWeapon,3);
 			USE_CTRL(_ctrlListWeaponR,5);
-			
+
 			for "_i" from 0 to lbSize _ctrlListParams - 1 do {
 				private _param = _ctrlListParams lbData _i;
 				private _valueNew = getArray(missionConfigFile >> "Params" >> _param >> "values")#(_ctrlListParams lbValue _i);
@@ -351,7 +365,7 @@ switch _mode do {
 
 			missionNamespace setVariable [
 				"GG_admin_customCombatZonePos",
-				[	
+				[
 					nil,
 					[
 						"Custom Location",

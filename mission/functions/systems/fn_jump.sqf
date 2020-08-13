@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_jump
+
+Description:
+	Perform a jumping action
+
+Parameters:
+	0 : OBJECT - Unit performing jumping action
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_system_fnc_jump
 
@@ -18,3 +30,5 @@ if (isNil QUOTE(VAR_JUMP_TICK)) then {VAR_JUMP_TICK = 0};
 if (VAR_JUMP_TICK > diag_tickTime) exitwith {};
 VAR_JUMP_TICK = diag_tickTime + 1;
 [_unit,"AovrPercMrunSrasWrflDf"] remoteExec ["switchMove",0];
+
+nil

@@ -1,12 +1,24 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
 
-#define GG_ai_fnc_create
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_ai_fnc_create
+
+Description:
+	Create an AI unit, prepare it to serve as a bot and start the monitor loop
+
+Parameters:
+	None
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
+
+#define THIS_FUNC GG_ai_fnc_create
 
 #include "..\defines.inc"
 
@@ -44,3 +56,5 @@ _unit spawn {
 		uiSleep 5;
 	};
 };
+
+nil

@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_fixDiscordString
+
+Description:
+	Replace characters that break discord rich presence with valid characters
+
+Parameters:
+	0 : STRING - Input string to fix
+
+Return:
+	STRING - Fixed string
+---------------------------------------------------------------------------- */
 
 params [["_input","",[""]]];
 
@@ -17,7 +29,7 @@ private _array = toArray _input;
 
 		//            è   é                                e
 		case (_x in [232,233]):{_array set [_forEachindex,101]};
-		
+
 	};
 
 } foreach _array;

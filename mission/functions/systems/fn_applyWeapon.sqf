@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_applyWeapon
+
+Description:
+	Apply weapon to player based on current score
+
+Parameters:
+	0 : BOOL - true if the function was called by killing an enemy
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #include "..\defines.inc"
 

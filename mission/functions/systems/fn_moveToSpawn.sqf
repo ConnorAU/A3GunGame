@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_moveToSpawn
+
+Description:
+	Move unit to a safe spawn location in the combat zone
+
+Parameters:
+	0 : OBJECT - Unit to move to spawn ppint
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_system_fnc_moveToSpawn
 
@@ -21,7 +33,7 @@ params [["_firstSpawn",false,[true]]];
 "GG_c_layer_interlacing" cutRsc ["RscInterlacing","BLACK OUT",0];
 "GG_c_layer_interlacing" cutFadeOut 1e14;
 
-// there was an issue with this text staying on screen after spawn. 
+// there was an issue with this text staying on screen after spawn.
 // I assume it was to do with this thread displaying the text after the thread at the bottom removed it
 // So the uisleep is to try and avoid that
 ["<t shadow=2 >Finding safe spawn location...</t>",[-1,-1],[-1,-1],1e14,0.5] spawn BIS_fnc_dynamicText;
@@ -81,3 +93,5 @@ missionNameSpace setVariable ["RscStatic_mode",[0]];
 ["",[-1,-1],[-1,-1],1,0] spawn BIS_fnc_dynamicText;
 "GG_c_later_static" cutRsc ["RscStatic","PLAIN"];
 "GG_c_layer_interlacing" cutText ["","PLAIN",0];
+
+nil

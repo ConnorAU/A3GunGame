@@ -1,10 +1,16 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_eventhandler_fnc_keyUp
+
+Information:
+	https://community.bistudio.com/wiki/User_Interface_Event_Handlers#onKeyUp
+---------------------------------------------------------------------------- */
 
 #include "..\dikcodes.inc"
 #include "..\defines.inc"
@@ -17,7 +23,7 @@ if GG_c_modifyVolume then {
 	1 fadeSound _vol;
 	titleText [format["Sound adjusted to %1%2",_vol*100,"%"],"PLAIN DOWN"];
 	GG_c_modifyVolume = false;
-}; 
+};
 
 if (_key == DIK_V) exitWith {
 	[] call GG_system_fnc_jump;

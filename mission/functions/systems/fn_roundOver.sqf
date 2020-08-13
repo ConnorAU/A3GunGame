@@ -1,10 +1,23 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_system_fnc_roundOver
+
+Description:
+	Execute end-of-round events based on the subfunction name provided
+
+Parameters:
+	0 : STRING - Subfunction name
+	1 : ANY    - Subfunction arguments
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_system_fnc_roundOver
 
@@ -92,7 +105,7 @@ switch _mode do {
 		["destroy"] call GG_ui_fnc_weaponList;
 		["initCam"] call THIS_FUNC;
 
-		// i got stuck on a ladder at the end of the game one time, 
+		// i got stuck on a ladder at the end of the game one time,
 		if (["ladder",animationstate player] call BIS_fnc_instring) then {
 			{
 				player action ["LadderOff",_x];
@@ -131,12 +144,12 @@ switch _mode do {
 		uisleep 18;
 		["destroy"] call GG_ui_fnc_leaderboard;
 
-  		"GG_c_layer_endround" cutText ["","BLACK OUT",1]; 
+  		"GG_c_layer_endround" cutText ["","BLACK OUT",1];
 		1 fadeSound _vol;
 		uisleep 1;
 		[] spawn GG_setup_fnc_client;
 		["destroyCam"] call THIS_FUNC;
-  		"GG_c_layer_endround" cutText ["","BLACK IN",1]; 
+  		"GG_c_layer_endround" cutText ["","BLACK IN",1];
 	};
 	case "initCam":{
 		private _combatZone = markerPos "GG_CombatZone";
@@ -162,3 +175,5 @@ switch _mode do {
 		camDestroy VAR_CAMERA;
 	};
 };
+
+nil

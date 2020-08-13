@@ -1,10 +1,22 @@
-/*──────────────────────────────────────────────────────┐
-│   Author: Connor                                      │
-│   Steam:  https://steamcommunity.com/id/_connor       │
-│   Github: https://github.com/ConnorAU                 │
-│                                                       │
-│   Please do not modify or remove this comment block   │
-└──────────────────────────────────────────────────────*/
+/* ----------------------------------------------------------------------------
+Project:
+	https://github.com/ConnorAU/A3GunGame
+
+Author:
+	ConnorAU - https://github.com/ConnorAU
+
+Function:
+	GG_setup_fnc_server
+
+Description:
+	Initializes server systems on first load, and resets the server on new round start
+
+Parameters:
+	None
+
+Return:
+	Nothing
+---------------------------------------------------------------------------- */
 
 #define THIS_FUNC GG_setup_fnc_server
 
@@ -30,12 +42,14 @@ if (isNil "GG_s_firstInitComplete") then {
 	["init"] call GG_system_fnc_params;
 
 	west setFriend [west,0];
-	
+
 	GG_s_firstInitComplete = true;
 };
 
 ["pending"] call GG_system_fnc_params;
 [] call GG_system_fnc_setWeather;
-["server"] call GG_system_fnc_voteMap; 
+["server"] call GG_system_fnc_voteMap;
 [] call GG_system_fnc_setWeaponPool;
 [] call GG_ai_fnc_init;
+
+nil
