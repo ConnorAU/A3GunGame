@@ -91,6 +91,12 @@ class Params {
         values[] = {0,0.25,0.5,0.75,1};
         default = 0.25;
     };
+    class AIDifficultyRandom {
+        title = "Randomize individual AI difficulty, up to the difficulty specified above";
+        texts[] = {"Enabled","Disabled"};
+        values[] = {1,0};
+        default = 1;
+    };
     SPACER(3);
     class TimeOfDay {
         title = "Time of day";

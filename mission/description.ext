@@ -1,4 +1,4 @@
-#define DEV_BUILD
+//#define DEV_BUILD
 
 #ifdef DEV_BUILD
     enableDebugConsole[]={"76561198090361580"};

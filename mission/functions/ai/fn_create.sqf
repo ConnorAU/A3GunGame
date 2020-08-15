@@ -23,7 +23,19 @@ Return:
 #include "..\defines.inc"
 
 if ROUND_OVER exitWith {};
+
 private _difficulty = ["get","AIDifficulty"] call GG_system_fnc_params;
+private _randomize = ["get","AIDifficultyRandom"] call GG_system_fnc_params;
+if (_randomize == 1) then {
+	private _difficultiesWeighted = [];
+	private _difficultiesAll = getArray(missionConfigFile >> "Params" >> "AIDifficulty" >> "values");
+	private _difficultyIndex = _difficultiesAll find _difficulty;
+	{
+		_difficultiesWeighted append [_x,(_forEachIndex + 1)/(_difficultyIndex + 1)];
+		if (_x == _difficulty) exitWith {};
+	} forEach _difficultiesAll;
+	_difficulty = selectRandomWeighted _difficultiesWeighted;
+};
 
 private _group = createGroup[west,true];
 private _unit = _group createUnit ["B_RangeMaster_F",getMarkerPos "respawn",[],0,"NONE"];
