@@ -29,9 +29,8 @@ private _randomize = ["get","AIDifficultyRandom"] call GG_system_fnc_params;
 if (_randomize == 1) then {
 	private _difficultiesWeighted = [];
 	private _difficultiesAll = getArray(missionConfigFile >> "Params" >> "AIDifficulty" >> "values");
-	private _difficultyIndex = _difficultiesAll find _difficulty;
 	{
-		_difficultiesWeighted append [_x,(_forEachIndex + 1)/(_difficultyIndex + 1)];
+		_difficultiesWeighted append [_x,_forEachIndex + 1];
 		if (_x == _difficulty) exitWith {};
 	} forEach _difficultiesAll;
 	_difficulty = selectRandomWeighted _difficultiesWeighted;

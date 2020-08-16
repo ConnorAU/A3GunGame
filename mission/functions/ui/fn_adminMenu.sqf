@@ -702,7 +702,7 @@ switch _mode do {
 			};
 			missionNamespace setVariable [
 				"GG_admin_customWeaponPool",
-				if (_weaponPool isEqualTo []) then {_weaponPool},
+				if !(_weaponPool isEqualTo []) then {_weaponPool},
 				true
 			];
 
