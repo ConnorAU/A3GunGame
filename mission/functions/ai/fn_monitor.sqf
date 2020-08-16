@@ -41,7 +41,7 @@ _units sort true;
 
 private _target = _units param [0,[]] param [1,objNull];
 private _pos = if (isNull _target) then {markerPos "GG_CombatZone"} else {
-	if (_difficulty >= 0.75) then {
+	if (_difficulty >= 75) then {
 		_unit doTarget _target;
 	};
 	getPos _target;

@@ -38,6 +38,8 @@ if (_randomize == 1) then {
 
 private _group = createGroup[west,true];
 private _unit = _group createUnit ["B_RangeMaster_F",getMarkerPos "respawn",[],0,"NONE"];
+
+_difficulty = _difficulty*0.01; // _difficulty/100 but avoiding a possible zero divisor error
 _unit setSkill _difficulty;
 _unit allowFleeing (1-_difficulty);
 _unit disableConversation true;

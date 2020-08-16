@@ -88,8 +88,8 @@ class Params {
     class AIDifficulty {
         title = "AI difficulty";
         texts[] = {"Storm Trooper","Rookie","Recruit","Veteran","Wall Hacks & Aim Bot"};
-        values[] = {0,0.25,0.5,0.75,1};
-        default = 0.25;
+        values[] = {0,25,50,75,100};
+        default = 25;
     };
     class AIDifficultyRandom {
         title = "Randomize individual AI difficulty, up to the difficulty specified above";
