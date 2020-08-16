@@ -51,6 +51,7 @@ class CfgRemoteExec {
         class GG_system_fnc_roundOver {allowedTargets = 2;};
         class GG_system_fnc_resizeCombatZone {allowedTargets = 2;};
         class GG_system_fnc_validateUnit {allowedTargets = 2;};
+        class GG_ui_fnc_adminMenu {allowedTargets = 2;};
 
         #ifdef DEV_BUILD
         class bis_fnc_debugconsoleexec {allowedTargets = 0;};
@@ -115,6 +116,8 @@ class RscTitles {
 #include "cau\userinputmenus\systems\displayGuiMessage.cpp"
 #include "cau\userinputmenus\systems\displayListbox.cpp"
 #include "cau\userinputmenus\systems\displayListboxMulti.cpp"
+#include "cau\userinputmenus\systems\displayText.cpp"
+#include "cau\userinputmenus\systems\displayTextMulti.cpp"
 
 // https://github.com/ConnorAU/A3ExtendedChat
 #include "cau\extendedchat\emojipack\twemoji\CfgEmoji.cpp"

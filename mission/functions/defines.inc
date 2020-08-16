@@ -4,6 +4,7 @@
 
 // ~ Operations
 #define QUOTE(a) #a
+#define JOIN(a,b) a##b
 
 #define SWITCH_SYS_PARAMS params[["_mode","",[""]],["_params",[]]]
 
