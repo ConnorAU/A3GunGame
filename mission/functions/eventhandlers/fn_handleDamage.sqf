@@ -28,9 +28,12 @@ if (_modifier != 1) then {
 	};
 
 	_damage = (_hitPointDamage#_hitIndex)+(_modifier*(_damage-(_hitPointDamage#_hitIndex)));
+
+	_unit setVariable ["GG_c_hitPointDamage",getAllHitPointsDamage _unit#2];
+
+	// take no damage if the round has been won
+	[_damage,0] select ROUND_OVER;
+} else {
+	// Return nil if modifer is 1x and round isnt over to ensure no manipulation of damage taken.
+	if ROUND_OVER then {0};
 };
-
-_unit setVariable ["GG_c_hitPointDamage",getAllHitPointsDamage _unit#2];
-
-// take no damage if the round has been won
-[_damage,0] select ROUND_OVER;
