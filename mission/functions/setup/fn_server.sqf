@@ -40,6 +40,7 @@ if (isNil "GG_s_firstInitComplete") then {
 	addMissionEventHandler["HandleDisconnect",{call GG_eventhandler_fnc_handleDisconnect}];
 
 	["init"] call GG_system_fnc_params;
+	["ServerInitPresets"] call GG_ui_fnc_adminMenu;
 
 	west setFriend [west,0];
 

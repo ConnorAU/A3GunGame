@@ -1,6 +1,8 @@
-#define SPACER(n) class spacer##n {text=" ";texts[]={" "};values[]={0};};
+#define SPACERT(c,t) class __spacer_##c {title=t;texts[]={" "};values[]={0};};
+#define SPACER(c) SPACERT(c,"")
 
 class Params {
+    //SPACER(equipment);
     class WeaponPool {
         title = "Select which mod the weapon pool will be created from";
         texts[] = {
@@ -53,7 +55,7 @@ class Params {
         values[] = {0,1,2,10,11,12,40,41,42,43,44,20,22,21,50,51,30,31,32,60,61,62,63};
         default = 0;
     };
-    SPACER(1);
+    SPACER(game);
     class DamageModifier {
         title = "Damage modifier";
         texts[] = {"0.25x","0.5x","1x","1.5x","2x","2.5x","5x","10x"};
@@ -78,7 +80,7 @@ class Params {
         values[] = {0,1,2,3,4,5,6,7,8,9,10};
         default = 0;
     };
-    SPACER(2);
+    SPACER(ai);
     class AIUnits {
         title = "Number of AI enemys";
         texts[] = {"None","1","2","3","4","5","10","15","20"};
@@ -97,7 +99,7 @@ class Params {
         values[] = {1,0};
         default = 1;
     };
-    SPACER(3);
+    SPACER(environment);
     class TimeOfDay {
         title = "Time of day";
         texts[] = {"Random","6 AM","9 AM","12 PM","3 PM","6 PM"};
@@ -116,6 +118,34 @@ class Params {
         values[] = {0,1,2,3,4};
         default = 1;
     };
+	/*
+		SERVER.CFG PARAMETERS
+
+		These parameters are for use in the server.cfg to define default custom presets to use on server start.
+		The same functionality can be achieved in game by loading a preset on the admin menu.
+
+		To use a custom preset, first save the preset to the server profile from the in game admin menu.
+		Then load the preset list and look for the number in front of the preset name.
+		Set the parameter in the server.cfg as that number and start the server.
+		If you set a number for a preset that doesn't exist, it will revert to disabled.
+
+		https://community.bistudio.com/wiki/Mission_Parameters#Secondary_Params
+	*/
+    SPACER(server_cfg);
+    SPACERT(server_cfg_title,"SERVER.CFG PARAMETERS:");
+	class CombatZoneCustom {
+		title = "Use a combat zone preset from the server profile";
+		texts[] = {"Disabled"};
+		values[] = {0};
+		default = 0;
+	};
+	class WeaponPoolCustom {
+		title = "Use a weapon pool preset from the server profile";
+		texts[] = {"Disabled"};
+		values[] = {0};
+		default = 0;
+	};
 };
 
 #undef SPACER
+#undef SPACERT

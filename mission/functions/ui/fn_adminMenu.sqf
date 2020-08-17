@@ -43,8 +43,12 @@ SWITCH_SYS_PARAMS;
 if (isMultiplayer && !(serverCommandAvailable "#kick")) exitWith {}; // not admin
 if (
 	isServer && !hasInterface &&
-	{!(_mode in ["MapPresetGet","MapPresetGetServer","MapPresetSetServer","WeaponsPresetGet","WeaponsPresetGetServer","WeaponsPresetSetServer"])}
-) exitWith {}; // executing on dedicated server outside of remoteExec context or not using a remoteExec mode
+	{!(_mode in [
+		"MapPresetGet","MapPresetGetServer","MapPresetSetServer",
+		"WeaponsPresetGet","WeaponsPresetGetServer","WeaponsPresetSetServer",
+		"ServerInitPresets","MapSingleClick"
+	])}
+) exitWith {}; // executing on dedicated server not using a permitted mode
 
 switch _mode do {
 	case "onLoad":{
@@ -83,7 +87,21 @@ switch _mode do {
 			private _valueIndex = _values find _value;
 
 			private _index = _ctrlListParams lbAdd getText(_x >> "title");
-			_ctrlListParams lbSetTextRight [_index,getArray(_x >> "texts")#_valueIndex];
+			if (_name in ["WeaponPoolCustom","CombatZoneCustom"]) then {
+				_ctrlListParams lbSetTextRight [
+					_index,
+					getArray(_x >> "texts") param [
+						_valueIndex,
+						format[
+							"Custom %1 #%2",
+							["combat zone","weapon pool"] select (_name == "WeaponPoolCustom"),
+							str _value
+						]
+					]
+				];
+			} else {
+				_ctrlListParams lbSetTextRight [_index,getArray(_x >> "texts")#_valueIndex];
+			};
 			_ctrlListParams lbSetData [_index,_name];
 			_ctrlListParams lbSetValue [_index,_valueIndex];
 		} forEach ("true" configClasses (missionConfigFile >> "Params"));
@@ -252,7 +270,7 @@ switch _mode do {
 	case "ParamsLBDblClick":{
 		_params params ["_ctrlListParams","_index"];
 		private _data = _ctrlListParams lbData _index;
-		if (["spacer",_data] call BIS_fnc_inString) exitWith {};
+		if (_data find "__spacer_" == 0) exitWith {};
 
 		private _cfg = missionConfigFile >> "Params" >> _data;
 		private _texts = getArray(_cfg >> "texts");
@@ -673,23 +691,30 @@ switch _mode do {
 
 			for "_i" from 0 to lbSize _ctrlListParams - 1 do {
 				private _param = _ctrlListParams lbData _i;
-				private _valueNew = getArray(missionConfigFile >> "Params" >> _param >> "values")#(_ctrlListParams lbValue _i);
 				private _valueOld = ["get",_param] call GG_system_fnc_params;
+				private _valueNew = getArray(missionConfigFile >> "Params" >> _param >> "values") param [_ctrlListParams lbValue _i,_valueOld];
 				if (_valueNew != _valueOld) then {
 					["setPending",[_param,_valueNew]] call GG_system_fnc_params;
 				};
 			};
 
+			private _combatZone = [];
+			if (VAL_CUSTOM_POS_MARKER in allMapMarkers) then {
+				_combatZone = [
+					"Custom Location",
+					markerPos VAL_CUSTOM_POS_MARKER,
+					markerSize VAL_CUSTOM_POS_MARKER,
+					markerDir VAL_CUSTOM_POS_MARKER
+				];
+
+				private _curCombatZoneCustomSetting = ["getPending","CombatZoneCustom"] call GG_system_fnc_params;
+				if (_curCombatZoneCustomSetting != 0) then {
+					["setPending",["CombatZoneCustom",0]] call GG_system_fnc_params;
+				};
+			};
 			missionNamespace setVariable [
 				"GG_admin_customCombatZonePos",
-				if (VAL_CUSTOM_POS_MARKER in allMapMarkers) then {
-					[
-						"Custom Location",
-						markerPos VAL_CUSTOM_POS_MARKER,
-						markerSize VAL_CUSTOM_POS_MARKER,
-						markerDir VAL_CUSTOM_POS_MARKER
-					]
-				},
+				if !(_combatZone isEqualTo []) then {_combatZone},
 				2
 			];
 
@@ -698,8 +723,13 @@ switch _mode do {
 				for "_i" from 0 to lbSize _ctrlListWeaponR - 1 do {
 					_weaponPool pushBack (_ctrlListWeaponR lbData _i);
 				};
-				// public var so new admins can see the pending change before the round resets
+
+				private _curWeaponPoolCustomSetting = ["getPending","WeaponPoolCustom"] call GG_system_fnc_params;
+				if (_curWeaponPoolCustomSetting != 0) then {
+					["setPending",["WeaponPoolCustom",0]] call GG_system_fnc_params;
+				};
 			};
+			// public var so new admins can see the pending change before the round resets
 			missionNamespace setVariable [
 				"GG_admin_customWeaponPool",
 				if !(_weaponPool isEqualTo []) then {_weaponPool},
@@ -733,6 +763,43 @@ switch _mode do {
 		removeMissionEventHandler ["MapSingleClick",_id];
 		if (VAL_CUSTOM_POS_MARKER in allMapMarkers) then {
 			VAL_CUSTOM_POS_MARKER setMarkerAlphaLocal 0;
+		};
+	};
+
+
+	// This code is not used by the admin menu but is in this function because it uses sub functions/variables from the admin menu.
+	case "ServerInitPresets":{
+		if !isServer exitWith {};
+
+		private _combatZoneSetting = ["get","CombatZoneCustom"] call GG_system_fnc_params;
+		if (_combatZoneSetting > 0) then {
+			private _presets = ["MapPresetGet"] call THIS_FUNC;
+			private _preset = _presets param [_combatZoneSetting - 1,[]];
+
+			if (_preset isEqualTo []) then {
+				["setPending",["CombatZoneCustom",0]] call GG_system_fnc_params;
+			} else {
+				["MapSingleClick",[nil,_preset#1,true]] call THIS_FUNC;
+				VAL_CUSTOM_POS_MARKER setMarkerAlphaLocal 0;
+				GG_admin_customCombatZonePos = [
+					"Custom Location",
+					markerPos VAL_CUSTOM_POS_MARKER,
+					markerSize VAL_CUSTOM_POS_MARKER,
+					markerDir VAL_CUSTOM_POS_MARKER
+				];
+			};
+		};
+
+		private _weaponPoolSetting = ["get","WeaponPoolCustom"] call GG_system_fnc_params;
+		if (_weaponPoolSetting > 0) then {
+			private _presets = ["WeaponsPresetGet"] call THIS_FUNC;
+			private _preset = _presets param [_weaponPoolSetting - 1,[]];
+
+			if (_preset isEqualTo []) then {
+				["setPending",["WeaponPoolCustom",0]] call GG_system_fnc_params;
+			} else {
+				missionNamespace setVariable ["GG_admin_customWeaponPool",_preset#1,true];
+			};
 		};
 	};
 };
