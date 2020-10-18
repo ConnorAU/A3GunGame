@@ -132,8 +132,8 @@ switch _mode do {
 		] call (missionNameSpace getVariable["DiscordRichPresence_fnc_update",{}]);
 
 		// https://github.com/ConnorAU/A3ExtendedChat
-		private _emoji = ["getImage","party_popper"] call (missionNameSpace getVariable ["CAU_xChat_fnc_emoji",{""}]);
-		["systemChat",format["%1 %2 won the round! %1",[":party_popper:",""] select (_emoji == ""),_winnerName]] call (missionNameSpace getVariable ["CAU_xChat_fnc_sendMessage",{}]);
+		private _emoji = ["getImage","tada"] call (missionNameSpace getVariable ["CAU_xChat_fnc_emoji",{""}]);
+		systemChat format["%1 %2 won the round! %1",[":tada:",""] select (_emoji == ""),_winnerName];
 
 		[format[
 			"<t size='1.5' shadow=2><t color='%2'>%1</t> won the round!</t>",_winnerName,
