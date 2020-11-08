@@ -120,7 +120,9 @@ class RscTitles {
 #include "cau\userinputmenus\systems\displayTextMulti.cpp"
 
 // https://github.com/ConnorAU/A3ExtendedChat
-#include "cau\extendedchat\emojipack\twemoji\CfgEmoji.cpp"
+class CfgEmoji {
+    #include "cau\extendedchat\emojipack\config.cpp"
+};
 #endif
 
 // https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
@@ -135,11 +137,4 @@ class CfgDiscordRichPresence {
 };
 
 // https://github.com/ConnorAU/A3ExtendedChat
-CAU_xChat_enabled = 1;
-CAU_xChat_emojis = 1;
-CAU_xChat_connectMessages = 1;
-CAU_xChat_disconnectMessages = 1;
-CAU_xChat_deathMessages = 1;
-CAU_xChat_MOTD[]={
-//  {delay before printing,message}
-};
+CAU_xChat_mentionGroups = 0; // Disable mentioning groups
