@@ -59,8 +59,8 @@ class Params {
     class DamageModifier {
         title = "Damage modifier";
         texts[] = {"0.25x","0.5x","1x","1.5x","2x","2.5x","5x","10x"};
-        values[] = {0.25,0.5,1,1.5,2,2.5,5,10};
-        default = 1;
+        values[] = {25,50,100,150,200,250,500,1000};
+        default = 100;
     };
     class KillStreak {
         title = "Kill streak required to advance to next weapon";

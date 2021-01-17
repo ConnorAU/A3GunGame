@@ -19,15 +19,15 @@ Information:
 params ["_unit","","_damage","","","_hitIndex","_source"];
 if (_hitIndex < 0) exitWith {0};
 
-// Don't apply any modifier if the parameter is set to 1 (default damage)
+// Don't apply any modifier if the parameter is set to 1x (default damage)
 private _modifier = ["get","DamageModifier"] call GG_system_fnc_params;
-if (_modifier != 1) then {
+if (_modifier != 100) then {
 	private _hitPointDamage = _unit getVariable ["GG_c_hitPointDamage",[]];
 	if (_hitPointDamage isEqualTo []) then {
 		_hitPointDamage = (getAllHitPointsDamage _unit # 2) apply {0};
 	};
 
-	_damage = (_hitPointDamage#_hitIndex)+(_modifier*(_damage-(_hitPointDamage#_hitIndex)));
+	_damage = (_hitPointDamage#_hitIndex)+((_modifier*0.01)*(_damage-(_hitPointDamage#_hitIndex)));
 
 	_unit setVariable ["GG_c_hitPointDamage",getAllHitPointsDamage _unit#2];
 
