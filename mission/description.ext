@@ -1,11 +1,8 @@
+//#define IS_SOGPF
 
-#define DEV_BUILD 0
+#define DEV_BUILD 1
 #if DEV_BUILD
     enableDebugConsole[]={"76561198090361580"};
-#endif
-
-#if __has_include("sogpf.inc")
-	#define IS_SOGPF
 #endif
 
 onLoadName="Gun Game";
