@@ -52,6 +52,9 @@ class CfgMissions {
         // RHS
         MISSION_ENTRY(rhspkl,RHS)
 
+        // S.O.G. Prairie Fire
+        MISSION_ENTRY(Cam_Lao_Nam,S.O.G. Prairie Fire)
+
         // Unsung
         MISSION_ENTRY(DaKrong,Unsung)
         MISSION_ENTRY(phu_bai,Unsung)
