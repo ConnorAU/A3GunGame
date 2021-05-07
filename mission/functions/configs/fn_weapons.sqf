@@ -29,6 +29,7 @@ Return:
 #define RHS 30
 #define CUP 40
 #define OPTRE 50
+#define SOGPF 70
 #define UNSUNG 60
 
 private _paramValue = ["get","WeaponPool"] call GG_system_fnc_params;
@@ -69,6 +70,9 @@ private _weaponPool = if (_paramValue == 0) then {
 
 		// RHS
 		case "rhspkl":{RHS};
+
+		// S.O.G. Prairie Fire
+		case "Cam_Lao_Nam":{SOGPF};
 
 		// Unsung
 		case "DaKrong";
@@ -409,6 +413,61 @@ switch _weaponPool do {
 			"rhs_weap_makarov_pm",
 			"rhs_weap_tt33",
 			"rhs_weap_type94_new"
+		]
+	]};
+
+	case SOGPF:{[
+		2,
+		{isClass(configFile >> "CfgMods" >> "vn")},
+		[
+			format["vn_izh54%1",selectRandom["","_shorty"]],
+			"vn_k50m",
+			format["vn_m45%1",selectRandom["","_camo","_fold"]],
+			"vn_m1897",
+			"vn_m3a1",
+			format["vn_mat49%1",selectRandom["","_f","_vc"]],
+			"vn_mc10",
+			"vn_mp40",
+			"vn_pps43",
+			"vn_pps52",
+			"vn_sten"
+		],
+		[
+			"vn_m1carbine",
+			format["vn_m14%1",selectRandom["","_camo"]],
+			format["vn_m16%1",selectRandom["","_camo"]],
+			"vn_m2carbine",
+			"vn_m4956",
+			"vn_m63a",
+			"vn_type56",
+			"vn_ppsh41",
+			format["vn_xm177%1",selectRandom["","_camo","_fg","_short","_stock","_stock_camo"]]
+		],
+		[
+			"vn_m1891",
+			"vn_m38",
+			format["vn_m40a1%1",selectRandom["","_camo"]],
+			"vn_m9130",
+			"vn_sks"
+		],
+		[
+			"vn_dp28",
+			format["vn_m60%1",selectRandom["","_shorty","_shorty_camo"]],
+			"vn_pk",
+			format["vn_rpd%1",selectRandom["","_shorty","_shorty_01"]]
+		],
+		[
+			"vn_p38s",
+			"vn_hd",
+			"vn_hp",
+			"vn_m1895",
+			"vn_m1911",
+			"vn_m712",
+			"vn_mk22",
+			"vn_m10",
+			"vn_pm",
+			"vn_tt33",
+			"vn_welrod"
 		]
 	]};
 

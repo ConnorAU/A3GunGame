@@ -38,6 +38,9 @@ Return:
 #define CUP_WOODLAND 44
 #define OPTRE_SPARTAN 50
 #define OPTRE_URBAN 51
+#define SOGPF_MACV 70
+#define SOGPF_PAVN 71
+#define SOGPF_ARVN 72
 #define UNSUNG_AUS 60
 #define UNSUNG_NZ 61
 #define UNSUNG_ROK 62
@@ -81,6 +84,9 @@ private _loadout = if (_paramValue == 0) then {
 
 		// RHS
 		case "rhspkl":{RHS_ERDL};
+
+		// S.O.G. Prairie Fire
+		case "Cam_Lao_Nam":{SOGPF_MACV};
 
 		// Unsung
 		case "DaKrong";
@@ -156,6 +162,16 @@ private _loadout = if (_paramValue == 0) then {
 	case RHS_ERDL:{["rhsgref_uniform_ERDL","rhssaf_vest_md99_md2camo_rifleman","rhsgref_helmet_pasgt_erdl","rhs_googles_black",{
 		isClass(configfile >> "CfgPatches" >> "rhsgref_main") &&
 		isClass(configfile >> "CfgPatches" >> "rhssaf_main")
+	}]};
+
+	case SOGPF_MACV:{["vn_b_uniform_macv_04_20","vn_b_vest_usarmy_02","vn_b_boonie_02_02","vn_b_aviator",{
+		getNumber(configFile >> "CfgMods" >> "vn" >> "appID") == 1227700
+	}]};
+	case SOGPF_PAVN:{["vn_o_uniform_nva_army_12_01","vn_o_vest_vc_01","vn_o_helmet_nva_06","vn_b_scarf_01_01",{
+		getNumber(configFile >> "CfgMods" >> "vn" >> "appID") == 1227700
+	}]};
+	case SOGPF_ARVN:{["vn_b_uniform_macv_05_07","vn_b_vest_usarmy_02","vn_b_bandana_03","vn_b_scarf_01_01",{
+		getNumber(configFile >> "CfgMods" >> "vn" >> "appID") == 1227700
 	}]};
 
 	case UNSUNG_AUS:{["UNS_RAR_ARMY_BDU","UNS_M1956_M7","UNS_Boonie_4","",{

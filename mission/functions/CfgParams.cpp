@@ -14,9 +14,10 @@ class Params {
 /*   20 */  "IFA3",
 /*   50 */  "OPTRE",
 /*   30 */  "RHS (AFRF, USAF, SAF & GREF)",
+/*   70 */  "S.O.G. Prairie Fire (MAVC, PAVN, ARVN)",
 /*   60 */  "Unsung"
         };
-        values[] = {0,1,2,10,40,20,50,30,60};
+        values[] = {0,1,2,10,40,20,50,30,70,60};
         default = 0;
     };
     class WeaponType {
@@ -47,12 +48,15 @@ class Params {
 /*   30 */  "RHS (OCP)",
 /*   31 */  "RHS (UCP)",
 /*   32 */  "RHS (ERDL/MD2)",
+/*   70 */  "S.O.G. Prairie Fire (MACV)",
+/*   71 */  "S.O.G. Prairie Fire (PAVN)",
+/*   72 */  "S.O.G. Prairie Fire (ARVN)",
 /*   60 */  "Unsung (AUS)",
 /*   61 */  "Unsung (NZ)",
 /*   62 */  "Unsung (R.O.K.)",
 /*   63 */  "Unsung (U.S.)"
         };
-        values[] = {0,1,2,10,11,12,40,41,42,43,44,20,22,21,50,51,30,31,32,60,61,62,63};
+        values[] = {0,1,2,10,11,12,40,41,42,43,44,20,22,21,50,51,30,31,32,70,71,72,60,61,62,63};
         default = 0;
     };
     SPACER(game);

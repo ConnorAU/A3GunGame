@@ -1,7 +1,11 @@
-//#define DEV_BUILD
 
-#ifdef DEV_BUILD
+#define DEV_BUILD 0
+#if DEV_BUILD
     enableDebugConsole[]={"76561198090361580"};
+#endif
+
+#if __has_include("sogpf.inc")
+	#define IS_SOGPF
 #endif
 
 onLoadName="Gun Game";
@@ -18,11 +22,7 @@ disabledAI=1;
 disableRandomization[]={"All"};
 
 allowFunctionsLog=0;
-#ifdef DEV_BUILD
-    allowFunctionsRecompile=1;
-#else
-    allowFunctionsRecompile=0;
-#endif
+allowFunctionsRecompile=DEV_BUILD;
 
 disableChannels[]={
 	{0,false,true},		// Global
@@ -53,7 +53,7 @@ class CfgRemoteExec {
         class GG_system_fnc_validateUnit {allowedTargets = 2;};
         class GG_ui_fnc_adminMenu {allowedTargets = 2;};
 
-        #ifdef DEV_BUILD
+        #if DEV_BUILD
         class bis_fnc_debugconsoleexec {allowedTargets = 0;};
         #endif
 
@@ -127,7 +127,11 @@ class CfgEmoji {
 
 // https://steamcommunity.com/sharedfiles/filedetails/?id=1493485159
 class CfgDiscordRichPresence {
-    applicationID="534915632446046244";
+	#ifdef IS_SOGPF
+		applicationID="838570508189564978";
+	#else
+		applicationID="534915632446046244";
+	#endif
     defaultDetails="Joining session";
     defaultState="";
     defaultLargeImageKey="arma3";

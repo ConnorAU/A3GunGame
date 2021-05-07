@@ -55,6 +55,9 @@ Return:
     // RHS
     case "rhspkl":{[6,6,18]};
 
+	// S.O.G. Prairie Fire
+	case "Cam_Lao_Nam":{[6,6,18]};
+
 	// Unsung
 	case "DaKrong":{[6,6,18]};
 	case "phu_bai":{[6,5,18]};
