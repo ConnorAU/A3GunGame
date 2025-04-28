@@ -1,6 +1,4 @@
-//#define IS_SOGPF
-
-#define DEV_BUILD 1
+#define DEV_BUILD 0
 #if DEV_BUILD
     enableDebugConsole[]={"76561198090361580"};
 #endif
